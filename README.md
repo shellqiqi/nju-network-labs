@@ -52,3 +52,6 @@ Out: , due .
 
 Out: , due .
 
+## Policies
+
+We encourage discussions with others to clarify questions about homework problems and programming assignment problem statements. However ***programming solutions must be your own***!
