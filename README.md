@@ -1,12 +1,14 @@
-# Computer Network Experiment Manual
-
-## Course Info
+# Computer Network Lab Manual
 
 Computer Network, Nanjing University, Spring 2020
 
+## Course Info
+
 Course Number: 22010050
 
-Lecturer: [Wenzhong Li](https://cs.nju.edu.cn/lwz/)
+Lecturer: [Chen Tian](https://cs.nju.edu.cn/tianchen/) & [Wenzhong Li](https://cs.nju.edu.cn/lwz/)
+
+Website: https://cs.nju.edu.cn/lwz/networks-2020/
 
 ## Contact
 
@@ -14,7 +16,7 @@ Course QQ group: 940577165
 
 You can find TAs and our 教学立方 invitation code after joining this group.
 
-## Experiments
+## Lab Assignments
 
 ### Lab 0: Switchyard & Mininet
 
