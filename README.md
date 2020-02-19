@@ -56,4 +56,8 @@ Out: , due .
 
 ## Policies
 
-We encourage discussions with others to clarify questions about homework problems and programming assignment problem statements. However ***programming solutions must be your own***!
+We encourage discussions with others to clarify questions about homework problems and programming assignment problem statements. However
+
+> [!DANGER|style:flat]
+> 1. Programming solutions must be your own.
+> 2. Do not make your remote assignment repository public.
