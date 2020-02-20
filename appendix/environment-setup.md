@@ -55,7 +55,7 @@ sudo apt-get update
 sudo apt-get install wireshark
 ```
 
-You need to configure wireshark during installation. For non-superusers capturing packets, chose *Yes* here.
+You need to configure wireshark during installation. For non-superusers capturing packets, choose *Yes* here.
 
 ![configure-wireshark](assets/configure-wireshark.png)
 
