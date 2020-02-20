@@ -18,6 +18,12 @@ You can find TAs and our 教学立方 invitation code after joining this group.
 
 ## Lab Assignments
 
+### Lab -1: Python
+
+This is not a lab assignment, but helps you to learn Python.
+
+[Start the lab here](./content/ch-1/lab--1.md).
+
 ### Lab 0: Switchyard & Mininet
 
 Out: , due .

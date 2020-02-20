@@ -12,32 +12,6 @@ You are also free to use your favorite vitualization software for importing the 
 
 If you are a free soul and want to setup Switchyard in a different environment you are welcome to do that as well. You can find some useful information [here](../../appendix/environment-setup.md). This might or might not be useful for you depending on your environment.
 
-## Python
-
-Switchyard and Mininet is developed in python. So you need to program in python (though there are some methods to avoid using python). Python is a easy-learning language. If you are not familiar with it, here are some materials for you to get started.
-
-- [廖雪峰的 Python 3 教程](https://www.liaoxuefeng.com/wiki/1016959663602400)
-- [Python 教程](https://docs.python.org/zh-cn/3/tutorial/index.html)
-- [Learn Python - Free Interactive Python Tutorial](https://www.learnpython.org/)
-
-Our VM is python preinstalled so you can skip installing. Topics you need to know about python are listed here
-
-- Python Interpreter
-- Data Types (Important)
-- Data Structures (Important)
-- Flow Control (Important)
-- Functions (Important)
-- Modules
-- Input and Output
-- Errors and Exceptions
-- Standard Library
-- Virtual Environments and Packages (Important)
-
-Except those topics marked as important, it is no need to read it carefully, just program as you learn. We expect that you will cost about 3 days on this if you haven't worked with python.
-
-> [!NOTE]
-> Python 3 is the main language you will use in Switchyard programming. But you need to know some difference between Python 3 and Python 2 though they are mostly the same. Because you may write some Mininet topology scripts using Python 2.
-
 ## Mininet
 
 Mininet enables you to quickly create, interact with, customize and share a software defined network prototype, and provides a smooth path to running on hardware.
@@ -58,7 +32,7 @@ We expect that you will cost an afternoon on this.
 
 ## Switchyard
 
-Switchyard is a framework for creating, testing, and experimenting with software implementations of networked systems such as Ethernet switches, IP routers, firewalls and middleboxes, and end-host protocol stacks. It is the framework targeting on teaching and used in Wiscosin University.
+Switchyard is a framework for creating, testing, and experimenting with software implementations of networked systems such as Ethernet switches, IP routers, firewalls and middleboxes, and end-host protocol stacks. It is the framework targeting on teaching and used in University of Wisconsin.
 
 So we have this framework to do some network testing without multiple devices and a bunch of wires. [Switchyard documentation](https://jsommers.github.io/switchyard/index.html) is available here. And this is the document you read most often. In this lab we will combine Mininet, Wireshark and Swithyard together, as we said before.
 
