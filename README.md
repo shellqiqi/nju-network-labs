@@ -28,6 +28,8 @@ This is not a lab assignment, but helps you to learn Python.
 
 Out: , due .
 
+[Start the lab here](./content/ch00/lab-0.md).
+
 ### Lab 1: Learning switch
 
 Out: , due .

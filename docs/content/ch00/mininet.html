@@ -305,6 +305,161 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="how-to-use-mininet"><a name="how-to-use-mininet" class="plugin-anchor" href="#how-to-use-mininet"><i class="fa fa-link" aria-hidden="true"></i></a>How to use Mininet</h1>
+<p>We expect that you have read the <a href="http://mininet.org/walkthrough/" target="_blank">Mininet Walkthrough</a> at least. Then here is a minimum walkthrough you should do.</p>
+<h2 id="everyday-mininet-usage"><a name="everyday-mininet-usage" class="plugin-anchor" href="#everyday-mininet-usage"><i class="fa fa-link" aria-hidden="true"></i></a>Everyday Mininet Usage</h2>
+<p>First, a (perhaps obvious) note on command syntax for this walkthrough:</p>
+<ul>
+<li><code>$</code> preceeds Linux commands that should be typed at the shell prompt</li>
+<li><code>mininet&gt;</code> preceeds Mininet commands that should be typed at Mininet&#x2019;s CLI,</li>
+<li><code>#</code> preceeds Linux commands that are typed at a root shell prompt</li>
+</ul>
+<p>We will show the differences later.</p>
+<h3 id="start-mininet"><a name="start-mininet" class="plugin-anchor" href="#start-mininet"><i class="fa fa-link" aria-hidden="true"></i></a>Start Mininet</h3>
+<p>So let&apos;s start with Mininet startup options. Type the following command to display a help message. Read the output for more usages of Mininet.</p>
+<pre><code>$ sudo mn -h
+</code></pre><blockquote>
+<p>[!WARNING|style:flat]
+Commands start with <code>sudo</code> or run as a superuser (prompt like <code>#</code>) are dangerous. Avoid doing things like that. But you need run Mininet as a superuser so be careful.</p>
+</blockquote>
+<p>Then let&apos;s build a Mininet default topology.</p>
+<pre><code>$ sudo mn
+</code></pre><p><img src="assets/shell.png" alt="shell"></p>
+<p>You will see the same output as the picture above. See what Mininet tells us. The default topology contains two hosts and one switch. They link like this</p>
+<pre><code>h1 --- s1 --- h2
+</code></pre><p>And you now are in Mininet CLI starts with <code>mininet&gt;</code>. The next thing is to interact with Hosts. Keep this open and let&apos;s go to the next subsection.</p>
+<h3 id="interact-with-hosts"><a name="interact-with-hosts" class="plugin-anchor" href="#interact-with-hosts"><i class="fa fa-link" aria-hidden="true"></i></a>Interact with Hosts</h3>
+<p>First let&apos;s see what we can do in Mininet CLI.</p>
+<pre><code>mininet&gt; help
+</code></pre><p>Display nodes.</p>
+<pre><code>mininet &gt; nodes
+</code></pre><p>Display links.</p>
+<pre><code>mininet&gt; net
+</code></pre><p>Dump information about all nodes. This command is useful.</p>
+<pre><code>mininet&gt; dump
+</code></pre><p>You should see the switch and two hosts listed.</p>
+<p>If the first string typed into the Mininet CLI is a host, switch or controller name, the command is executed on that node. Run a command on a host process.</p>
+<pre><code>mininet&gt; h1 ifconfig -a
+</code></pre><p>And you can start a pop-up terminal emulator in one host.</p>
+<pre><code>mininet&gt; h1 xterm
+</code></pre><p>The new window pops up here is the terminal emulator of <code>h1</code>. If you type <code>ifconfig -a</code> here, the output is totally the same as you type <code>h1 ifconfig -a</code> in Mininet CLI.</p>
+<p><img src="assets/xterm.png" alt="xterm"></p>
+<h3 id="test-connectivity-between-hosts"><a name="test-connectivity-between-hosts" class="plugin-anchor" href="#test-connectivity-between-hosts"><i class="fa fa-link" aria-hidden="true"></i></a>Test Connectivity Between Hosts</h3>
+<p>Now, verify that you can ping from host 0 to host 1. You can also do it in pop-up xterm at <code>h1</code>.</p>
+<pre><code>mininet&gt; h1 ping -c 1 h2
+</code></pre><p>An easier way to run this test is to use the Mininet CLI built-in <code>pingall</code> command, which does an all-pairs <code>ping</code>.</p>
+<pre><code>mininet&gt; pingall
+</code></pre><h3 id="run-a-simple-web-server-and-client"><a name="run-a-simple-web-server-and-client" class="plugin-anchor" href="#run-a-simple-web-server-and-client"><i class="fa fa-link" aria-hidden="true"></i></a>Run A Simple Web Server and Client</h3>
+<p>Remember that <code>ping</code> isn&#x2019;t the only command you can run on a host! Mininet hosts can run any command or application that is available to the underlying Linux system (or VM) and its file system. You can also enter any <code>bash</code> command, including job control (<code>&amp;</code>, <code>jobs</code>, <code>kill</code>, etc..)</p>
+<p>Next, try starting a simple HTTP server on h1, making a request from h2, then shutting down the web server.</p>
+<pre><code>mininet&gt; h1 python -m SimpleHTTPServer 80 &amp;
+mininet&gt; h2 wget -O - h1
+...
+mininet&gt; h1 kill %python
+</code></pre><p>Exit the CLI.</p>
+<pre><code>mininet&gt; exit
+</code></pre><h3 id="cleanup"><a name="cleanup" class="plugin-anchor" href="#cleanup"><i class="fa fa-link" aria-hidden="true"></i></a>Cleanup</h3>
+<p>If Mininet crashes for some reason, clean it up.</p>
+<pre><code>$ sudo mn -c
+</code></pre><h2 id="custom-topologies"><a name="custom-topologies" class="plugin-anchor" href="#custom-topologies"><i class="fa fa-link" aria-hidden="true"></i></a>Custom Topologies</h2>
+<p>Custom topologies can be easily defined as well, using a simple Python API. The example here connects 4 devices as a star topology shows below. This file is in the Switchyard repository <code>examples/start_mininet.py</code>.</p>
+<pre><code class="lang-py"><span class="hljs-comment">#!/usr/bin/python</span>
+
+<span class="hljs-keyword">import</span> sys
+
+<span class="hljs-keyword">from</span> mininet.topo <span class="hljs-keyword">import</span> Topo
+<span class="hljs-keyword">from</span> mininet.net <span class="hljs-keyword">import</span> Mininet
+<span class="hljs-keyword">from</span> mininet.log <span class="hljs-keyword">import</span> lg
+<span class="hljs-keyword">from</span> mininet.node <span class="hljs-keyword">import</span> CPULimitedHost
+<span class="hljs-keyword">from</span> mininet.link <span class="hljs-keyword">import</span> TCLink
+<span class="hljs-keyword">from</span> mininet.util <span class="hljs-keyword">import</span> irange, custom, quietRun, dumpNetConnections
+<span class="hljs-keyword">from</span> mininet.cli <span class="hljs-keyword">import</span> CLI
+
+<span class="hljs-keyword">from</span> time <span class="hljs-keyword">import</span> sleep, time
+<span class="hljs-keyword">from</span> subprocess <span class="hljs-keyword">import</span> Popen, PIPE
+<span class="hljs-keyword">import</span> subprocess
+<span class="hljs-keyword">import</span> argparse
+<span class="hljs-keyword">import</span> os
+
+parser = argparse.ArgumentParser(description=<span class="hljs-string">&quot;Mininet pyswitch topology&quot;</span>)
+<span class="hljs-comment"># no arguments needed as yet :-)</span>
+args = parser.parse_args()
+lg.setLogLevel(<span class="hljs-string">&apos;info&apos;</span>)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PySwitchTopo</span><span class="hljs-params">(Topo)</span>:</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, args)</span>:</span>
+        <span class="hljs-comment"># Add default members to class.</span>
+        super(PySwitchTopo, self).__init__()
+
+        <span class="hljs-comment"># Host and link configuration</span>
+        <span class="hljs-comment">#</span>
+        <span class="hljs-comment">#</span>
+        <span class="hljs-comment">#   server1 </span>
+        <span class="hljs-comment">#          \</span>
+        <span class="hljs-comment">#           hub----client</span>
+        <span class="hljs-comment">#          /</span>
+        <span class="hljs-comment">#   server2 </span>
+        <span class="hljs-comment">#</span>
+
+        nodeconfig = {<span class="hljs-string">&apos;cpu&apos;</span>:<span class="hljs-number">-1</span>}
+        self.addHost(<span class="hljs-string">&apos;server1&apos;</span>, **nodeconfig)
+        self.addHost(<span class="hljs-string">&apos;server2&apos;</span>, **nodeconfig)
+        self.addHost(<span class="hljs-string">&apos;hub&apos;</span>, **nodeconfig)
+        self.addHost(<span class="hljs-string">&apos;client&apos;</span>, **nodeconfig)
+
+        <span class="hljs-keyword">for</span> node <span class="hljs-keyword">in</span> [<span class="hljs-string">&apos;server1&apos;</span>,<span class="hljs-string">&apos;server2&apos;</span>,<span class="hljs-string">&apos;client&apos;</span>]:
+            <span class="hljs-comment"># all links are 10Mb/s, 100 millisecond prop delay</span>
+            self.addLink(node, <span class="hljs-string">&apos;hub&apos;</span>, bw=<span class="hljs-number">10</span>, delay=<span class="hljs-string">&apos;100ms&apos;</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_ip</span><span class="hljs-params">(net, node1, node2, ip)</span>:</span>
+    node1 = net.get(node1)
+    ilist = node1.connectionsTo(net.get(node2)) <span class="hljs-comment"># returns list of tuples</span>
+    intf = ilist[<span class="hljs-number">0</span>]
+    intf[<span class="hljs-number">0</span>].setIP(ip)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reset_macs</span><span class="hljs-params">(net, node, macbase)</span>:</span>
+    ifnum = <span class="hljs-number">1</span>
+    node_object = net.get(node)
+    <span class="hljs-keyword">for</span> intf <span class="hljs-keyword">in</span> node_object.intfList():
+        node_object.setMAC(macbase.format(ifnum), intf)
+        ifnum += <span class="hljs-number">1</span>
+
+    <span class="hljs-keyword">for</span> intf <span class="hljs-keyword">in</span> node_object.intfList():
+        <span class="hljs-keyword">print</span> node,intf,node_object.MAC(intf)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_route</span><span class="hljs-params">(net, fromnode, prefix, nextnode)</span>:</span>
+    node_object = net.get(fromnode)
+    ilist = node_object.connectionsTo(net.get(nextnode))
+    node_object.setDefaultRoute(ilist[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>])
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setup_addressing</span><span class="hljs-params">(net)</span>:</span>
+    reset_macs(net, <span class="hljs-string">&apos;server1&apos;</span>, <span class="hljs-string">&apos;10:00:00:00:00:{:02x}&apos;</span>)
+    reset_macs(net, <span class="hljs-string">&apos;server2&apos;</span>, <span class="hljs-string">&apos;20:00:00:00:00:{:02x}&apos;</span>)
+    reset_macs(net, <span class="hljs-string">&apos;client&apos;</span>, <span class="hljs-string">&apos;30:00:00:00:00:{:02x}&apos;</span>)
+    reset_macs(net, <span class="hljs-string">&apos;hub&apos;</span>, <span class="hljs-string">&apos;40:00:00:00:00:{:02x}&apos;</span>)
+    set_ip(net, <span class="hljs-string">&apos;server1&apos;</span>,<span class="hljs-string">&apos;hub&apos;</span>,<span class="hljs-string">&apos;192.168.100.1/24&apos;</span>)
+    set_ip(net, <span class="hljs-string">&apos;server2&apos;</span>,<span class="hljs-string">&apos;hub&apos;</span>,<span class="hljs-string">&apos;192.168.100.2/24&apos;</span>)
+    set_ip(net, <span class="hljs-string">&apos;client&apos;</span>,<span class="hljs-string">&apos;hub&apos;</span>,<span class="hljs-string">&apos;192.168.100.3/24&apos;</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">disable_ipv6</span><span class="hljs-params">(net)</span>:</span>
+    <span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> net.values():
+        v.cmdPrint(<span class="hljs-string">&apos;sysctl -w net.ipv6.conf.all.disable_ipv6=1&apos;</span>)
+        v.cmdPrint(<span class="hljs-string">&apos;sysctl -w net.ipv6.conf.default.disable_ipv6=1&apos;</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    topo = PySwitchTopo(args)
+    net = Mininet(controller=<span class="hljs-keyword">None</span>, topo=topo, link=TCLink, cleanup=<span class="hljs-keyword">True</span>)
+    setup_addressing(net)
+    disable_ipv6(net)
+    net.interact()
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    main()
+</code></pre>
+<p>In general, you don&apos;t need to modify the topology file we provide. But if you do, you need the document <em><a href="https://github.com/mininet/mininet/wiki/Introduction-to-Mininet" target="_blank">Introduction to Mininet</a></em> which gives you the Mininet Python API.</p>
+<p>Please read it carefully. Then let&apos;s start this topology.</p>
+<pre><code>$ sudo python examples/start_mininet.py
+</code></pre><p>In this topology, hosts can not <code>ping</code> each other because the device named <code>hub</code> has no routing rules configured, so exit here. In the section of Switchyard, we will make it work.</p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -349,7 +504,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"How to use Mininet","level":"1.3.2","depth":2,"next":{"title":"How to use Wireshark","level":"1.3.3","depth":2,"path":"content/ch00/wireshark.md","ref":"content/ch00/wireshark.md","articles":[]},"previous":{"title":"Prerequisites","level":"1.3.1","depth":2,"path":"content/ch00/prerequisites.md","ref":"content/ch00/prerequisites.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch00/mininet.md","mtime":"2020-02-19T15:50:01.790Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-20T08:40:18.491Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"How to use Mininet","level":"1.3.2","depth":2,"next":{"title":"How to use Wireshark","level":"1.3.3","depth":2,"path":"content/ch00/wireshark.md","ref":"content/ch00/wireshark.md","articles":[]},"previous":{"title":"Prerequisites","level":"1.3.1","depth":2,"path":"content/ch00/prerequisites.md","ref":"content/ch00/prerequisites.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch00/mininet.md","mtime":"2020-02-20T13:49:04.413Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-20T13:49:46.301Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

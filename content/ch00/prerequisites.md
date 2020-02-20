@@ -18,6 +18,9 @@ Mininet enables you to quickly create, interact with, customize and share a soft
 
 The most useful material is their website. Here is the [Mininet Walkthrough](http://mininet.org/walkthrough/). It is better to go through this manual. Because we have not given you the whole network image to you right now, there must be something you do not understand yet. But don not worry, we will have a small practice of Mininet in our manual.
 
+> [!NOTE]
+> Ignore the content about switches like Open vSwitch (OVS) setting up.
+
 We expect that you will cost 2 days on this.
 
 ## Wireshark
