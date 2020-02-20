@@ -126,7 +126,7 @@ $ sudo mn -c
 
 ## Custom Topologies
 
-Custom topologies can be easily defined as well, using a simple Python API. The example here connects 4 devices as a star topology shows below. This file is in the Switchyard repository `examples/start_mininet.py`.
+Custom topologies can be easily defined as well, using a simple Python API. The example here connects 4 devices as a star topology shows below. This file is in the Switchyard repository [`examples/start_mininet.py`](https://github.com/shellqiqi/switchyard/blob/master/examples/start_mininet.py).
 
 ```py
 #!/usr/bin/python
@@ -233,3 +233,6 @@ $ sudo python examples/start_mininet.py
 ```
 
 In this topology, hosts can not `ping` each other because the device named `hub` has no routing rules configured, so exit here. In the section of Switchyard, we will make it work.
+
+> [!NOTE]
+> Mininet topology scripts are written in Python 2.

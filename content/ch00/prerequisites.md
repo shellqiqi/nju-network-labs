@@ -29,7 +29,7 @@ Wireshark is the world’s foremost and widely-used network protocol analyzer. I
 
 You will use it to inspect your network setting up by Mininet, and test the function of your device written in Switchyard. We also have a small practice of Wireshark in our manual.
 
-[Wireshark User’s Guide](https://www.wireshark.org/docs/wsug_html/) is a verbose document about Wireshark but We **do not** recommend it. So sometimes the offical document is hard for user to get started. You can find many blogs writing about how to use Wireshark. Read them instead.
+[Wireshark User’s Guide](https://www.wireshark.org/docs/wsug_html/) is a verbose document about Wireshark but We **do not** recommend it. So sometimes the offical document is hard for user to get started. You can find many blogs writing about how to use Wireshark. Read them instead or the first search result in Google [here](https://www.howtogeek.com/104278/how-to-use-wireshark-to-capture-filter-and-inspect-packets/).
 
 We expect that you will cost an afternoon on this.
 

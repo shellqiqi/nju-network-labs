@@ -305,6 +305,131 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="how-to-program-in-switchyard"><a name="how-to-program-in-switchyard" class="plugin-anchor" href="#how-to-program-in-switchyard"><i class="fa fa-link" aria-hidden="true"></i></a>How to program in Switchyard</h1>
+<p>We expect that you have complete <a href="mininet.html">How to use Mininet</a> and <a href="wireshark.html">How to use Wireshark</a>. Next is the most important section that tells how to program in Switchyard. We will show you a hub, just forward any input packets to any other interfaces. There are three files for this section.</p>
+<ul>
+<li><a href="https://github.com/shellqiqi/switchyard/blob/master/examples/start_mininet.py" target="_blank"><code>examples/start_mininet.py</code></a></li>
+<li><a href="https://github.com/shellqiqi/switchyard/blob/master/examples/myhub.py" target="_blank"><code>examples/myhub.py</code></a></li>
+<li><a href="https://github.com/shellqiqi/switchyard/blob/master/examples/hubtests.py" target="_blank"><code>examples/hubtests.py</code></a></li>
+</ul>
+<p>The <a href="https://jsommers.github.io/switchyard/" target="_blank">Switchyard documentation</a> also uses these files to show many useful APIs. Again, it is very important to read it. In this section we do not show you the APIs but the workflow and a little code explanation.</p>
+<h2 id="prepare-your-test-script"><a name="prepare-your-test-script" class="plugin-anchor" href="#prepare-your-test-script"><i class="fa fa-link" aria-hidden="true"></i></a>Prepare Your Test Script</h2>
+<p>You need to construct test script yourself. But we have some template test scripts help you. Here is the test script for our hub.</p>
+<pre><code class="lang-py"><span class="hljs-comment">#!/usr/bin/env python3</span>
+
+<span class="hljs-keyword">from</span> switchyard.lib.userlib <span class="hljs-keyword">import</span> *
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mk_pkt</span><span class="hljs-params">(hwsrc, hwdst, ipsrc, ipdst, reply=False)</span>:</span>
+    ether = Ethernet(src=hwsrc, dst=hwdst, ethertype=EtherType.IP)
+    ippkt = IPv4(src=ipsrc, dst=ipdst, protocol=IPProtocol.ICMP, ttl=<span class="hljs-number">32</span>)
+    icmppkt = ICMP()
+    <span class="hljs-keyword">if</span> reply:
+        icmppkt.icmptype = ICMPType.EchoReply
+    <span class="hljs-keyword">else</span>:
+        icmppkt.icmptype = ICMPType.EchoRequest
+    <span class="hljs-keyword">return</span> ether + ippkt + icmppkt
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hub_tests</span><span class="hljs-params">()</span>:</span>
+    s = TestScenario(<span class="hljs-string">&quot;hub tests&quot;</span>)
+    s.add_interface(<span class="hljs-string">&apos;eth0&apos;</span>, <span class="hljs-string">&apos;10:00:00:00:00:01&apos;</span>)
+    s.add_interface(<span class="hljs-string">&apos;eth1&apos;</span>, <span class="hljs-string">&apos;10:00:00:00:00:02&apos;</span>)
+    s.add_interface(<span class="hljs-string">&apos;eth2&apos;</span>, <span class="hljs-string">&apos;10:00:00:00:00:03&apos;</span>)
+
+    <span class="hljs-comment"># test case 1: a frame with broadcast destination should get sent out</span>
+    <span class="hljs-comment"># all ports except ingress</span>
+    testpkt = mk_pkt(<span class="hljs-string">&quot;30:00:00:00:00:02&quot;</span>, <span class="hljs-string">&quot;ff:ff:ff:ff:ff:ff&quot;</span>, <span class="hljs-string">&quot;172.16.42.2&quot;</span>, <span class="hljs-string">&quot;255.255.255.255&quot;</span>)
+    s.expect(PacketInputEvent(<span class="hljs-string">&quot;eth1&quot;</span>, testpkt, display=Ethernet), <span class="hljs-string">&quot;An Ethernet frame with a broadcast destination address should arrive on eth1&quot;</span>)
+    s.expect(PacketOutputEvent(<span class="hljs-string">&quot;eth0&quot;</span>, testpkt, <span class="hljs-string">&quot;eth2&quot;</span>, testpkt, display=Ethernet), <span class="hljs-string">&quot;The Ethernet frame with a broadcast destination address should be forwarded out ports eth0 and eth2&quot;</span>)
+
+    <span class="hljs-comment"># test case 2: a frame with any unicast address except one assigned to hub</span>
+    <span class="hljs-comment"># interface should be sent out all ports except ingress</span>
+    reqpkt = mk_pkt(<span class="hljs-string">&quot;20:00:00:00:00:01&quot;</span>, <span class="hljs-string">&quot;30:00:00:00:00:02&quot;</span>, <span class="hljs-string">&apos;192.168.1.100&apos;</span>,<span class="hljs-string">&apos;172.16.42.2&apos;</span>)
+    s.expect(PacketInputEvent(<span class="hljs-string">&quot;eth0&quot;</span>, reqpkt, display=Ethernet), <span class="hljs-string">&quot;An Ethernet frame from 20:00:00:00:00:01 to 30:00:00:00:00:02 should arrive on eth0&quot;</span>)
+    s.expect(PacketOutputEvent(<span class="hljs-string">&quot;eth1&quot;</span>, reqpkt, <span class="hljs-string">&quot;eth2&quot;</span>, reqpkt, display=Ethernet), <span class="hljs-string">&quot;Ethernet frame destined for 30:00:00:00:00:02 should be flooded out eth1 and eth2&quot;</span>) 
+
+    resppkt = mk_pkt(<span class="hljs-string">&quot;30:00:00:00:00:02&quot;</span>, <span class="hljs-string">&quot;20:00:00:00:00:01&quot;</span>, <span class="hljs-string">&apos;172.16.42.2&apos;</span>, <span class="hljs-string">&apos;192.168.1.100&apos;</span>, reply=<span class="hljs-keyword">True</span>)
+    s.expect(PacketInputEvent(<span class="hljs-string">&quot;eth1&quot;</span>, resppkt, display=Ethernet), <span class="hljs-string">&quot;An Ethernet frame from 30:00:00:00:00:02 to 20:00:00:00:00:01 should arrive on eth1&quot;</span>)
+    s.expect(PacketOutputEvent(<span class="hljs-string">&quot;eth0&quot;</span>, resppkt, <span class="hljs-string">&quot;eth2&quot;</span>, resppkt, display=Ethernet), <span class="hljs-string">&quot;Ethernet frame destined to 20:00:00:00:00:01 should be flooded out eth0 and eth2&quot;</span>)
+
+    <span class="hljs-comment"># test case 3: a frame with dest address of one of the interfaces should</span>
+    <span class="hljs-comment"># result in nothing happening</span>
+    reqpkt = mk_pkt(<span class="hljs-string">&quot;20:00:00:00:00:01&quot;</span>, <span class="hljs-string">&quot;10:00:00:00:00:03&quot;</span>, <span class="hljs-string">&apos;192.168.1.100&apos;</span>,<span class="hljs-string">&apos;172.16.42.2&apos;</span>)
+    s.expect(PacketInputEvent(<span class="hljs-string">&quot;eth2&quot;</span>, reqpkt, display=Ethernet), <span class="hljs-string">&quot;An Ethernet frame should arrive on eth2 with destination address the same as eth2&apos;s MAC address&quot;</span>)
+    s.expect(PacketInputTimeoutEvent(<span class="hljs-number">1.0</span>), <span class="hljs-string">&quot;The hub should not do anything in response to a frame arriving with a destination address referring to the hub itself.&quot;</span>)
+    <span class="hljs-keyword">return</span> s
+
+scenario = hub_tests()
+</code></pre>
+<p>The var <code>scenario</code> is very important in the test framework of Switchyard, do not forget it. Then you need to construct your events happend on your hub like packets in and out on which interface. All test APIs used is introduced <a href="https://jsommers.github.io/switchyard/test_scenario_creation.html" target="_blank">here</a>.</p>
+<h2 id="implement-your-device"><a name="implement-your-device" class="plugin-anchor" href="#implement-your-device"><i class="fa fa-link" aria-hidden="true"></i></a>Implement your device</h2>
+<p>Then you need to implement your device. Generally, your initial test files and device logic are not complete. You need to modify them step by step. This programming mode is called Test Driven Development (TDD). Here is our hub code.</p>
+<pre><code class="lang-py"><span class="hljs-comment">#!/usr/bin/env python3</span>
+
+<span class="hljs-string">&apos;&apos;&apos;
+Ethernet hub in Switchyard.
+&apos;&apos;&apos;</span>
+<span class="hljs-keyword">from</span> switchyard.lib.userlib <span class="hljs-keyword">import</span> *
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">(net)</span>:</span>
+    my_interfaces = net.interfaces() 
+    mymacs = [intf.ethaddr <span class="hljs-keyword">for</span> intf <span class="hljs-keyword">in</span> my_interfaces]
+
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+        <span class="hljs-keyword">try</span>:
+            timestamp,dev,packet = net.recv_packet()
+        <span class="hljs-keyword">except</span> NoPackets:
+            <span class="hljs-keyword">continue</span>
+        <span class="hljs-keyword">except</span> Shutdown:
+            <span class="hljs-keyword">return</span>
+
+        log_debug (<span class="hljs-string">&quot;In {} received packet {} on {}&quot;</span>.format(net.name, packet, dev))
+        eth = packet.get_header(Ethernet)
+        <span class="hljs-keyword">if</span> eth <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+            log_info(<span class="hljs-string">&quot;Received a non-Ethernet packet?!&quot;</span>)
+            <span class="hljs-keyword">continue</span>
+
+        <span class="hljs-keyword">if</span> eth.dst <span class="hljs-keyword">in</span> mymacs:
+            log_info (<span class="hljs-string">&quot;Received a packet intended for me&quot;</span>)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">for</span> intf <span class="hljs-keyword">in</span> my_interfaces:
+                <span class="hljs-keyword">if</span> dev != intf.name:
+                    log_info (<span class="hljs-string">&quot;Flooding packet {} to {}&quot;</span>.format(packet, intf.name))
+                    net.send_packet(intf, packet)
+    net.shutdown()
+</code></pre>
+<p>In Switchyard, the device you want to be the hub will run this script and act like a hub by receiving any packets and forwarding to any other interfaces except the packets towards the hub itself. The APIs used in this file is introduced <a href="https://jsommers.github.io/switchyard/writing_a_program.html" target="_blank">here</a>.</p>
+<h2 id="runing-in-the-test-environment"><a name="runing-in-the-test-environment" class="plugin-anchor" href="#runing-in-the-test-environment"><i class="fa fa-link" aria-hidden="true"></i></a>Runing in the Test Environment</h2>
+<blockquote>
+<p>[!NOTE|style:flat]
+You need to activate your Python virtual environment first in any case you want to run Switchyard. This step is very important. In the root dictionary of Switchyard, run</p>
+<pre><code>$ source ./syenv/bin/activate
+</code></pre></blockquote>
+<p>You can test your hub code with your test file in Switchyard test mode. At minimum you would invoke <code>swyard</code> as follows.</p>
+<pre><code>$ swyard -t examples/hubtests.py examples/myhub.py
+</code></pre><p>Note that the <code>-t</code> option puts swyard in test mode. The argument to the <code>-t</code> option should be the name of the test scenario to be executed, and the final argument is the name of your code.</p>
+<p>After that, you will get some output shows if your tests pass or fail.</p>
+<p>More about test environment and some debug methods are introduced <a href="https://jsommers.github.io/switchyard/test_execution.html" target="_blank">here</a>.</p>
+<h2 id="running-in-the-mininet"><a name="running-in-the-mininet" class="plugin-anchor" href="#running-in-the-mininet"><i class="fa fa-link" aria-hidden="true"></i></a>Running in the Mininet</h2>
+<p>First let&apos;s start our topology we provided at <code>examples/start_mininet.py</code>.</p>
+<pre><code>$ sudo python examples/start_mininet.py
+</code></pre><p>Then run your hub code to the device you what. Here must be the root of our star shape topology named <code>hub</code>. It is better to open xterm on it so you can see the output of it.</p>
+<pre><code>mininet&gt; xterm hub
+</code></pre><p>Then run your hub code on it. Remember activate your Python virtual environment first.</p>
+<pre><code># source ./syenv/bin/activate
+# swyard examples/myhub.py
+... here is your hub logs ...
+</code></pre><p>Now you have your topology ready and your hub running, let&apos;s see if it works. In Mininet CLI, type <code>pingall</code> and return.</p>
+<pre><code>mininet&gt; pingall
+*** Ping: testing ping reachability
+client -&gt; X server1 server2 
+hub -&gt; X X X 
+server1 -&gt; client X server2 
+server2 -&gt; client X server1 
+*** Results: 50% dropped (6/12 received)
+</code></pre><p>This is the output what you will see.</p>
+<p>You are able to capture in Mininet too. In any host you what to capture packets, run wireshark on it. In our case, we run wireshark on the host named <code>client</code>. Then we ping <code>client</code> to <code>server1</code>.</p>
+<pre><code>mininet&gt; client wireshark &amp;
+mininet&gt; client ping -c1 server1
+</code></pre><p><img src="assets/swyard_wireshark.png" alt="syward-wireshark"></p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -349,7 +474,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"How to program in Switchyard","level":"1.3.4","depth":2,"next":{"title":"Appendix","level":"1.4","depth":1,"path":"appendix/appendix.md","ref":"appendix/appendix.md","articles":[{"title":"Environment Setup","level":"1.4.1","depth":2,"path":"appendix/environment-setup.md","ref":"appendix/environment-setup.md","articles":[]},{"title":"About This Repository","level":"1.4.2","depth":2,"path":"appendix/about-this-repository.md","ref":"appendix/about-this-repository.md","articles":[]}]},"previous":{"title":"How to use Wireshark","level":"1.3.3","depth":2,"path":"content/ch00/wireshark.md","ref":"content/ch00/wireshark.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch00/switchyard.md","mtime":"2020-02-19T15:50:09.497Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-20T14:15:29.594Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"How to program in Switchyard","level":"1.3.4","depth":2,"next":{"title":"Appendix","level":"1.4","depth":1,"path":"appendix/appendix.md","ref":"appendix/appendix.md","articles":[{"title":"Environment Setup","level":"1.4.1","depth":2,"path":"appendix/environment-setup.md","ref":"appendix/environment-setup.md","articles":[]},{"title":"About This Repository","level":"1.4.2","depth":2,"path":"appendix/about-this-repository.md","ref":"appendix/about-this-repository.md","articles":[]}]},"previous":{"title":"How to use Wireshark","level":"1.3.3","depth":2,"path":"content/ch00/wireshark.md","ref":"content/ch00/wireshark.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch00/switchyard.md","mtime":"2020-02-20T16:12:01.796Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-20T16:13:25.483Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
