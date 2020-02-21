@@ -9,5 +9,6 @@
     * [How to program in Switchyard](content/ch00/switchyard.md)
 * [Appendix](appendix/appendix.md)
     * [Environment Setup](appendix/environment-setup.md)
+    * [Switchyard with VSC](appendix/vscode.md)
     * [About This Repository](appendix/about-this-repository.md)
 

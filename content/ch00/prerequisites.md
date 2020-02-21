@@ -48,3 +48,11 @@ You can use Git to manage your projects with a clear editing history and we reco
 - [廖雪峰的 Git 教程](https://www.liaoxuefeng.com/wiki/896043488029600)
 
 We expect that you will cost 2 days on this.
+
+## Visual Studio Code (Optional)
+
+You can use Visual Studio Code (VSC) to develope your projects. I will show how to install it and some plugins may helps you.
+
+- [Switchyard with VSC](./../../appendix/vscode.md)
+
+We expect that you will cost an afternoon on this.
