@@ -1,21 +1,24 @@
 {
-    "plugins": [
-      "theme-comscore",
-      "back-to-top-button",
-      "-lunr",
-      "-search",
-      "search-pro",
-      "github",
-      "splitter",
-      "flexible-alerts",
-      "page-toc-button",
-      "auto-scroll-table",
-      "popup",
-      "anchors"
-    ],
-    "pluginsConfig": {
-      "github": {
-        "url": "https://github.com/shellqiqi/nju-network-experiments"
-      }
+  "plugins": [
+    "theme-comscore",
+    "back-to-top-button",
+    "-lunr",
+    "-search",
+    "search-pro",
+    "github",
+    "splitter",
+    "flexible-alerts",
+    "page-toc-button",
+    "auto-scroll-table",
+    "popup",
+    "anchors"
+  ],
+  "pluginsConfig": {
+    "github": {
+      "url": "https://github.com/shellqiqi/nju-network-experiments"
+    },
+    "styles": {
+      "website": "styles/website.css"
     }
   }
+}
