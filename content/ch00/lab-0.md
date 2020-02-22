@@ -6,11 +6,11 @@ In this chapter we will introduce all preparations for our network experiments. 
 
 ## Details
 
-Our lab assignments are based on CS640 in University of Wisconsin. Most materials are the same. In the future, we will improve the experimantal content based on feedback.
+Our lab assignments are based on CS640 in University of Wisconsin. Most materials are the same. In the future, we will improve the experimental content based on feedback.
 
-For this lab assignment, you will gradually master our experimental environment. But we need you to know some basic skills, such as how to develope on linux or how to program. If you are not familiar with these, please tell TAs. We will list some helpful materials for you to get started quickly.
+For this lab assignment, you will gradually master our experimental environment. But we need you to know some basic skills, such as how to develop on linux or how to program. If you are not familiar with these, please tell TAs. We will list some helpful materials for you to get started quickly.
 
-First, you need to complete setting up your enviroment. Read section [Prerequisites](./prerequisites.md).
+First, you need to complete setting up your environment. Read section [Prerequisites](./prerequisites.md).
 
 Then here are some tutorials help you get started with our experimental environment.
 
@@ -22,7 +22,7 @@ These three tutorials give an example of a hub. After complete them, here are yo
 
 1. Add a test of sending a packet without Ethernet header. The file you should modify is [`examples/hubtests.py`](https://github.com/shellqiqi/switchyard/blob/master/examples/hubtests.py).
 
-2. Count how many packets pass through one interface of a hub and log every time your hub receives 10 more packets to a file. The format of the log is shown after this paragraph. The file you should modify is [`examples/myhub.py`](https://github.com/shellqiqi/switchyard/blob/master/examples/myhub.py). Then make sure your new code of hub will pass your new tests. Take a screeshot of the test results and put it in your report.
+2. Count how many packets pass through one interface of a hub and log every time your hub receives 10 more packets to a file. The format of the log is shown after this paragraph. The file you should modify is [`examples/myhub.py`](https://github.com/shellqiqi/switchyard/blob/master/examples/myhub.py). Then make sure your new code of hub will pass your new tests. Take a screenshot of the test results and put it in your report.
 
 3. Change the topology to 2-to-2 dumbbell shows below. In this topology there are 4 hosts and 2 hubs. The file you should modify is [`examples/start_mininet.py`](https://github.com/shellqiqi/switchyard/blob/master/examples/start_mininet.py).
 
@@ -73,7 +73,7 @@ The file names in your submission package has to exactly match the file names ab
 > ```
 > $ sudo chown $USER:$USER <file>
 > ```
-> Another userful command `ls -l` can check if the owner of the file is `root`. You can see the file belongings to `root` is `test.log` in the example.
+> Another useful command `ls -l` can check if the owner of the file is `root`. You can see the file belongings to `root` is `test.log` in the example.
 > ```
 > (syenv) cyq@cyq-VirtualBox:~/switchyard$ ls -l
 > total 88
