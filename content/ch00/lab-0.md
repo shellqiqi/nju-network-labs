@@ -47,7 +47,7 @@ These three tutorials give an example of a hub. After complete them, here are yo
 > hub0-eth0 8 12
 > ...
 > ```
-> Because we use two hubs here, so you will have difficult to solve how to write two log files with different file names. One easy way is to use the start time. Another way is passing arguments into the Switchyard program like [this](https://jsommers.github.io/switchyard/writing_a_program.html#passing-arguments-into-a-switchyard-program).
+> Because we use two hubs here, so you will have difficulty to solve how to write two log files with different file names. One easy way is to use the start time. Another way is passing arguments into the Switchyard program like [this](https://jsommers.github.io/switchyard/writing_a_program.html#passing-arguments-into-a-switchyard-program).
 > Here is the topology graph.
 > ![topology](./assets/topology.svg)
 
