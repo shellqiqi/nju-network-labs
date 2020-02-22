@@ -1,5 +1,11 @@
 # How to program in Switchyard
 
+Switchyard is a framework for creating, testing, and experimenting with software implementations of networked systems such as Ethernet switches, IP routers, firewalls and middleboxes, and end-host protocol stacks. It is the framework targeting on teaching and used in University of Wisconsin.
+
+So we have this framework to do some network testing without multiple devices and a bunch of wires. [Switchyard documentation](https://jsommers.github.io/switchyard/index.html) is available here. And this is the document you read most often. In this lab we will combine Mininet, Wireshark and Switchyard together, as we said before.
+
+We expect that you will cost 4 days on this. It is long but important.
+
 We expect that you have complete [How to use Mininet](./mininet.md) and [How to use Wireshark](./wireshark.md). Next is the most important section that tells how to program in Switchyard. We will show you a hub, just forward any input packets to any other interfaces. There are three files for this section.
 
 - [`examples/start_mininet.py`](https://github.com/shellqiqi/switchyard/blob/master/examples/start_mininet.py)

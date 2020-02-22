@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>How to use Mininet · GitBook</title>
+        <title>Mininet · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -90,7 +90,7 @@
     <link rel="next" href="wireshark.html" />
     
     
-    <link rel="prev" href="vm-linux.html" />
+    <link rel="prev" href="vscode.html" />
     
 
     </head>
@@ -157,14 +157,15 @@
             
 
             
-        </li>
+            <ul class="articles">
+                
     
-        <li class="chapter " data-level="1.2.2" data-path="vm-linux.html">
+        <li class="chapter " data-level="1.2.1.1" data-path="linux.html">
             
-                <a href="vm-linux.html">
+                <a href="linux.html">
             
                     
-                    Virtual Machine & Linux
+                    Linux
             
                 </a>
             
@@ -172,12 +173,70 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3" data-path="mininet.html">
+        <li class="chapter " data-level="1.2.1.2" data-path="python.html">
+            
+                <a href="python.html">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="git.html">
+            
+                <a href="git.html">
+            
+                    
+                    Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="workflow.html">
+            
+                <a href="workflow.html">
+            
+                    
+                    Workflow
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="vscode.html">
+            
+                <a href="vscode.html">
+            
+                    
+                    VS Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2.2" data-path="mininet.html">
             
                 <a href="mininet.html">
             
                     
-                    How to use Mininet
+                    Mininet
             
                 </a>
             
@@ -185,12 +244,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="wireshark.html">
+        <li class="chapter " data-level="1.2.2.3" data-path="wireshark.html">
             
                 <a href="wireshark.html">
             
                     
-                    How to use Wireshark
+                    Wireshark
             
                 </a>
             
@@ -198,16 +257,21 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="switchyard.html">
+        <li class="chapter " data-level="1.2.2.4" data-path="switchyard.html">
             
                 <a href="switchyard.html">
             
                     
-                    How to program in Switchyard
+                    Switchyard
             
                 </a>
             
 
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -243,20 +307,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../../appendix/vscode.html">
-            
-                <a href="../../appendix/vscode.html">
-            
-                    
-                    Switchyard with VSC
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="../../appendix/about-this-repository.html">
+        <li class="chapter " data-level="1.3.2" data-path="../../appendix/about-this-repository.html">
             
                 <a href="../../appendix/about-this-repository.html">
             
@@ -304,7 +355,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >How to use Mininet</a>
+        <a href="../.." >Mininet</a>
     </h1>
 </div>
 
@@ -320,7 +371,14 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="how-to-use-mininet"><a name="how-to-use-mininet" class="plugin-anchor" href="#how-to-use-mininet"><i class="fa fa-link" aria-hidden="true"></i></a>How to use Mininet</h1>
-<p>We expect that you have read the <a href="http://mininet.org/walkthrough/" target="_blank">Mininet Walkthrough</a> at least. Then here is a minimum walkthrough you should do.</p>
+<p>Mininet enables you to quickly create, interact with, customize and share a software defined network prototype, and provides a smooth path to running on hardware.</p>
+<p>The most useful material is their website. Here is the <a href="http://mininet.org/walkthrough/" target="_blank">Mininet Walkthrough</a>. It is better to go through this manual. Because we have not given you the whole network image to you right now, there must be something you do not understand yet. But don not worry, we will have a small practice of Mininet in our manual.</p>
+<blockquote>
+<p>[!NOTE]
+Ignore the content about switches like Open vSwitch (OVS) setting up.</p>
+</blockquote>
+<p>We expect that you will cost 2 days on this.</p>
+<!-- We expect that you have read the [Mininet Walkthrough](http://mininet.org/walkthrough/) at least. Then here is a minimum walkthrough you should do. -->
 <h2 id="everyday-mininet-usage"><a name="everyday-mininet-usage" class="plugin-anchor" href="#everyday-mininet-usage"><i class="fa fa-link" aria-hidden="true"></i></a>Everyday Mininet Usage</h2>
 <p>First, a (perhaps obvious) note on command syntax for this walkthrough:</p>
 <ul>
@@ -507,12 +565,12 @@ Mininet topology scripts are written in Python 2.</p>
 
             
                 
-                <a href="vm-linux.html" class="navigation navigation-prev " aria-label="Previous page: Virtual Machine & Linux">
+                <a href="vscode.html" class="navigation navigation-prev " aria-label="Previous page: VS Code">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="wireshark.html" class="navigation navigation-next " aria-label="Next page: How to use Wireshark">
+                <a href="wireshark.html" class="navigation navigation-next " aria-label="Next page: Wireshark">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -523,7 +581,7 @@ Mininet topology scripts are written in Python 2.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"How to use Mininet","level":"1.2.3","depth":2,"next":{"title":"How to use Wireshark","level":"1.2.4","depth":2,"path":"content/ch01/wireshark.md","ref":"content/ch01/wireshark.md","articles":[]},"previous":{"title":"Virtual Machine & Linux","level":"1.2.2","depth":2,"path":"content/ch01/vm-linux.md","ref":"content/ch01/vm-linux.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch01/mininet.md","mtime":"2020-02-22T03:46:24.979Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-22T14:08:16.791Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Mininet","level":"1.2.2.2","depth":3,"next":{"title":"Wireshark","level":"1.2.2.3","depth":3,"path":"content/ch01/wireshark.md","ref":"content/ch01/wireshark.md","articles":[]},"previous":{"title":"VS Code","level":"1.2.2.1","depth":3,"path":"content/ch01/vscode.md","ref":"content/ch01/vscode.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch01/mininet.md","mtime":"2020-02-22T15:26:10.290Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-22T16:31:06.217Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

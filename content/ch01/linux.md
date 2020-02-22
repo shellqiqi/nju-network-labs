@@ -1,4 +1,4 @@
-# Virtual Machine & Linux
+# Linux
 
 The operating system of our experimental environment is Ubuntu 18.04 which is a free and open-source Linux distribution. In order to run Linux, you need to install a virtual machine hypervisor on your computer. There are two reasons.
 

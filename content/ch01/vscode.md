@@ -1,5 +1,9 @@
 # Switchyard with VSC
 
+You can use Visual Studio Code (VSC) to develope your projects. I will show how to install it and some plugins may helps you.
+
+We expect that you will cost an afternoon on this.
+
 This tutorial is prepared for who want to take full control of Switchyard in one editor. We use Ubuntu 18.04 here.
 
 ## Install VSC

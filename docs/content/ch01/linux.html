@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Wireshark · GitBook</title>
+        <title>Linux · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -87,10 +87,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="switchyard.html" />
+    <link rel="next" href="python.html" />
     
     
-    <link rel="prev" href="mininet.html" />
+    <link rel="prev" href="prerequisites.html" />
     
 
     </head>
@@ -160,7 +160,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1.1" data-path="linux.html">
+        <li class="chapter active" data-level="1.2.1.1" data-path="linux.html">
             
                 <a href="linux.html">
             
@@ -244,7 +244,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2.3" data-path="wireshark.html">
+        <li class="chapter " data-level="1.2.2.3" data-path="wireshark.html">
             
                 <a href="wireshark.html">
             
@@ -355,7 +355,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Wireshark</a>
+        <a href="../.." >Linux</a>
     </h1>
 </div>
 
@@ -370,26 +370,40 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="how-to-use-wireshark"><a name="how-to-use-wireshark" class="plugin-anchor" href="#how-to-use-wireshark"><i class="fa fa-link" aria-hidden="true"></i></a>How to use Wireshark</h1>
-<p>Wireshark is the world&#x2019;s foremost and widely-used network protocol analyzer. It lets you see what&#x2019;s happening on your network at a microscopic level and is the de facto (and often de jure) standard across many commercial and non-profit enterprises, government agencies, and educational institutions.</p>
-<p>You will use it to inspect your network setting up by Mininet, and test the function of your device written in Switchyard. We also have a small practice of Wireshark in our manual.</p>
-<p><a href="https://www.wireshark.org/docs/wsug_html/" target="_blank">Wireshark User&#x2019;s Guide</a> is a verbose document about Wireshark but We <strong>do not</strong> recommend it. So sometimes the official document is hard for user to get started. You can find many blogs writing about how to use Wireshark. Read them instead or the first search result in Google <a href="https://www.howtogeek.com/104278/how-to-use-wireshark-to-capture-filter-and-inspect-packets/" target="_blank">here</a>.</p>
-<p>We expect that you will cost an afternoon on this.</p>
-<!-- We expect that you have complete [How to use Mininet](./mininet.md). Then you will learn how to use Wireshark in it. -->
-<h2 id="capturing-packets"><a name="capturing-packets" class="plugin-anchor" href="#capturing-packets"><i class="fa fa-link" aria-hidden="true"></i></a>Capturing Packets</h2>
-<p>First start the default Mininet topology.</p>
-<pre><code>$ sudo mn
-</code></pre><p>Then open wireshark in <code>h1</code>.</p>
-<pre><code>mininet&gt; h1 wireshark &amp;
-</code></pre><p><img src="assets/wireshark_0.png" alt="wireshark-window"></p>
-<p>You need to choose which traffic you want to capture. Packets will send and receive on <code>h1-eth0</code> so you double click it.</p>
-<p>It will be empty or some ICMPv6 packets be captured. Let&apos;s make some traffic ourselves.</p>
-<pre><code>mininet&gt; h1 ping -c 1 h2
-</code></pre><p><img src="assets/wireshark_1.png" alt="wireshark-window"></p>
-<p>So here we have more packets captured. You may not know why these packets show up, but you will learned in the next few lessons. Now let&apos;s filter some packets by typing protocol name on the filter text box.</p>
-<p><img src="assets/wireshark_2.png" alt="wireshark-window"></p>
-<p>You can also check the field in the packets like ethernet source MAC address. The value will be highlighted both in packet details and packet raw bytes.</p>
-<p><img src="assets/wireshark_3.png" alt="wireshark-window"></p>
+                                <h1 id="linux"><a name="linux" class="plugin-anchor" href="#linux"><i class="fa fa-link" aria-hidden="true"></i></a>Linux</h1>
+<p>The operating system of our experimental environment is Ubuntu 18.04 which is a free and open-source Linux distribution. In order to run Linux, you need to install a virtual machine hypervisor on your computer. There are two reasons.</p>
+<ol>
+<li>Our experiments involve changes to the network. Using a virtual machine (VM) can avoid impact on your computer.</li>
+<li>We will introduce Mininet and Switchyard later. It is much more easier to install and run them on Linux.</li>
+</ol>
+<h2 id="install-virtualbox"><a name="install-virtualbox" class="plugin-anchor" href="#install-virtualbox"><i class="fa fa-link" aria-hidden="true"></i></a>Install VirtualBox</h2>
+<p>First download the VirtualBox installer, you can find it 
+<a href="https://www.virtualbox.org/wiki/Download_Old_Builds_6_0" target="_blank">here</a>. You can choose the latest VirtualBox installer. If the operating system of your host is Windows, then click the download link <code>Windows hosts</code>. Another tool you need to download is <code>Extension Pack</code> which allows you resize your Linux display in VirtualBox. We highlight them in the picture below.</p>
+<p><img src="assets/vb-download.png" alt="VirtualBox download"></p>
+<p>After completing download, install VirtualBox first then the extension pack.</p>
+<h2 id="import-the-vm-image"><a name="import-the-vm-image" class="plugin-anchor" href="#import-the-vm-image"><i class="fa fa-link" aria-hidden="true"></i></a>Import the VM Image</h2>
+<p>To ensure that your experimental environment is consistent, we provide a VM image. This image has Switchyard, Mininet and Wireshark installed so you do not need to worry about setting up the environment.</p>
+<p>You can find the VM image <a href="https://box.nju.edu.cn/d/123a70ac8ff34595b18f/" target="_blank">here</a>.</p>
+<ul>
+<li>User name: <code>njucs</code></li>
+<li>Password: <code>123</code></li>
+</ul>
+<p>You can learn about importing a VM image in VirtualBox <a href="https://docs.oracle.com/cd/E36500_01/E36513/html/qs-import-vm.html" target="_blank">here</a>.</p>
+<h2 id="install-the-virtualbox-extension"><a name="install-the-virtualbox-extension" class="plugin-anchor" href="#install-the-virtualbox-extension"><i class="fa fa-link" aria-hidden="true"></i></a>Install the VirtualBox Extension</h2>
+<p>Start your VM and check if your Linux runs well. You will find the display size is fixed to 800&#xD7;600. To resize it you need to install the VirtualBox extension pack into your VM.</p>
+<p>You can learn about installing the extension at <a href="https://support.huaweicloud.com/bestpractice-ims/zh-cn_topic_0104740159.html" target="_blank">here</a>.</p>
+<h2 id="use-linux"><a name="use-linux" class="plugin-anchor" href="#use-linux"><i class="fa fa-link" aria-hidden="true"></i></a>Use Linux</h2>
+<p>Most of our operations will be completed inside the terminal. You need to know</p>
+<ul>
+<li>Power on &amp; off</li>
+<li>File system operations</li>
+<li>File and User permissions</li>
+<li>Run programs</li>
+</ul>
+<p>A tutorial of Linux can be found at <a href="http://cn.linux.vbird.org/linux_basic/linux_basic.php" target="_blank">&#x9E1F;&#x54E5;&#x7684; Linux &#x79C1;&#x623F;&#x83DC; &#x2014;&#x2014; &#x57FA;&#x7840;&#x5B66;&#x4E60;&#x7BC7;</a>. Select the part you want to know and read it.</p>
+<h2 id="other"><a name="other" class="plugin-anchor" href="#other"><i class="fa fa-link" aria-hidden="true"></i></a>Other</h2>
+<p>You are also free to use your favorite virtualization software for importing the image but you will most probably have to deal with the possible issues on yourself.</p>
+<p>If you are a free soul and want to setup Switchyard in a different environment you are welcome to do that as well. You can find some useful information <a href="../../appendix/environment-setup.html">here</a>. This might or might not be useful for you depending on your environment.</p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -418,12 +432,12 @@
 
             
                 
-                <a href="mininet.html" class="navigation navigation-prev " aria-label="Previous page: Mininet">
+                <a href="prerequisites.html" class="navigation navigation-prev " aria-label="Previous page: Prerequisites">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="switchyard.html" class="navigation navigation-next " aria-label="Next page: Switchyard">
+                <a href="python.html" class="navigation navigation-next " aria-label="Next page: Python">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -434,7 +448,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Wireshark","level":"1.2.2.3","depth":3,"next":{"title":"Switchyard","level":"1.2.2.4","depth":3,"path":"content/ch01/switchyard.md","ref":"content/ch01/switchyard.md","articles":[]},"previous":{"title":"Mininet","level":"1.2.2.2","depth":3,"path":"content/ch01/mininet.md","ref":"content/ch01/mininet.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch01/wireshark.md","mtime":"2020-02-22T15:26:29.874Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-22T16:31:06.217Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Linux","level":"1.2.1.1","depth":3,"next":{"title":"Python","level":"1.2.1.2","depth":3,"path":"content/ch01/python.md","ref":"content/ch01/python.md","articles":[]},"previous":{"title":"Prerequisites","level":"1.2.1","depth":2,"path":"content/ch01/prerequisites.md","ref":"content/ch01/prerequisites.md","articles":[{"title":"Linux","level":"1.2.1.1","depth":3,"path":"content/ch01/linux.md","ref":"content/ch01/linux.md","articles":[]},{"title":"Python","level":"1.2.1.2","depth":3,"path":"content/ch01/python.md","ref":"content/ch01/python.md","articles":[]},{"title":"Git","level":"1.2.1.3","depth":3,"path":"content/ch01/git.md","ref":"content/ch01/git.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch01/linux.md","mtime":"2020-02-22T15:13:30.804Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-22T16:31:06.217Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -10,9 +10,33 @@ Our lab assignments are based on CS640 in University of Wisconsin. Most material
 
 For this lab assignment, you will gradually master our experimental environment. But we need you to know some basic skills, such as how to develop on linux or how to program. If you are not familiar with these, please tell TAs. We will list some helpful materials for you to get started quickly.
 
-First, you need to complete setting up your environment. Read section [Prerequisites](./prerequisites.md).
+### Platform
 
-Then here are some tutorials help you get started with our experimental environment.
+The platform of our labs is Switchyard. In Switchyard you need to write Python to implement the functions of a device. Then you will run your device in Mininet and capture packets using Wireshark. You will use Git to manage your projects and submit them. All these software are installed on Linux. An editor helps you to develope is Visual Studio Code.
+
+So here is the list of softwares I mentioned sorted by learning order.
+
+- Linux
+- Python
+- Git
+- Mininet
+- Wireshark
+- Switchyard
+- VS Code
+
+### Task 1: Get Ready
+
+Read the section [prerequisites](prerequisites.md) and meet the requirements for using Linux, Python and Git. We assume that you have a basic understanding of these contents.
+
+### Task 2: An Example
+
+Read the section [environment](environment.md) and meet the requirements for using Mininet, Wireshark and Switchyard. At the meantime you will learn how to complete a lab assignment.
+
+### Task 3: Your Modification
+
+If you got here you are able to do some exercises on our platform.
+
+<!-- ## Backup
 
 1. [How to use Mininet](./mininet.md)
 2. [How to use Wireshark](./wireshark.md)
@@ -91,4 +115,4 @@ The file names in your submission package has to exactly match the file names ab
 > -rw-r--r-- 1 root root   181 2月  21 21:42 test.log
 > drwxrwxr-x 2 cyq  cyq   4096 2月  20 17:33 tests
 > ```
-> As we mentioned before, using `sudo` is dangerous so be careful.
+> As we mentioned before, using `sudo` is dangerous so be careful. -->

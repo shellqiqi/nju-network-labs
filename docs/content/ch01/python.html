@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Virtual Machine & Linux · GitBook</title>
+        <title>Python · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -87,10 +87,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="mininet.html" />
+    <link rel="next" href="git.html" />
     
     
-    <link rel="prev" href="prerequisites.html" />
+    <link rel="prev" href="linux.html" />
     
 
     </head>
@@ -157,14 +157,15 @@
             
 
             
-        </li>
+            <ul class="articles">
+                
     
-        <li class="chapter active" data-level="1.2.2" data-path="vm-linux.html">
+        <li class="chapter " data-level="1.2.1.1" data-path="linux.html">
             
-                <a href="vm-linux.html">
+                <a href="linux.html">
             
                     
-                    Virtual Machine & Linux
+                    Linux
             
                 </a>
             
@@ -172,12 +173,70 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="mininet.html">
+        <li class="chapter active" data-level="1.2.1.2" data-path="python.html">
+            
+                <a href="python.html">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="git.html">
+            
+                <a href="git.html">
+            
+                    
+                    Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="workflow.html">
+            
+                <a href="workflow.html">
+            
+                    
+                    Workflow
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="vscode.html">
+            
+                <a href="vscode.html">
+            
+                    
+                    VS Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="mininet.html">
             
                 <a href="mininet.html">
             
                     
-                    How to use Mininet
+                    Mininet
             
                 </a>
             
@@ -185,12 +244,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="wireshark.html">
+        <li class="chapter " data-level="1.2.2.3" data-path="wireshark.html">
             
                 <a href="wireshark.html">
             
                     
-                    How to use Wireshark
+                    Wireshark
             
                 </a>
             
@@ -198,16 +257,21 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="switchyard.html">
+        <li class="chapter " data-level="1.2.2.4" data-path="switchyard.html">
             
                 <a href="switchyard.html">
             
                     
-                    How to program in Switchyard
+                    Switchyard
             
                 </a>
             
 
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -243,20 +307,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../../appendix/vscode.html">
-            
-                <a href="../../appendix/vscode.html">
-            
-                    
-                    Switchyard with VSC
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.3" data-path="../../appendix/about-this-repository.html">
+        <li class="chapter " data-level="1.3.2" data-path="../../appendix/about-this-repository.html">
             
                 <a href="../../appendix/about-this-repository.html">
             
@@ -304,7 +355,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Virtual Machine & Linux</a>
+        <a href="../.." >Python</a>
     </h1>
 </div>
 
@@ -319,40 +370,31 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="virtual-machine--linux"><a name="virtual-machine--linux" class="plugin-anchor" href="#virtual-machine--linux"><i class="fa fa-link" aria-hidden="true"></i></a>Virtual Machine &amp; Linux</h1>
-<p>The operating system of our experimental environment is Ubuntu 18.04 which is a free and open-source Linux distribution. In order to run Linux, you need to install a virtual machine hypervisor on your computer. There are two reasons.</p>
-<ol>
-<li>Our experiments involve changes to the network. Using a virtual machine (VM) can avoid impact on your computer.</li>
-<li>We will introduce Mininet and Switchyard later. It is much more easier to install and run them on Linux.</li>
-</ol>
-<h2 id="install-virtualbox"><a name="install-virtualbox" class="plugin-anchor" href="#install-virtualbox"><i class="fa fa-link" aria-hidden="true"></i></a>Install VirtualBox</h2>
-<p>First download the VirtualBox installer, you can find it 
-<a href="https://www.virtualbox.org/wiki/Download_Old_Builds_6_0" target="_blank">here</a>. You can choose the latest VirtualBox installer. If the operating system of your host is Windows, then click the download link <code>Windows hosts</code>. Another tool you need to download is <code>Extension Pack</code> which allows you resize your Linux display in VirtualBox. We highlight them in the picture below.</p>
-<p><img src="assets/vb-download.png" alt="VirtualBox download"></p>
-<p>After completing download, install VirtualBox first then the extension pack.</p>
-<h2 id="import-the-vm-image"><a name="import-the-vm-image" class="plugin-anchor" href="#import-the-vm-image"><i class="fa fa-link" aria-hidden="true"></i></a>Import the VM Image</h2>
-<p>To ensure that your experimental environment is consistent, we provide a VM image. This image has Switchyard, Mininet and Wireshark installed so you do not need to worry about setting up the environment.</p>
-<p>You can find the VM image <a href="https://box.nju.edu.cn/d/123a70ac8ff34595b18f/" target="_blank">here</a>.</p>
+                                <h1 id="python"><a name="python" class="plugin-anchor" href="#python"><i class="fa fa-link" aria-hidden="true"></i></a>Python</h1>
+<p>Switchyard and Mininet are developed in Python. So you need to program in Python (though there are some methods to avoid using Python). Python is an easy-learning language. If you are not familiar with it, here are some materials for you to get started.</p>
 <ul>
-<li>User name: <code>njucs</code></li>
-<li>Password: <code>123</code></li>
+<li><a href="https://www.liaoxuefeng.com/wiki/1016959663602400" target="_blank">&#x5ED6;&#x96EA;&#x5CF0;&#x7684; Python 3 &#x6559;&#x7A0B;</a></li>
+<li><a href="https://docs.python.org/zh-cn/3/tutorial/index.html" target="_blank">Python &#x6559;&#x7A0B;</a></li>
+<li><a href="https://www.learnpython.org/" target="_blank">Learn Python - Free Interactive Python Tutorial</a></li>
 </ul>
-<p>You can learn about importing a VM image in VirtualBox <a href="https://docs.oracle.com/cd/E36500_01/E36513/html/qs-import-vm.html" target="_blank">here</a>.</p>
-<h2 id="install-the-virtualbox-extension"><a name="install-the-virtualbox-extension" class="plugin-anchor" href="#install-the-virtualbox-extension"><i class="fa fa-link" aria-hidden="true"></i></a>Install the VirtualBox Extension</h2>
-<p>Start your VM and check if your Linux runs well. You will find the display size is fixed to 800&#xD7;600. To resize it you need to install the VirtualBox extension pack into your VM.</p>
-<p>You can learn about installing the extension at <a href="https://support.huaweicloud.com/bestpractice-ims/zh-cn_topic_0104740159.html" target="_blank">here</a>.</p>
-<h2 id="use-linux"><a name="use-linux" class="plugin-anchor" href="#use-linux"><i class="fa fa-link" aria-hidden="true"></i></a>Use Linux</h2>
-<p>Most of our operations will be completed inside the terminal. You need to know</p>
+<p>Our VM is Python preinstalled so you can skip installing. Topics you need to know about Python are listed here:</p>
 <ul>
-<li>Power on &amp; off</li>
-<li>File system operations</li>
-<li>File and User permissions</li>
-<li>Run programs</li>
+<li>Python Interpreter</li>
+<li>Data Types (Important)</li>
+<li>Data Structures (Important)</li>
+<li>Flow Control (Important)</li>
+<li>Functions (Important)</li>
+<li>Modules</li>
+<li>Input and Output</li>
+<li>Errors and Exceptions</li>
+<li>Standard Library</li>
+<li>Virtual Environments and Packages (Important)</li>
 </ul>
-<p>A tutorial of Linux can be found at <a href="http://cn.linux.vbird.org/linux_basic/linux_basic.php" target="_blank">&#x9E1F;&#x54E5;&#x7684; Linux &#x79C1;&#x623F;&#x83DC; &#x2014;&#x2014; &#x57FA;&#x7840;&#x5B66;&#x4E60;&#x7BC7;</a>. Select the part you want to know and read it.</p>
-<h2 id="other"><a name="other" class="plugin-anchor" href="#other"><i class="fa fa-link" aria-hidden="true"></i></a>Other</h2>
-<p>You are also free to use your favorite virtualization software for importing the image but you will most probably have to deal with the possible issues on yourself.</p>
-<p>If you are a free soul and want to setup Switchyard in a different environment you are welcome to do that as well. You can find some useful information <a href="../../appendix/environment-setup.html">here</a>. This might or might not be useful for you depending on your environment.</p>
+<p>Except those topics marked as important, it is no need to read it carefully, just program as you learn. We expect that you will cost about 3 days on this if you haven&apos;t worked with Python.</p>
+<blockquote>
+<p>[!NOTE]
+Python 3 is the main language you will use in Switchyard programming. But you need to know some difference between Python 3 and Python 2 though they are mostly the same. Because you may write some Mininet topology scripts using Python 2.</p>
+</blockquote>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -381,12 +423,12 @@
 
             
                 
-                <a href="prerequisites.html" class="navigation navigation-prev " aria-label="Previous page: Prerequisites">
+                <a href="linux.html" class="navigation navigation-prev " aria-label="Previous page: Linux">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="mininet.html" class="navigation navigation-next " aria-label="Next page: How to use Mininet">
+                <a href="git.html" class="navigation navigation-next " aria-label="Next page: Git">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -397,7 +439,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Virtual Machine & Linux","level":"1.2.2","depth":2,"next":{"title":"How to use Mininet","level":"1.2.3","depth":2,"path":"content/ch01/mininet.md","ref":"content/ch01/mininet.md","articles":[]},"previous":{"title":"Prerequisites","level":"1.2.1","depth":2,"path":"content/ch01/prerequisites.md","ref":"content/ch01/prerequisites.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch01/vm-linux.md","mtime":"2020-02-22T14:07:35.879Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-22T14:08:16.791Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Python","level":"1.2.1.2","depth":3,"next":{"title":"Git","level":"1.2.1.3","depth":3,"path":"content/ch01/git.md","ref":"content/ch01/git.md","articles":[]},"previous":{"title":"Linux","level":"1.2.1.1","depth":3,"path":"content/ch01/linux.md","ref":"content/ch01/linux.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch01/python.md","mtime":"2020-02-22T14:13:11.528Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-22T16:31:06.217Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
