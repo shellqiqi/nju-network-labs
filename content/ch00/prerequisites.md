@@ -2,13 +2,13 @@
 
 ## Virtual Machine
 
-We are providing you with a Ubuntu 18.04 (64-bit) VM image for this assignment. This image has Switchyard, Mininet and Wireshark installed so you do not need to worry about setting up the enviroment.
+We are providing you with a Ubuntu 18.04 (64-bit) VM image for this assignment. This image has Switchyard, Mininet and Wireshark installed so you do not need to worry about setting up the environment.
 
 - You can find the VM image [here](https://box.nju.edu.cn/d/123a70ac8ff34595b18f/).
 (user name: njucs - password: 123)
 - You can learn more about importing a VM image in VirtualBox [here](https://docs.oracle.com/cd/E26217_01/E26796/html/qs-import-vm.html).
 
-You are also free to use your favorite vitualization software for importing the image but you will most probably have to deal with the possible issues on yourself.
+You are also free to use your favorite virtualization software for importing the image but you will most probably have to deal with the possible issues on yourself.
 
 If you are a free soul and want to setup Switchyard in a different environment you are welcome to do that as well. You can find some useful information [here](../../appendix/environment-setup.md). This might or might not be useful for you depending on your environment.
 
@@ -29,7 +29,7 @@ Wireshark is the world’s foremost and widely-used network protocol analyzer. I
 
 You will use it to inspect your network setting up by Mininet, and test the function of your device written in Switchyard. We also have a small practice of Wireshark in our manual.
 
-[Wireshark User’s Guide](https://www.wireshark.org/docs/wsug_html/) is a verbose document about Wireshark but We **do not** recommend it. So sometimes the offical document is hard for user to get started. You can find many blogs writing about how to use Wireshark. Read them instead or the first search result in Google [here](https://www.howtogeek.com/104278/how-to-use-wireshark-to-capture-filter-and-inspect-packets/).
+[Wireshark User’s Guide](https://www.wireshark.org/docs/wsug_html/) is a verbose document about Wireshark but We **do not** recommend it. So sometimes the official document is hard for user to get started. You can find many blogs writing about how to use Wireshark. Read them instead or the first search result in Google [here](https://www.howtogeek.com/104278/how-to-use-wireshark-to-capture-filter-and-inspect-packets/).
 
 We expect that you will cost an afternoon on this.
 
@@ -37,7 +37,7 @@ We expect that you will cost an afternoon on this.
 
 Switchyard is a framework for creating, testing, and experimenting with software implementations of networked systems such as Ethernet switches, IP routers, firewalls and middleboxes, and end-host protocol stacks. It is the framework targeting on teaching and used in University of Wisconsin.
 
-So we have this framework to do some network testing without multiple devices and a bunch of wires. [Switchyard documentation](https://jsommers.github.io/switchyard/index.html) is available here. And this is the document you read most often. In this lab we will combine Mininet, Wireshark and Swithyard together, as we said before.
+So we have this framework to do some network testing without multiple devices and a bunch of wires. [Switchyard documentation](https://jsommers.github.io/switchyard/index.html) is available here. And this is the document you read most often. In this lab we will combine Mininet, Wireshark and Switchyard together, as we said before.
 
 We expect that you will cost 4 days on this. It is long but important.
 

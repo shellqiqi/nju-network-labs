@@ -28,7 +28,7 @@ mininet> h1 ping -c 1 h2
 
 ![wireshark-window](./assets/wireshark_1.png)
 
-So here we have more packets captured. You may not know why these packets show up, but you will learnd in the next few lessons. Now let's filter some packets by typing protocol name on the filter text box.
+So here we have more packets captured. You may not know why these packets show up, but you will learned in the next few lessons. Now let's filter some packets by typing protocol name on the filter text box.
 
 ![wireshark-window](./assets/wireshark_2.png)
 

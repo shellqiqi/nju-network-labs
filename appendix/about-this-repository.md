@@ -1,6 +1,6 @@
 # About This Repository
 
-This repository is the sorce code of our manual.
+This repository is the source code of our manual.
 
 ## Building
 
@@ -20,7 +20,7 @@ gitbook install
 
 The manual is distributed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 
-## Repository Sturcture
+## Repository Structure
 
 The body is placed under the `content` folder, and the chapters are placed in the corresponding chapter folder, starting with `ch` and followed by two-digit numbers.
 

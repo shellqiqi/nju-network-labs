@@ -59,7 +59,7 @@ def hub_tests():
 scenario = hub_tests()
 ```
 
-The var `scenario` is very important in the test framework of Switchyard, do not forget it. Then you need to construct your events happend on your hub like packets in and out on which interface. All test APIs used is introduced [here](https://jsommers.github.io/switchyard/test_scenario_creation.html).
+The var `scenario` is very important in the test framework of Switchyard, do not forget it. Then you need to construct your events happened on your hub like packets in and out on which interface. All test APIs used is introduced [here](https://jsommers.github.io/switchyard/test_scenario_creation.html).
 
 ## Implement your device
 
@@ -103,7 +103,7 @@ def main(net):
 
 In Switchyard, the device you want to be the hub will run this script and act like a hub by receiving any packets and forwarding to any other interfaces except the packets towards the hub itself. The APIs used in this file is introduced [here](https://jsommers.github.io/switchyard/writing_a_program.html).
 
-## Runing in the Test Environment
+## Running in the Test Environment
 
 > [!NOTE|style:flat]
 > You need to activate your Python virtual environment first in any case you want to run Switchyard. This step is very important. In the root dictionary of Switchyard, run

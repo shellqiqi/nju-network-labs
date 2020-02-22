@@ -6,9 +6,9 @@ We expect that you have read the [Mininet Walkthrough](http://mininet.org/walkth
 
 First, a (perhaps obvious) note on command syntax for this walkthrough:
 
-- `$` preceeds Linux commands that should be typed at the shell prompt
-- `mininet>` preceeds Mininet commands that should be typed at Mininet’s CLI,
-- `#` preceeds Linux commands that are typed at a root shell prompt
+- `$` proceeds Linux commands that should be typed at the shell prompt
+- `mininet>` proceeds Mininet commands that should be typed at Mininet’s CLI,
+- `#` proceeds Linux commands that are typed at a root shell prompt
 
 We will show the differences later.
 
