@@ -1,7 +1,6 @@
 # Summary
 
 * [Computer Network Lab Manual](README.md)
-* [Lab -1: Python](content/ch-1/lab--1.md)
 * [Lab 0: Switchyard & Mininet](content/ch00/lab-0.md)
     * [Prerequisites](content/ch00/prerequisites.md)
     * [How to use Mininet](content/ch00/mininet.md)

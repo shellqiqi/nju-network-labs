@@ -1,5 +1,39 @@
 # Prerequisites
 
+# Python
+
+Switchyard and Mininet are developed in Python. So you need to program in Python (though there are some methods to avoid using Python). Python is an easy-learning language. If you are not familiar with it, here are some materials for you to get started.
+
+- [廖雪峰的 Python 3 教程](https://www.liaoxuefeng.com/wiki/1016959663602400)
+- [Python 教程](https://docs.python.org/zh-cn/3/tutorial/index.html)
+- [Learn Python - Free Interactive Python Tutorial](https://www.learnpython.org/)
+
+Our VM is Python preinstalled so you can skip installing. Topics you need to know about Python are listed here
+
+- Python Interpreter
+- Data Types (Important)
+- Data Structures (Important)
+- Flow Control (Important)
+- Functions (Important)
+- Modules
+- Input and Output
+- Errors and Exceptions
+- Standard Library
+- Virtual Environments and Packages (Important)
+
+Except those topics marked as important, it is no need to read it carefully, just program as you learn. We expect that you will cost about 3 days on this if you haven't worked with Python.
+
+> [!NOTE]
+> Python 3 is the main language you will use in Switchyard programming. But you need to know some difference between Python 3 and Python 2 though they are mostly the same. Because you may write some Mininet topology scripts using Python 2.
+
+## Git
+
+You can use Git to manage your projects with a clear editing history and we recommend using it. It is better to have your local repository synchronized with a remote backup on GitHub or some one else. The tutorial of Git is listed below.
+
+- [廖雪峰的 Git 教程](https://www.liaoxuefeng.com/wiki/896043488029600)
+
+We expect that you will cost 2 days on this.
+
 ## Virtual Machine
 
 We are providing you with a Ubuntu 18.04 (64-bit) VM image for this assignment. This image has Switchyard, Mininet and Wireshark installed so you do not need to worry about setting up the environment.
@@ -40,14 +74,6 @@ Switchyard is a framework for creating, testing, and experimenting with software
 So we have this framework to do some network testing without multiple devices and a bunch of wires. [Switchyard documentation](https://jsommers.github.io/switchyard/index.html) is available here. And this is the document you read most often. In this lab we will combine Mininet, Wireshark and Switchyard together, as we said before.
 
 We expect that you will cost 4 days on this. It is long but important.
-
-## Git (Optional)
-
-You can use Git to manage your projects with a clear editing history and we recommend using it. It is better to have your local repository synchronized with a remote backup on GitHub or some one else. The tutorial of Git is listed below.
-
-- [廖雪峰的 Git 教程](https://www.liaoxuefeng.com/wiki/896043488029600)
-
-We expect that you will cost 2 days on this.
 
 ## Visual Studio Code (Optional)
 
