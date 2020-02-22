@@ -44,8 +44,6 @@ Out: , due .
 
 ### Reliable Communication
 
-Out: , due .
-
 #### Lab 6: Sender and Router
 
 Out: , due .

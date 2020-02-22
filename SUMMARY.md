@@ -3,6 +3,7 @@
 * [Computer Network Lab Manual](README.md)
 * [Lab 1: Switchyard & Mininet](content/ch01/lab-1.md)
     * [Prerequisites](content/ch01/prerequisites.md)
+    * [Virtual Machine & Linux](content/ch01/vm-linux.md)
     * [How to use Mininet](content/ch01/mininet.md)
     * [How to use Wireshark](content/ch01/wireshark.md)
     * [How to program in Switchyard](content/ch01/switchyard.md)
