@@ -159,7 +159,7 @@ server2 -> client X server1
 
 This is the output what you will see.
 
-You are able to capture in Mininet too. In any host you what to capture packets, run wireshark on it. In our case, we run wireshark on the host named `client`. Then we ping `client` to `server1`.
+You are able to capture in Mininet too. In any host you want to capture packets, run wireshark on it. In our case, we run wireshark on the host named `client`. Then we ping `client` to `server1`.
 
 ```
 mininet> client wireshark &
