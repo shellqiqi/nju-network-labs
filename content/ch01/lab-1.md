@@ -1,4 +1,4 @@
-# Lab 0: Switchyard & Mininet
+# Lab 1: Switchyard & Mininet
 
 ## Overview
 
@@ -53,7 +53,7 @@ These three tutorials give an example of a hub. After complete them, here are yo
 
 ## Handing it in
 
-We will provide a template of your lab assignment report [here](./assets/实验报告模板.docx). You will submit a package of your report and source code files named `<学号><姓名>_lab_0`. Specifically, it will be like this if you use `zip` to package and export reports to `docx`.
+We will provide a template of your lab assignment report [here](https://box.nju.edu.cn/d/123a70ac8ff34595b18f/). You will submit a package of your report and source code files named `<学号><姓名>_lab_0`. Specifically, it will be like this if you use `zip` to package and export reports to `docx`.
 
 ```
 123456789拾佰仟_lab_0.zip

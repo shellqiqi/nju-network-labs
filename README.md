@@ -18,47 +18,39 @@ You can find TAs and our 教学立方 invitation code after joining this group.
 
 ## Lab Assignments
 
-### Lab -1: Python
-
-This is not a lab assignment, but helps you to learn Python.
-
-[Start the lab here](./content/ch-1/lab--1.md).
-
-### Lab 0: Switchyard & Mininet
+### Lab 1: Switchyard & Mininet
 
 Out: , due .
 
-[Start the lab here](./content/ch00/lab-0.md).
+[Start the lab here](./content/ch01/lab-1.md).
 
-### Lab 1: Learning switch
-
-Out: , due .
-
-### Lab 2: IPv4 Router
+### Lab 2: Learning switch
 
 Out: , due .
 
-#### Lab 2a: Respond to ARP
+### IPv4 Router
+
+#### Lab 3: Respond to ARP
 
 Out: , due .
 
-#### Lab 2b: Forwarding packets
+#### Lab 4: Forwarding packets
 
 Out: , due .
 
-#### Lab 2c: Respond to ICMP
+#### Lab 5: Respond to ICMP
 
 Out: , due .
 
-### Lab 3: Reliable Communication
+### Reliable Communication
 
 Out: , due .
 
-#### Lab 3a: Sender and Router
+#### Lab 6: Sender and Router
 
 Out: , due .
 
-#### Lab 3b: Receiver
+#### Lab 7: Receiver
 
 Out: , due .
 

@@ -1,6 +1,6 @@
 # Prerequisites
 
-# Python
+## Python
 
 Switchyard and Mininet are developed in Python. So you need to program in Python (though there are some methods to avoid using Python). Python is an easy-learning language. If you are not familiar with it, here are some materials for you to get started.
 
@@ -75,7 +75,7 @@ So we have this framework to do some network testing without multiple devices an
 
 We expect that you will cost 4 days on this. It is long but important.
 
-## Visual Studio Code (Optional)
+## Visual Studio Code
 
 You can use Visual Studio Code (VSC) to develope your projects. I will show how to install it and some plugins may helps you.
 
