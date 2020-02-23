@@ -30,7 +30,7 @@ Read the section [prerequisites](prerequisites.md) and meet the requirements for
 
 ### Task 2: An Example
 
-Read the section [environment](environment.md) and meet the requirements for using Mininet, Wireshark and Switchyard. At the meantime you will learn how to complete a lab assignment.
+Read the section [workflow](workflow.md) and meet the requirements for using Mininet, Wireshark and Switchyard. At the meantime you will learn how to complete a lab assignment.
 
 ### Task 3: Your Modification
 

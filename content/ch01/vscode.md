@@ -1,10 +1,8 @@
-# Switchyard with VSC
+# VS Code
 
-You can use Visual Studio Code (VSC) to develope your projects. I will show how to install it and some plugins may helps you.
+You can use Visual Studio Code (VSC) to develope your projects. I will show how to install it and introduce some plugins may help you. This tutorial is prepared for those who want to take full control of Switchyard in one editor. We use Ubuntu 18.04 here. As we have provided the VM image with VSC preinstalled, you can skip the installation.
 
-We expect that you will cost an afternoon on this.
-
-This tutorial is prepared for who want to take full control of Switchyard in one editor. We use Ubuntu 18.04 here.
+We expect that you will cost several hours on this.
 
 ## Install VSC
 
@@ -15,6 +13,9 @@ sudo apt install ./<file>.deb
 ```
 
 ## Develope Switchyard with VSC
+
+> [!TIP]
+> Here we will get in touch with some Switchyard code in advance. You can just ignore the content of Switchyard now.
 
 Open the folder of Switchyard in VSC. You can open files in the explorer and edit them.
 
@@ -28,13 +29,13 @@ Next open any Python files and you will see a pop-up message ask you whether you
 
 ![VSC-pylint](./assets/vscode-pylint.png)
 
-You have got almost every thing you need here. But you may what to format your document by right click on your editor and choose `format`. VSC will tell you that you need to install a formatter. Yapf is better for me but you are free to use others.
+You have got almost every thing you need here. But you may what to format your document by right click on your editor and choose "Format Document". VSC will tell you that you need to install a formatter. Yapf is better for me but you are free to use others.
 
 ![VSC-format](./assets/vscode-format.gif)
 
 ## Debug Switchyard with VSC
 
-[Switchyard document about debug](https://jsommers.github.io/switchyard/test_execution.html#if-you-don-t-like-pdb) shows that you are free to choose other debuggers. Let's replace pbd with VSC debugger. This will works when running in Switchyard test environment. For VSC, you need to create debugging configuration.
+[Switchyard document about debug](https://jsommers.github.io/switchyard/test_execution.html#if-you-don-t-like-pdb) shows that you are free to choose other debuggers. Let's replace pbd with VSC debugger. This will works when running in Switchyard test environment. For VSC, you need to create debugging configuration. The example next shows how to debug `examples/myhub.py` with `examples/hubtests.py`.
 
 ![VSC-debug-configuration](./assets/vscode-debug-conf.gif)
 
