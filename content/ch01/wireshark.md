@@ -8,7 +8,25 @@ You will use it to inspect your network setting up by Mininet, and test the func
 
 We expect that you will cost an afternoon on this.
 
-<!-- We expect that you have complete [How to use Mininet](./mininet.md). Then you will learn how to use Wireshark in it. -->
+## Install Wireshark
+
+If you find that Wireshark is not installed on your system, run these commands to install it.
+
+```
+sudo add-apt-repository ppa:wireshark-dev/stable
+sudo apt-get update
+sudo apt-get install wireshark
+```
+
+You need to configure wireshark during installation. For non-superusers capturing packets, choose *Yes* here.
+
+![configure-wireshark](assets/configure-wireshark.png)
+
+Then add your user to `wireshark` user group to allow you capturing packets.
+
+```
+sudo usermod -a -G wireshark $USER
+```
 
 ## Capturing Packets
 

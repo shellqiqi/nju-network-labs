@@ -6,7 +6,7 @@ We expect that you will cost several hours on this.
 
 ## Install VSC
 
-The easiest way to install Visual Studio Code for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760868), either through the graphical software center if it's available, or through the command line with:
+You can choose the VM image with VSC preinstalled. But someone like to install it themselves. The easiest way to install Visual Studio Code for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760868), either through the graphical software center if it's available, or through the command line with:
 
 ```
 sudo apt install ./<file>.deb
@@ -15,7 +15,7 @@ sudo apt install ./<file>.deb
 ## Develope Switchyard with VSC
 
 > [!TIP]
-> Here we will get in touch with some Switchyard code in advance. You can just ignore the content of Switchyard now.
+> Here we will get in touch with Switchyard in advance. You can just skim the content of Switchyard now. After reading the section [Switchyard](switchyard.md), come back again.
 
 Open the folder of Switchyard in VSC. You can open files in the explorer and edit them.
 
@@ -42,3 +42,7 @@ You have got almost every thing you need here. But you may what to format your d
 Set break point in your code and click the configuration to debug.
 
 ![VSC-debug](./assets/vscode-debug.gif)
+
+## Run Switchyard
+
+This part is not VSC integrated, you need to run Switchyard in the terminal. Read the section [Switchyard](switchyard.md) for more.

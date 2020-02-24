@@ -372,17 +372,46 @@
                                 
                                 <h1 id="how-to-program-in-switchyard"><a name="how-to-program-in-switchyard" class="plugin-anchor" href="#how-to-program-in-switchyard"><i class="fa fa-link" aria-hidden="true"></i></a>How to program in Switchyard</h1>
 <p>Switchyard is a framework for creating, testing, and experimenting with software implementations of networked systems such as Ethernet switches, IP routers, firewalls and middleboxes, and end-host protocol stacks. It is the framework targeting on teaching and used in University of Wisconsin.</p>
-<p>So we have this framework to do some network testing without multiple devices and a bunch of wires. <a href="https://jsommers.github.io/switchyard/index.html" target="_blank">Switchyard documentation</a> is available here. And this is the document you read most often. In this lab we will combine Mininet, Wireshark and Switchyard together, as we said before.</p>
-<p>We expect that you will cost 4 days on this. It is long but important.</p>
-<p>We expect that you have complete <a href="mininet.html">How to use Mininet</a> and <a href="wireshark.html">How to use Wireshark</a>. Next is the most important section that tells how to program in Switchyard. We will show you a hub, just forward any input packets to any other interfaces. There are three files for this section.</p>
+<p>So we have this framework to do some network testing without multiple devices and a bunch of wires. <a href="https://shellqiqi.gitee.io/switchyard/" target="_blank">Switchyard documentation</a> is available here. And this is the document you read most often. In this section we will combine Mininet, Wireshark and Switchyard together.</p>
+<p>We expect that you have complete <a href="mininet.html">How to use Mininet</a> and <a href="wireshark.html">How to use Wireshark</a>. Next is to learn how to program in Switchyard. We will show you a hub, just forward any input packets to any other interfaces. There are three files for this section.</p>
 <ul>
-<li><a href="https://github.com/shellqiqi/switchyard/blob/master/examples/start_mininet.py" target="_blank"><code>examples/start_mininet.py</code></a></li>
-<li><a href="https://github.com/shellqiqi/switchyard/blob/master/examples/myhub.py" target="_blank"><code>examples/myhub.py</code></a></li>
-<li><a href="https://github.com/shellqiqi/switchyard/blob/master/examples/hubtests.py" target="_blank"><code>examples/hubtests.py</code></a></li>
+<li><code>examples/start_mininet.py</code></li>
+<li><code>examples/myhub.py</code></li>
+<li><code>examples/hubtests.py</code></li>
 </ul>
-<p>The <a href="https://jsommers.github.io/switchyard/" target="_blank">Switchyard documentation</a> also uses these files to show many useful APIs. Again, it is very important to read it. In this section we do not show you the APIs but the workflow and a little code explanation.</p>
-<h2 id="prepare-your-test-script"><a name="prepare-your-test-script" class="plugin-anchor" href="#prepare-your-test-script"><i class="fa fa-link" aria-hidden="true"></i></a>Prepare Your Test Script</h2>
-<p>You need to construct test script yourself. But we have some template test scripts help you. Here is the test script for our hub.</p>
+<p>The <a href="https://shellqiqi.gitee.io/switchyard/" target="_blank">Switchyard documentation</a> also uses these files to show many useful APIs. Again, this document is very important. You need to read it whenever you get confused with the APIs or Switchyard itself. In this section we do not show you the APIs but the workflow and a little code explanation.</p>
+<p>We expect that you will cost 4 days on this. It is long but important.</p>
+<h2 id="install-switchyard"><a name="install-switchyard" class="plugin-anchor" href="#install-switchyard"><i class="fa fa-link" aria-hidden="true"></i></a>Install Switchyard</h2>
+<p>You can find instructions <a href="https://gitee.com/shellqiqi/switchyard" target="_blank">here</a>, the repository of Switchyard on Gitee. A quick note here for Ubuntu.</p>
+<p>If you can&apos;t find the folder <code>switchyard</code> in your home dictionary, you need to get the source code of Switchyard.</p>
+<pre><code>$ git clone https://gitee.com/shellqiqi/switchyard.git
+</code></pre><p>Then you need to get some dependent softwares and libraries.</p>
+<pre><code>$ sudo apt-get install libffi-dev libpcap-dev python3-dev python3-pip
+</code></pre><p>You can install Switchyard and the necessary related packages in an isolated Python virtual environment (&quot;venv&quot;), which is the recommended path, or in the system directories, which is often less desirable. The venv route is highly suggested, since it makes all installation &quot;local&quot; and can easily destroyed, cleaned up, and recreated.</p>
+<p>To create a new virtual environment, you could do something like the following under your workspace folder <code>switchyard</code></p>
+<pre><code>$ python3 -m venv syenv
+</code></pre><p>You can change the name <code>syenv</code> to whatever you&apos;d like to name your virtual environment. Next, you need to activate the environment. The instructions vary depending on the shell you&apos;re using. On <code>bash</code>, the command is</p>
+<pre><code>$ source ./syenv/bin/activate
+</code></pre><p>You&apos;ll need to replace <code>syenv</code> with whatever you named the virtual environment. If you&apos;re using a different shell than bash, refer to Python documentation on the venv module.</p>
+<p>Finally, install Switchyard. All the required additional libraries should be automatically installed, too.</p>
+<pre><code>$ python3 -m pip install switchyard
+</code></pre><p>Then I suggest to exclude your virtual environment out of git tracking. Add this line in <code>.gitignore</code> if there is not.</p>
+<pre><code>syenv/
+</code></pre><h2 id="prepare-your-test-script"><a name="prepare-your-test-script" class="plugin-anchor" href="#prepare-your-test-script"><i class="fa fa-link" aria-hidden="true"></i></a>Prepare Your Test Script</h2>
+<p>Writing tests to determine whether a piece of code behaves as expected is an important part of the software development process. With Switchyard, it is possible to create a set of tests that verify whether a program attempts to receive packets when it should and sends the right packet(s) out the right ports.</p>
+<p>A test scenario is Switchyard&#x2019;s term for a series of tests that verify a program&#x2019;s behavior. A test scenario is simply a Python source code file that includes a particular variable name (symbol) called <code>scenario</code>, which must refer to an instance of the class <code>TestScenario</code>. A <code>TestScenario</code> object contains the basic configuration for an imaginary network device along with an ordered series of <em>test expectations</em>. These expectations may be one of three types:</p>
+<ul>
+<li>that a particular packet should arrive on a particular interface/port,</li>
+<li>that a particular packet should be emitted out one or more ports, and</li>
+<li>that the user program should time out when calling recv_packet because no packets are available.</li>
+</ul>
+<p>To start off, here is an example of an empty test scenario:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> switchyard.lib.userlib <span class="hljs-keyword">import</span> *
+
+scenario = TestScenario(<span class="hljs-string">&quot;test example&quot;</span>)
+</code></pre>
+<p>For more about writing tests, you need to read <a href="https://shellqiqi.gitee.io/switchyard/test_scenario_creation.html" target="_blank">Test Scenario Creation</a>.</p>
+<p>In later lab assignments, you need to construct test script yourself. But this time we have a template test script helps you. Here is the test script for our hub.</p>
 <pre><code class="lang-py"><span class="hljs-comment">#!/usr/bin/env python3</span>
 
 <span class="hljs-keyword">from</span> switchyard.lib.userlib <span class="hljs-keyword">import</span> *
@@ -428,9 +457,15 @@
 
 scenario = hub_tests()
 </code></pre>
-<p>The var <code>scenario</code> is very important in the test framework of Switchyard, do not forget it. Then you need to construct your events happened on your hub like packets in and out on which interface. All test APIs used is introduced <a href="https://jsommers.github.io/switchyard/test_scenario_creation.html" target="_blank">here</a>.</p>
+<p>The function <code>mk_pkt</code> is used to make a packet. For now you don&apos;t need to know what the parameters means.</p>
+<p>The function <code>hub_tests</code> returns a <code>TestScenario</code> object which assigned to <code>scenario</code>. The var <code>scenario</code> is very important in the test framework of Switchyard, do not forget it. We construct the scenario with a name &quot;hub tests&quot;. Then we add three device interfaces with names and MAC addresses. In every case, we make a packet then feed it into one interface with <code>PacketInputEvent</code>. Then we compare the outgoing packets with our expectation packets using <code>PacketOutputEvent</code>. If there is no packet out, we use the function <code>PacketInputTimeoutEvent</code> to check there is no traffic for a period of time.</p>
+<p>All test APIs used is introduced <a href="https://shellqiqi.gitee.io/switchyard/test_scenario_creation.html" target="_blank">here</a>.</p>
+<p>You may want to run this test, we will cover this later.</p>
 <h2 id="implement-your-device"><a name="implement-your-device" class="plugin-anchor" href="#implement-your-device"><i class="fa fa-link" aria-hidden="true"></i></a>Implement your device</h2>
-<p>Then you need to implement your device. Generally, your initial test files and device logic are not complete. You need to modify them step by step. This programming mode is called Test Driven Development (TDD). Here is our hub code.</p>
+<p>Switchyard is the framework enables you to implement a device. A Switchyard program is simply a Python program that includes a particular entry point function which accepts a single parameter. The startup function can simply be named <code>main</code>, but can also be named <code>switchy_main</code> if you like. The function must accept at least one parameter, which is a reference to the Switchyard <em>network object</em> (described below). Method calls on the network object are used to send and receive packets to and from network ports.</p>
+<p>A Switchyard program isn&#x2019;t executed <em>directly</em> with the Python interpreter. Instead, the program <code>swyard</code> is used to start up the Switchyard framework and to load your code. When Switchyard starts your code it looks for a function named <code>main</code> and invokes it, passing in the network object as the first parameter. Details on how to start Switchyard (and thus your program) are given in the chapters on <a href="https://shellqiqi.gitee.io/switchyard/test_execution.html#runtest" target="_blank">running a Switchyard in the test environment</a> and <a href="https://shellqiqi.gitee.io/switchyard/live_execution.html#runlive" target="_blank">running Switchyard in a live environment</a>. Note that it is possible to pass arguments into a Switchyard program; see <a href="https://shellqiqi.gitee.io/switchyard/writing_a_program.html#swyardargs" target="_blank">Passing arguments into a Switchyard program</a> for details.</p>
+<p>A Switchyard program will typically also import other Switchyard modules such as modules for parsing and constructing packets, dealing with network addresses, and other functions. These modules are introduced below and described in detail in the <a href="https://shellqiqi.gitee.io/switchyard/reference.html#apiref" target="_blank">API reference chapter</a>.</p>
+<p>In the later lab assignments, you need to implement your device. Generally, your initial test files and device logic are not complete. You need to modify them step by step. This programming mode is called Test Driven Development (TDD). Here is our hub code.</p>
 <pre><code class="lang-py"><span class="hljs-comment">#!/usr/bin/env python3</span>
 
 <span class="hljs-string">&apos;&apos;&apos;
@@ -465,7 +500,7 @@ Ethernet hub in Switchyard.
                     net.send_packet(intf, packet)
     net.shutdown()
 </code></pre>
-<p>In Switchyard, the device you want to be the hub will run this script and act like a hub by receiving any packets and forwarding to any other interfaces except the packets towards the hub itself. The APIs used in this file is introduced <a href="https://jsommers.github.io/switchyard/writing_a_program.html" target="_blank">here</a>.</p>
+<p>In Switchyard, the device you want to be the hub will run this script and act like a hub by receiving any packets and forwarding to any other interfaces except the packets towards the hub itself. The APIs used in this file is introduced <a href="https://shellqiqi.gitee.io/switchyard/writing_a_program.html" target="_blank">here</a>.</p>
 <h2 id="running-in-the-test-environment"><a name="running-in-the-test-environment" class="plugin-anchor" href="#running-in-the-test-environment"><i class="fa fa-link" aria-hidden="true"></i></a>Running in the Test Environment</h2>
 <blockquote>
 <p>[!NOTE|style:flat]
@@ -476,8 +511,9 @@ You need to activate your Python virtual environment first in any case you want 
 <pre><code>$ swyard -t examples/hubtests.py examples/myhub.py
 </code></pre><p>Note that the <code>-t</code> option puts swyard in test mode. The argument to the <code>-t</code> option should be the name of the test scenario to be executed, and the final argument is the name of your code.</p>
 <p>After that, you will get some output shows if your tests pass or fail.</p>
-<p>More about test environment and some debug methods are introduced <a href="https://jsommers.github.io/switchyard/test_execution.html" target="_blank">here</a>.</p>
+<p>More about test environment and some debug methods are introduced <a href="https://shellqiqi.gitee.io/switchyard/test_execution.html" target="_blank">here</a>.</p>
 <h2 id="running-in-the-mininet"><a name="running-in-the-mininet" class="plugin-anchor" href="#running-in-the-mininet"><i class="fa fa-link" aria-hidden="true"></i></a>Running in the Mininet</h2>
+<p>In the test environment, here is no <em>true</em> traffic here. The device only take the packets we provided. We need to challenge the true networking. Here we have Mininet can construct a network.</p>
 <p>First let&apos;s start our topology we provided at <code>examples/start_mininet.py</code>.</p>
 <pre><code>$ sudo python examples/start_mininet.py
 </code></pre><p>Then run your hub code to the device you what. Here must be the root of our star shape topology named <code>hub</code>. It is better to open xterm on it so you can see the output of it.</p>
@@ -543,7 +579,7 @@ mininet&gt; client ping -c1 server1
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Switchyard","level":"1.2.2.4","depth":3,"next":{"title":"Appendix","level":"1.3","depth":1,"path":"appendix/appendix.md","ref":"appendix/appendix.md","articles":[{"title":"Environment Setup","level":"1.3.1","depth":2,"path":"appendix/environment-setup.md","ref":"appendix/environment-setup.md","articles":[]},{"title":"About This Repository","level":"1.3.2","depth":2,"path":"appendix/about-this-repository.md","ref":"appendix/about-this-repository.md","articles":[]}]},"previous":{"title":"Wireshark","level":"1.2.2.3","depth":3,"path":"content/ch01/wireshark.md","ref":"content/ch01/wireshark.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch01/switchyard.md","mtime":"2020-02-22T15:26:51.125Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-23T17:15:03.429Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Switchyard","level":"1.2.2.4","depth":3,"next":{"title":"Appendix","level":"1.3","depth":1,"path":"appendix/appendix.md","ref":"appendix/appendix.md","articles":[{"title":"Environment Setup","level":"1.3.1","depth":2,"path":"appendix/environment-setup.md","ref":"appendix/environment-setup.md","articles":[]},{"title":"About This Repository","level":"1.3.2","depth":2,"path":"appendix/about-this-repository.md","ref":"appendix/about-this-repository.md","articles":[]}]},"previous":{"title":"Wireshark","level":"1.2.2.3","depth":3,"path":"content/ch01/wireshark.md","ref":"content/ch01/wireshark.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch01/switchyard.md","mtime":"2020-02-24T14:50:33.291Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-24T16:29:36.213Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

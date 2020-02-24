@@ -2,21 +2,83 @@
 
 Switchyard is a framework for creating, testing, and experimenting with software implementations of networked systems such as Ethernet switches, IP routers, firewalls and middleboxes, and end-host protocol stacks. It is the framework targeting on teaching and used in University of Wisconsin.
 
-So we have this framework to do some network testing without multiple devices and a bunch of wires. [Switchyard documentation](https://jsommers.github.io/switchyard/index.html) is available here. And this is the document you read most often. In this lab we will combine Mininet, Wireshark and Switchyard together, as we said before.
+So we have this framework to do some network testing without multiple devices and a bunch of wires. [Switchyard documentation](https://shellqiqi.gitee.io/switchyard/) is available here. And this is the document you read most often. In this section we will combine Mininet, Wireshark and Switchyard together.
+
+We expect that you have complete [How to use Mininet](./mininet.md) and [How to use Wireshark](./wireshark.md). Next is to learn how to program in Switchyard. We will show you a hub, just forward any input packets to any other interfaces. There are three files for this section.
+
+- `examples/start_mininet.py`
+- `examples/myhub.py`
+- `examples/hubtests.py`
+
+The [Switchyard documentation](https://shellqiqi.gitee.io/switchyard/) also uses these files to show many useful APIs. Again, this document is very important. You need to read it whenever you get confused with the APIs or Switchyard itself. In this section we do not show you the APIs but the workflow and a little code explanation.
 
 We expect that you will cost 4 days on this. It is long but important.
 
-We expect that you have complete [How to use Mininet](./mininet.md) and [How to use Wireshark](./wireshark.md). Next is the most important section that tells how to program in Switchyard. We will show you a hub, just forward any input packets to any other interfaces. There are three files for this section.
+## Install Switchyard
 
-- [`examples/start_mininet.py`](https://github.com/shellqiqi/switchyard/blob/master/examples/start_mininet.py)
-- [`examples/myhub.py`](https://github.com/shellqiqi/switchyard/blob/master/examples/myhub.py)
-- [`examples/hubtests.py`](https://github.com/shellqiqi/switchyard/blob/master/examples/hubtests.py)
+You can find instructions [here](https://gitee.com/shellqiqi/switchyard), the repository of Switchyard on Gitee. A quick note here for Ubuntu.
 
-The [Switchyard documentation](https://jsommers.github.io/switchyard/) also uses these files to show many useful APIs. Again, it is very important to read it. In this section we do not show you the APIs but the workflow and a little code explanation.
+If you can't find the folder `switchyard` in your home dictionary, you need to get the source code of Switchyard.
+
+```
+$ git clone https://gitee.com/shellqiqi/switchyard.git
+```
+
+Then you need to get some dependent softwares and libraries.
+
+```
+$ sudo apt-get install libffi-dev libpcap-dev python3-dev python3-pip
+```
+
+You can install Switchyard and the necessary related packages in an isolated Python virtual environment ("venv"), which is the recommended path, or in the system directories, which is often less desirable. The venv route is highly suggested, since it makes all installation "local" and can easily destroyed, cleaned up, and recreated.
+
+To create a new virtual environment, you could do something like the following under your workspace folder `switchyard`
+
+```
+$ python3 -m venv syenv
+```
+
+You can change the name `syenv` to whatever you'd like to name your virtual environment. Next, you need to activate the environment. The instructions vary depending on the shell you're using. On `bash`, the command is
+
+```
+$ source ./syenv/bin/activate
+```
+
+You'll need to replace `syenv` with whatever you named the virtual environment. If you're using a different shell than bash, refer to Python documentation on the venv module.
+
+Finally, install Switchyard. All the required additional libraries should be automatically installed, too.
+
+```
+$ python3 -m pip install switchyard
+```
+
+Then I suggest to exclude your virtual environment out of git tracking. Add this line in `.gitignore` if there is not.
+
+```
+syenv/
+```
 
 ## Prepare Your Test Script
 
-You need to construct test script yourself. But we have some template test scripts help you. Here is the test script for our hub.
+Writing tests to determine whether a piece of code behaves as expected is an important part of the software development process. With Switchyard, it is possible to create a set of tests that verify whether a program attempts to receive packets when it should and sends the right packet(s) out the right ports.
+
+A test scenario is Switchyard’s term for a series of tests that verify a program’s behavior. A test scenario is simply a Python source code file that includes a particular variable name (symbol) called `scenario`, which must refer to an instance of the class `TestScenario`. A `TestScenario` object contains the basic configuration for an imaginary network device along with an ordered series of *test expectations*. These expectations may be one of three types:
+
+- that a particular packet should arrive on a particular interface/port,
+- that a particular packet should be emitted out one or more ports, and
+- that the user program should time out when calling recv_packet because no packets are available.
+
+To start off, here is an example of an empty test scenario:
+
+```py
+from switchyard.lib.userlib import *
+
+scenario = TestScenario("test example")
+```
+
+For more about writing tests, you need to read [Test Scenario Creation](https://shellqiqi.gitee.io/switchyard/test_scenario_creation.html).
+
+In later lab assignments, you need to construct test script yourself. But this time we have a template test script helps you. Here is the test script for our hub.
 
 ```py
 #!/usr/bin/env python3
@@ -65,11 +127,23 @@ def hub_tests():
 scenario = hub_tests()
 ```
 
-The var `scenario` is very important in the test framework of Switchyard, do not forget it. Then you need to construct your events happened on your hub like packets in and out on which interface. All test APIs used is introduced [here](https://jsommers.github.io/switchyard/test_scenario_creation.html).
+The function `mk_pkt` is used to make a packet. For now you don't need to know what the parameters means.
+
+The function `hub_tests` returns a `TestScenario` object which assigned to `scenario`. The var `scenario` is very important in the test framework of Switchyard, do not forget it. We construct the scenario with a name "hub tests". Then we add three device interfaces with names and MAC addresses. In every case, we make a packet then feed it into one interface with `PacketInputEvent`. Then we compare the outgoing packets with our expectation packets using `PacketOutputEvent`. If there is no packet out, we use the function `PacketInputTimeoutEvent` to check there is no traffic for a period of time.
+
+All test APIs used is introduced [here](https://shellqiqi.gitee.io/switchyard/test_scenario_creation.html).
+
+You may want to run this test, we will cover this later.
 
 ## Implement your device
 
-Then you need to implement your device. Generally, your initial test files and device logic are not complete. You need to modify them step by step. This programming mode is called Test Driven Development (TDD). Here is our hub code.
+Switchyard is the framework enables you to implement a device. A Switchyard program is simply a Python program that includes a particular entry point function which accepts a single parameter. The startup function can simply be named `main`, but can also be named `switchy_main` if you like. The function must accept at least one parameter, which is a reference to the Switchyard *network object* (described below). Method calls on the network object are used to send and receive packets to and from network ports.
+
+A Switchyard program isn’t executed *directly* with the Python interpreter. Instead, the program `swyard` is used to start up the Switchyard framework and to load your code. When Switchyard starts your code it looks for a function named `main` and invokes it, passing in the network object as the first parameter. Details on how to start Switchyard (and thus your program) are given in the chapters on [running a Switchyard in the test environment](https://shellqiqi.gitee.io/switchyard/test_execution.html#runtest) and [running Switchyard in a live environment](https://shellqiqi.gitee.io/switchyard/live_execution.html#runlive). Note that it is possible to pass arguments into a Switchyard program; see [Passing arguments into a Switchyard program](https://shellqiqi.gitee.io/switchyard/writing_a_program.html#swyardargs) for details.
+
+A Switchyard program will typically also import other Switchyard modules such as modules for parsing and constructing packets, dealing with network addresses, and other functions. These modules are introduced below and described in detail in the [API reference chapter](https://shellqiqi.gitee.io/switchyard/reference.html#apiref).
+
+In the later lab assignments, you need to implement your device. Generally, your initial test files and device logic are not complete. You need to modify them step by step. This programming mode is called Test Driven Development (TDD). Here is our hub code.
 
 ```py
 #!/usr/bin/env python3
@@ -107,7 +181,7 @@ def main(net):
     net.shutdown()
 ```
 
-In Switchyard, the device you want to be the hub will run this script and act like a hub by receiving any packets and forwarding to any other interfaces except the packets towards the hub itself. The APIs used in this file is introduced [here](https://jsommers.github.io/switchyard/writing_a_program.html).
+In Switchyard, the device you want to be the hub will run this script and act like a hub by receiving any packets and forwarding to any other interfaces except the packets towards the hub itself. The APIs used in this file is introduced [here](https://shellqiqi.gitee.io/switchyard/writing_a_program.html).
 
 ## Running in the Test Environment
 
@@ -127,9 +201,11 @@ Note that the `-t` option puts swyard in test mode. The argument to the `-t` opt
 
 After that, you will get some output shows if your tests pass or fail.
 
-More about test environment and some debug methods are introduced [here](https://jsommers.github.io/switchyard/test_execution.html).
+More about test environment and some debug methods are introduced [here](https://shellqiqi.gitee.io/switchyard/test_execution.html).
 
 ## Running in the Mininet
+
+In the test environment, here is no *true* traffic here. The device only take the packets we provided. We need to challenge the true networking. Here we have Mininet can construct a network.
 
 First let's start our topology we provided at `examples/start_mininet.py`.
 

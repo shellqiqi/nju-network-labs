@@ -1,15 +1,23 @@
-# How to use Mininet
+# Mininet
 
 Mininet enables you to quickly create, interact with, customize and share a software defined network prototype, and provides a smooth path to running on hardware.
 
-The most useful material is their website. Here is the [Mininet Walkthrough](http://mininet.org/walkthrough/). It is better to go through this manual. Because we have not given you the whole network image to you right now, there must be something you do not understand yet. But don not worry, we will have a small practice of Mininet in our manual.
+The most useful material is their website. Here is the [Mininet Walkthrough](http://mininet.org/walkthrough/). At this stage you will encounter some concepts you are not familiar with such as switches and hosts, but remember to come back after you have learned them. In this section, we will have a small practice of Mininet.
 
 > [!NOTE]
 > Ignore the content about switches like Open vSwitch (OVS) setting up.
 
 We expect that you will cost 2 days on this.
 
-<!-- We expect that you have read the [Mininet Walkthrough](http://mininet.org/walkthrough/) at least. Then here is a minimum walkthrough you should do. -->
+## Install Mininet
+
+If you find that Mininet is not installed on your system, run this command to install it.
+
+```
+sudo apt-get install mininet
+```
+
+Or you want to build mininet yourself. The installation guide is [here](http://mininet.org/download/).
 
 ## Everyday Mininet Usage
 
@@ -18,8 +26,6 @@ First, a (perhaps obvious) note on command syntax for this walkthrough:
 - `$` proceeds Linux commands that should be typed at the shell prompt
 - `mininet>` proceeds Mininet commands that should be typed at Mininet’s CLI,
 - `#` proceeds Linux commands that are typed at a root shell prompt
-
-We will show the differences later.
 
 ### Start Mininet
 
@@ -232,6 +238,8 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+
+We build a topology inside the constructor function `__init__` of class `PySwitchTopo`. If you want to change the topology, you should modify it. We setup interfaces in the function `setup_addressing`, you will learn what happens here after knowing Ethernet and IP protocol.
 
 In general, you don't need to modify the topology file we provide. But if you do, you need the document *[Introduction to Mininet](https://github.com/mininet/mininet/wiki/Introduction-to-Mininet)* which gives you the Mininet Python API.
 
