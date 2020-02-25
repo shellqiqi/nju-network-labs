@@ -19,6 +19,14 @@ sudo apt-get install mininet
 
 Or you want to build mininet yourself. The installation guide is [here](http://mininet.org/download/).
 
+## Install Xterm
+
+If you find that Xterm is not installed on your system, run this command to install it.
+
+```
+sudo apt-get install xterm
+```
+
 ## Everyday Mininet Usage
 
 First, a (perhaps obvious) note on command syntax for this walkthrough:
@@ -100,7 +108,7 @@ The new window pops up here is the terminal emulator of `h1`. If you type `ifcon
 
 ### Test Connectivity Between Hosts
 
-Now, verify that you can ping from host 0 to host 1. You can also do it in pop-up xterm at `h1`.
+Now, verify that you can ping from host 0 to host 1. You can also do it in pop-up xterm at `h1`. You will learn what `ping` is in the later lessons. Now `ping` just tells you whether two hosts is well-connected.
 
 ```
 mininet> h1 ping -c 1 h2

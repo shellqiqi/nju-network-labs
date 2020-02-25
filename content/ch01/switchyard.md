@@ -32,19 +32,19 @@ $ sudo apt-get install libffi-dev libpcap-dev python3-dev python3-pip
 
 You can install Switchyard and the necessary related packages in an isolated Python virtual environment ("venv"), which is the recommended path, or in the system directories, which is often less desirable. The venv route is highly suggested, since it makes all installation "local" and can easily destroyed, cleaned up, and recreated.
 
-To create a new virtual environment, you could do something like the following under your workspace folder `switchyard`
+To create a new virtual environment, you could do something like the following under your workspace folder `switchyard`.
 
 ```
 $ python3 -m venv syenv
 ```
 
-You can change the name `syenv` to whatever you'd like to name your virtual environment. Next, you need to activate the environment. The instructions vary depending on the shell you're using. On `bash`, the command is
+After this command, you will find a folder `syenv` in `switchyard`, which is the folder of the Python virtual environment. You can change the name `syenv` to whatever you'd like to name your virtual environment. Next, you need to activate the environment. The instructions vary depending on the shell you're using. On `bash`, the command is
 
 ```
 $ source ./syenv/bin/activate
 ```
 
-You'll need to replace `syenv` with whatever you named the virtual environment. If you're using a different shell than bash, refer to Python documentation on the venv module.
+Exactly, `activate` is a runnable file in the folder `syenv`. You'll need to replace `syenv` with whatever you named the virtual environment. If you're using a different shell than bash, refer to Python documentation on the venv module.
 
 Finally, install Switchyard. All the required additional libraries should be automatically installed, too.
 
@@ -219,10 +219,10 @@ Then run your hub code to the device you what. Here must be the root of our star
 mininet> xterm hub
 ```
 
-Then run your hub code on it. Remember activate your Python virtual environment first.
+Then run your hub code on it. Remember activate your Python virtual environment first. Replace `<Switchyard folder path>` to the path of Switchyard.
 
 ```
-# source ./syenv/bin/activate
+# source <Switchyard folder path>/syenv/bin/activate
 # swyard examples/myhub.py
 ... here is your hub logs ...
 ```
