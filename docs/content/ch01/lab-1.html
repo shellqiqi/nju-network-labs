@@ -395,22 +395,28 @@
 <h3 id="task-3-your-modification"><a name="task-3-your-modification" class="plugin-anchor" href="#task-3-your-modification"><i class="fa fa-link" aria-hidden="true"></i></a>Task 3: Your Modification</h3>
 <p>After task 2, you are able to do some exercises on our platform.</p>
 <ol>
-<li>In the section <a href="mininet.html">Mininet</a>, we introduced how to construct a topology. So delete <code>server2</code> in the topology at least. Or you will get more points if you construct the topology with more hosts and hubs (don&apos;t use other kind of devices). The show the details of your building a topology in your report.</li>
+<li>In the section <a href="mininet.html">Mininet</a>, we introduced how to construct a topology. So here we have two options for you, choose <strong>one</strong> to implement. Then show the details of your building a topology in your report.<ul>
+<li>Delete <code>server2</code> in the topology,</li>
+<li>Or create a different topology with 6 nodes with hosts and hubs (don&apos;t use other kind of devices).</li>
+</ul>
+</li>
 <li>In the section <a href="switchyard.html">Switchyard</a>, we introduced how to program a device. So count how many packets pass through a hub both in and out. You need to log it out every time you received one packet with the format of each line <code>&lt;timestamp&gt; in:&lt;ingress packet count&gt; out:&lt;egress packet count&gt;</code>. Then show the log of your hub and how you implement it in your report.</li>
-<li>In the section <a href="switchyard.html">Switchyard</a>, we introduced how to write the test case. So create at least one test case to test the hub. You will get more points with new reasonable test cases and corner cases. Then show the details of your test cases in your report.</li>
+<li>In the section <a href="switchyard.html">Switchyard</a>, we introduced how to write the test case. So here we have two options for you, choose <strong>one</strong> to implement. Then show the details of your test cases in your report.<ul>
+<li>Create one test case by using the given function <code>mk_pkt</code> with different fields,</li>
+<li>Or create one test case with your handmade packet.</li>
+</ul>
+</li>
 <li>In the section <a href="switchyard.html">Switchyard</a>, we introduced how to run Switchyard programs in Mininet. So run your new hubs in your new topology and make sure it works. Show the procedure in your report.</li>
-<li>Both in the section <a href="wireshark.html">Wireshark</a> and <a href="switchyard.html">Switchyard</a>, we introduced how to capture packets. In your own topology, capture packets on one host (no hub) while create some traffic. Save your capturing file and submit it with your report. Also you need to describe the details of your capturing.</li>
+<li>Both in the section <a href="wireshark.html">Wireshark</a> and <a href="switchyard.html">Switchyard</a>, we introduced how to capture packets. In your own topology, capture packets on one host (no hub) while create some traffic. <strong>Save your capturing file</strong> and submit it with your report and code. Also you need to describe the details of your capturing.</li>
 </ol>
 <h2 id="handing-it-in"><a name="handing-it-in" class="plugin-anchor" href="#handing-it-in"><i class="fa fa-link" aria-hidden="true"></i></a>Handing it in</h2>
 <h3 id="report"><a name="report" class="plugin-anchor" href="#report"><i class="fa fa-link" aria-hidden="true"></i></a>Report</h3>
-<p>We will provide a template of your lab assignment report <a href="https://box.nju.edu.cn/d/123a70ac8ff34595b18f/" target="_blank">here</a>. You will submit a package of your report and source code files named <code>&lt;&#x5B66;&#x53F7;&gt;&lt;&#x59D3;&#x540D;&gt;_lab_1</code>. Specifically, it will be like this if you use <code>zip</code> to package and export reports to <code>docx</code>.</p>
-<pre><code>123456789&#x62FE;&#x4F70;&#x4EDF;_lab_1.zip
-  &#x251C;&#x2500;&#x5B9E;&#x9A8C;&#x62A5;&#x544A;.docx
-  &#x2514;&#x2500;lab_0.pcap
-</code></pre><p>The file names in your submission package has to exactly match the file names above. Otherwise, you will lose points!</p>
+<p>We will provide a template of your lab assignment report <a href="https://box.nju.edu.cn/d/123a70ac8ff34595b18f/" target="_blank">here</a>. You will submit the report in your repository named <code>&lt;&#x5B66;&#x53F7;&gt;&lt;&#x59D3;&#x540D;&gt;_lab_1</code>. The format of your report can be Microsoft Doc or PDF. An example is <code>123456789&#x62FE;&#x4F70;&#x4EDF;_lab_1.docx</code>.</p>
+<h3 id="capturing-file"><a name="capturing-file" class="plugin-anchor" href="#capturing-file"><i class="fa fa-link" aria-hidden="true"></i></a>Capturing file</h3>
+<p>The capturing file name should be <code>lab_1.pcap</code>. If you are capturing file using <em>superuser</em>, you may meet some problems. Read the tips below.</p>
 <blockquote>
 <p>[!WARNING]
-You may (or as I expect you must) meet the error when you what to modify/delete the files generated by the Wireshark or Switchyard programs running on hosts in Mininet. It is because the owner of these files are the superuser <code>root</code>. You need to change the owner to your login user. Run the command below to your log and capturing file.</p>
+You may (or as I expect you must) meet the error when you what to modify/delete the files generated by the Wireshark or Switchyard programs running on hosts in Mininet. It is because the owner of these files are the superuser <code>root</code>. You need to change the owner to your login user. Run the command below to your capturing file. Replace <code>&lt;file&gt;</code> to the file path of your capturing file.</p>
 <pre><code>$ sudo chown $USER:$USER &lt;file&gt;
 </code></pre><p>Another useful command <code>ls -l</code> can check if the owner of the file is <code>root</code>. You can see the file belongings to <code>root</code> is <code>test.log</code> in the example.</p>
 <pre><code>(syenv) cyq@cyq-VirtualBox:~/switchyard$ ls -l
@@ -426,38 +432,57 @@ drwxrwxr-x 4 cyq  cyq   4096 2&#x6708;  21 00:01 examples
 -rw-rw-r-- 1 cyq  cyq   2266 2&#x6708;  20 17:33 setup.py
 drwxrwxr-x 4 cyq  cyq   4096 2&#x6708;  20 17:33 switchyard
 drwxrwxr-x 6 cyq  cyq   4096 2&#x6708;  20 17:37 syenv
--rw-r--r-- 1 root root   181 2&#x6708;  21 21:42 test.log
+-rw-r--r-- 1 root root   181 2&#x6708;  21 21:42 lab_1.pcap
 drwxrwxr-x 2 cyq  cyq   4096 2&#x6708;  20 17:33 tests
-</code></pre><p>As we mentioned before, using <code>sudo</code> is dangerous so be careful.</p>
+</code></pre><p>In this case, run the command <code>sudo chown $USER:$USER ./lab_1.pcap</code> can change the owner to my user <code>cyq</code>.
+As we mentioned before, using <code>sudo</code> is dangerous so be careful.</p>
 </blockquote>
 <h3 id="code"><a name="code" class="plugin-anchor" href="#code"><i class="fa fa-link" aria-hidden="true"></i></a>Code</h3>
-<p>Before you start coding, please create a dictionary named <code>&lt;&#x5B66;&#x53F7;&gt;&lt;&#x59D3;&#x540D;&gt;</code> in the repository <code>switchyard</code>. Then create a dictionary named <code>lab_1</code> in it. Your project will start with copying the template files into <code>lab_1</code>. This time you are likely to copy <code>examples/start_mininet.py</code>, <code>examples/myhub.py</code> and <code>examples/hubtests.py</code> into it. Finally your project will looks like</p>
+<p>Please create a dictionary named <code>lab_1</code> in it. Your project will start with copying the template files into <code>lab_1</code>. This time you are likely to copy <code>examples/start_mininet.py</code>, <code>examples/myhub.py</code> and <code>examples/hubtests.py</code> into it. Now your project will looks like</p>
 <pre><code>switchyard
   &#x251C;&#x2500;docs/
   &#x251C;&#x2500;.../
-+ &#x251C;&#x2500;123456789&#x62FE;&#x4F70;&#x4EDF;/
-+ &#x2502;  &#x2514;&#x2500;lab_1
-+ &#x2502;    &#x251C;&#x2500;hubtests.py
-+ &#x2502;    &#x251C;&#x2500;myhub.py
-+ &#x2502;    &#x2514;&#x2500;start_mininet.py
++ &#x251C;&#x2500;lab_1
++ &#x2502; &#x251C;&#x2500;hubtests.py
++ &#x2502; &#x251C;&#x2500;myhub.py
++ &#x2502; &#x2514;&#x2500;start_mininet.py
   &#x251C;&#x2500;.gitignore
   &#x2514;&#x2500;...
-</code></pre><p>All of your modifications should be on the files under your dictionary. We will check and compare the git commits to judge your work.</p>
+</code></pre><p>When you have done your work, put your report and capturing file in the folder <code>lab_1</code> and commit them. Then tag the commit named <code>&lt;&#x5B66;&#x53F7;/lab_1&gt;</code> where you what to submit. An example is <code>123456789/lab_1</code>. For more about tag, read <a href="https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE" target="_blank">Git &#x57FA;&#x7840; - &#x6253;&#x6807;&#x7B7E;</a>. Finally your project will looks like</p>
+<pre><code>switchyard
+  &#x251C;&#x2500;docs/
+  &#x251C;&#x2500;.../
+m &#x251C;&#x2500;lab_1
++ &#x2502; &#x251C;&#x2500;123456789&#x62FE;&#x4F70;&#x4EDF;_lab_1.docx
+m &#x2502; &#x251C;&#x2500;hubtests.py
++ &#x2502; &#x251C;&#x2500;lab_1.pcap
+m &#x2502; &#x251C;&#x2500;myhub.py
+m &#x2502; &#x2514;&#x2500;start_mininet.py
+  &#x251C;&#x2500;.gitignore
+  &#x2514;&#x2500;...
+</code></pre><blockquote>
+<p>[!WARNING]
+All of your modifications should be on the files under your dictionary <code>lab_1</code>. We will check and compare the <strong>git commits</strong> to judge your work. So remember commit every time you have completed one small task.<br>The file names in your submission has to <strong>exactly</strong> match the file names above. Otherwise, you will lose points!</p>
+</blockquote>
+<h3 id="submit-to-nju-gitlab"><a name="submit-to-nju-gitlab" class="plugin-anchor" href="#submit-to-nju-gitlab"><i class="fa fa-link" aria-hidden="true"></i></a>Submit to NJU GitLab</h3>
 <p>To submit your codes, you need to do the following things at the first time</p>
 <ol>
 <li>Sign up on <a href="https://git.nju.edu.cn" target="_blank">https://git.nju.edu.cn</a> with your own NJU email account.</li>
 <li>Sign in.</li>
-<li>Fork the repository <a href="https://git.nju.edu.cn/dz1933003/switchyard" target="_blank">https://git.nju.edu.cn/dz1933003/switchyard</a> to your own account, then you will get your own repository url.</li>
-<li>Set the remote repository of <code>switchyard</code> to your repository URL by running the command <code>git remote set-url origin &lt;your-repository-url&gt;</code>.</li>
+<li>Import the repository <a href="https://git.nju.edu.cn/njucn-2020-spring/switchyard" target="_blank">https://git.nju.edu.cn/njucn-2020-spring/switchyard</a> to your own account and make it private, then you will get your own repository url.</li>
+<li>Set the remote repository of <code>switchyard</code> to your repository url by running the command <code>git remote set-url origin &lt;your repository url&gt;</code>.</li>
+<li>Share your repository to us.<ol>
+<li>Find &quot;Members&quot; in &quot;Settings&quot; of your repository.</li>
+<li>In &quot;Invite group&quot;, select <code>njucn-2020-spring</code> and make us as &quot;Reporter&quot; or &quot;Developer&quot;.</li>
 </ol>
-<p>Then every time you submit your codes, you should</p>
-<ol>
-<li>Push your code to your remote repository.</li>
-<li>Create a &quot;Pull Request&quot; on the website of your remote repository at <a href="https://git.nju.edu.cn" target="_blank">https://git.nju.edu.cn</a>.</li>
+</li>
 </ol>
+<p>For how to import, there is a brief guide in one picture. <strong>Don&apos;t fork</strong> because that makes your repository public.</p>
+<p><img src="assets/import-repo.png" alt="Import repository"></p>
+<p>Then every time you submit your code, you should push your code to your remote repository <strong>with your tags</strong> by running the command <code>git push origin --tags</code>.</p>
 <blockquote>
 <p>[!WARNING]
-Just commit your source code to your local repository. If there are some files generated that are not source code, ignore them by adding them in the file <code>.gitignore</code>.</p>
+Commit your <strong>source code</strong> to your local repository <strong>only</strong>. If there are some files generated that are not source code, ignore them by adding them in the file <code>.gitignore</code>.</p>
 </blockquote>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
@@ -503,7 +528,7 @@ Just commit your source code to your local repository. If there are some files g
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lab 1: Switchyard & Mininet","level":"1.2","depth":1,"next":{"title":"Prerequisites","level":"1.2.1","depth":2,"path":"content/ch01/prerequisites.md","ref":"content/ch01/prerequisites.md","articles":[{"title":"Linux","level":"1.2.1.1","depth":3,"path":"content/ch01/linux.md","ref":"content/ch01/linux.md","articles":[]},{"title":"Python","level":"1.2.1.2","depth":3,"path":"content/ch01/python.md","ref":"content/ch01/python.md","articles":[]},{"title":"Git","level":"1.2.1.3","depth":3,"path":"content/ch01/git.md","ref":"content/ch01/git.md","articles":[]}]},"previous":{"title":"Computer Network Lab Manual","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch01/lab-1.md","mtime":"2020-02-24T16:29:22.160Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-25T13:51:56.453Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lab 1: Switchyard & Mininet","level":"1.2","depth":1,"next":{"title":"Prerequisites","level":"1.2.1","depth":2,"path":"content/ch01/prerequisites.md","ref":"content/ch01/prerequisites.md","articles":[{"title":"Linux","level":"1.2.1.1","depth":3,"path":"content/ch01/linux.md","ref":"content/ch01/linux.md","articles":[]},{"title":"Python","level":"1.2.1.2","depth":3,"path":"content/ch01/python.md","ref":"content/ch01/python.md","articles":[]},{"title":"Git","level":"1.2.1.3","depth":3,"path":"content/ch01/git.md","ref":"content/ch01/git.md","articles":[]}]},"previous":{"title":"Computer Network Lab Manual","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch01/lab-1.md","mtime":"2020-02-26T11:21:13.049Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-26T12:04:21.673Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
