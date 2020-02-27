@@ -12,7 +12,7 @@ We expect that you have complete [How to use Mininet](./mininet.md) and [How to 
 
 The [Switchyard documentation](https://shellqiqi.gitee.io/switchyard/) also uses these files to show many useful APIs. Again, this document is very important. You need to read it whenever you get confused with the APIs or Switchyard itself. In this section we do not show you the APIs but the workflow and a little code explanation.
 
-We expect that it will take you up to 4 days on this. It may be a little big tricky. But this is important.
+We expect that it will take you up to 4 days on this. It may be a little bit tricky. But this is important.
 
 ## Install Switchyard
 

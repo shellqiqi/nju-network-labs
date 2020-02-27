@@ -8,7 +8,7 @@ In this chapter we will introduce all preparations for our network experiments. 
 
 Our lab assignments are based on CS640 in University of Wisconsin. Most materials are the same. In the future, we will improve the experiment based on your feedback.
 
-In this lab assignment, you will gradually master our experimental environment. But some preliminary abilities are required in our experiments such as how to how to program and debug in Linux. If you are not familiar with these, feel free to contact TAs. We will provide you with some helpful information to get started quickly.
+In this lab assignment, you will gradually master our experimental environment. But some preliminary abilities are required in our experiments such as how to program and debug in Linux. If you are not familiar with these, feel free to contact TAs. We will provide you with some helpful information to get started quickly.
 
 ### Platform
 
