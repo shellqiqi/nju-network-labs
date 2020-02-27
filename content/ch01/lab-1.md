@@ -87,56 +87,60 @@ The capturing file name should be `lab_1.pcap`. If you are capturing file using 
 To submit your codes, you need to do the following things at the first time
 
 1. Sign up on https://git.nju.edu.cn with your own NJU email account.
+
 2. Sign in.
-3. Import the repository https://git.nju.edu.cn/njucn-2020-spring/switchyard to your own account and make it private, then you will get your own repository url.
-5. Share your repository to us.
+
+3. Import the repository https://git.nju.edu.cn/njucn-2020-spring/switchyard to your own account and make it private, then you will get your own repository url. For how to import, there is a brief guide in one picture. **Don't fork** because that makes your repository public.
+
+  ![Import repository](assets/import-repo.png)
+
+4. Share your repository to us.
+
    1. Find "Members" in "Settings" of your repository.
+
    2. In "Invite group", select `njucn-2020-spring` and make us as "Reporter" or "Developer".
 
-For how to import, there is a brief guide in one picture. **Don't fork** because that makes your repository public.
+5. There is a dictionary `~/switchyard` in your virtual machine (if you use the VM image we provide). Set the remote repository of `switchyard` to your repository url by running the command `git remote set-url origin <your repository url>`. Otherwise, clone your own remote repository.
 
-![Import repository](assets/import-repo.png)
+6. Create a dictionary named `lab_1` in `switchyard`. Your project will start with copying the template files into `lab_1`. This time you are likely to copy `examples/start_mininet.py`, `examples/myhub.py` and `examples/hubtests.py` into it. Now your project will looks like
 
-5. There is a dictionary ~/Switchyard in your virtual machines (if you use the VM image we provide). Set the remote repository of `switchyard` to your repository url by running the command `git remote set-url origin <your repository url>`. Otherwise, clone your own remote repository.
+  ```
+  switchyard
+    ├─docs/
+    ├─.../
+  + ├─lab_1
+  + │ ├─hubtests.py
+  + │ ├─myhub.py
+  + │ └─start_mininet.py
+    ├─.gitignore
+    └─...
+  ```
 
-7. Create a dictionary named `lab_1` in Switchyard. Your project will start with copying the template files into `lab_1`. This time you are likely to copy `examples/start_mininet.py`, `examples/myhub.py` and `examples/hubtests.py` into it. Now your project will looks like
+7. Modify codes according to Task 3.
 
-   ```
-   switchyard
-     ├─docs/
-     ├─.../
-   + ├─lab_1
-   + │ ├─hubtests.py
-   + │ ├─myhub.py
-   + │ └─start_mininet.py
-     ├─.gitignore
-     └─...
-   ```
+  > [!WARNING]
+  > All of your modifications should be on the files under your dictionary `lab_1`. We will check and compare the **git commits** to judge your work. So remember commit every time you have completed one small task.  
 
-8. Modify codes according to Task 3.
-	> [!WARNING]
-   	> All of your modifications should be on the files under your dictionary `lab_1`. We will check and compare the **git commits** to judge your work. So remember commit every time you have completed one small task.  
+8. When you have done your work, put your report and capturing file in the folder `lab_1` and commit them. Then tag the commit named `<学号/lab_1>` where you what to submit. An example is `123456789/lab_1`. For more about tag, read [Git 基础 - 打标签](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE). Finally your project will looks like
 
-9.  When you have done your work, put your report and capturing file in the folder `lab_1` and commit them. Then tag the commit named `<学号/lab_1>` where you what to submit. An example is `123456789/lab_1`. For more about tag, read [Git 基础 - 打标签](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE). Finally your project will looks like
+  ```
+  switchyard
+    ├─docs/
+    ├─.../
+  m ├─lab_1
+  + │ ├─123456789拾佰仟_lab_1.docx/pdf
+  m │ ├─hubtests.py
+  + │ ├─lab_1.pcap
+  m │ ├─myhub.py
+  m │ └─start_mininet.py
+    ├─.gitignore
+    └─...
+  ```
 
-   ```
-   switchyard
-     ├─docs/
-     ├─.../
-   m ├─lab_1
-   + │ ├─123456789拾佰仟_lab_1.docx/pdf
-   m │ ├─hubtests.py
-   + │ ├─lab_1.pcap
-   m │ ├─myhub.py
-   m │ └─start_mininet.py
-     ├─.gitignore
-     └─...
-   ```
+  > [!WARNING]
+  > The file names in your submission has to **exactly** match the file names above. Otherwise, you will lose points!
 
-   > [!WARNING]
-   > The file names in your submission has to **exactly** match the file names above. Otherwise, you will lose points!
-   
 9. Then every time you submit your code, you should push your code to your remote repository **with your tags** by running the command `git push origin --tags`.
 
-    > [!WARNING]
-    > Commit your **source code** to your local repository **only**. If there are some files generated that are not source code, ignore them by adding them in the file `.gitignore`.
+  > [!WARNING]
+  > Commit your **source code** to your local repository **only**. If there are some files generated that are not source code, ignore them by adding them in the file `.gitignore`.
