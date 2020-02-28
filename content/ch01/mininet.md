@@ -7,7 +7,7 @@ The most useful material is their website. Here is the [Mininet Walkthrough](htt
 > [!NOTE]
 > Ignore the content about switches like Open vSwitch (OVS) setting up.
 
-We expect that you will cost 2 days on this.
+We expect that you will spend 2 days on this.
 
 ## Install Mininet
 

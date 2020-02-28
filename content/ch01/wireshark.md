@@ -6,7 +6,7 @@ You will use it to inspect your network setting up by Mininet, and test the func
 
 [Wireshark User’s Guide](https://www.wireshark.org/docs/wsug_html/) is a verbose document about Wireshark but We **do not** recommend it. So sometimes the official document is hard for user to get started. You can find many blogs writing about how to use Wireshark. Read them instead or the first search result in Google [here](https://www.howtogeek.com/104278/how-to-use-wireshark-to-capture-filter-and-inspect-packets/).
 
-We expect that you will cost an afternoon on this.
+We expect that this will cost you an afternoon.
 
 ## Install Wireshark
 

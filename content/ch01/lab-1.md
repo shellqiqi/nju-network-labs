@@ -2,19 +2,19 @@
 
 ## Overview
 
-In this chapter we will introduce all preparations for our network experiments. Then your are going to modify the examples we provided according to our requirements.
+In this chapter we will introduce all preparations for our network experiments. Then your are going to modify the examples we provide according to our requirements.
 
 ## Details
 
-Our lab assignments are based on CS640 in University of Wisconsin. Most materials are the same. In the future, we will improve the experimental content based on feedback.
+Our lab assignments are based on CS640 in University of Wisconsin. Most materials are the same. In the future, we will improve the experiment based on your feedback.
 
-For this lab assignment, you will gradually master our experimental environment. But we need you to know some basic skills, such as how to develop on linux or how to program. If you are not familiar with these, please tell TAs. We will list some helpful materials for you to get started quickly.
+In this lab assignment, you will gradually master our experimental environment. But some preliminary abilities are required in our experiments such as how to program and debug in Linux. If you are not familiar with these, feel free to contact TAs. We will provide you with some helpful information to get started quickly.
 
 ### Platform
 
-The platform of our labs is Switchyard. In Switchyard you need to write Python to implement the functions of a device. Then you will run your device in Mininet and capture packets using Wireshark. You will use Git to manage your projects and submit them. All these software are installed on Linux. An editor helps you to develope is Visual Studio Code.
+The platform of our labs is Switchyard. You can implement a device with various functions in Switchyard by writing Python codes. Then you can run your device in Mininet and capture packets using Wireshark. You will use Git to manage your projects and submit them. All these software are installed on Linux. We recommend using Visual Studio Code as your editor.
 
-So here is the list of softwares I mentioned sorted by learning order.
+Here is the list of softwares we mentioned (sorted by learning order).
 
 - Linux
 - Python
@@ -30,38 +30,38 @@ Read the section [prerequisites](prerequisites.md) and meet the requirements for
 
 ### Task 2: An Example
 
-Read the section [workflow](workflow.md) and meet the requirements for using Mininet, Wireshark and Switchyard. At the meantime you will learn how to complete a lab assignment.
+Read the section [workflow](workflow.md) and meet the requirements for using Mininet, Wireshark and Switchyard. At the meantime you will learn how to complete this assignment.
 
 ### Task 3: Your Modification
 
 After task 2, you are able to do some exercises on our platform.
 
-1. In the section [Mininet](mininet.md), we introduced how to construct a topology. So here we have two options for you, choose **one** to implement. Then show the details of your building a topology in your report.
+1. In the section [Mininet](mininet.md), we introduced how to construct a topology. So here we have two options for you, choose **one** to implement. Then show the details of how you build the topology in your report.
   - Delete `server2` in the topology,
-  - Or create a different topology with 6 nodes with hosts and hubs (don't use other kind of devices).
-2. In the section [Switchyard](switchyard.md), we introduced how to program a device. So count how many packets pass through a hub both in and out. You need to log it out every time you received one packet with the format of each line `<timestamp> in:<ingress packet count> out:<egress packet count>`. Then show the log of your hub and how you implement it in your report.
+  - Or create a different topology containing 6 nodes using hosts and hubs (don't use other kind of devices).
+2. In the section [Switchyard](switchyard.md), we introduced how to program a device. Your task is to count how many packets pass through a hub both in and out. You need to log it out every time you receive one packet with the format of each line `<timestamp> in:<ingress packet count> out:<egress packet count>`. Then show the log of your hub and how you implement it in your report.
 3. In the section [Switchyard](switchyard.md), we introduced how to write the test case. So here we have two options for you, choose **one** to implement. Then show the details of your test cases in your report.
   - Create one test case by using the given function `mk_pkt` with different fields,
   - Or create one test case with your handmade packet.
 4. In the section [Switchyard](switchyard.md), we introduced how to run Switchyard programs in Mininet. So run your new hubs in your new topology and make sure it works. Show the procedure in your report.
-5. Both in the section [Wireshark](wireshark.md) and [Switchyard](switchyard.md), we introduced how to capture packets. In your own topology, capture packets on one host (no hub) while create some traffic. **Save your capturing file** and submit it with your report and code. Also you need to describe the details of your capturing.
+5. Both in section [Wireshark](wireshark.md) and [Switchyard](switchyard.md), we introduced how to capture packets. In your own topology, capture packets on one host (no hub) while creating some traffic. **Save your captured file** and submit it with your report and code. Also you need to describe the details of your captured file.
 
 ## Handing it in
 
 ### Report
 
-We will provide a template of your lab assignment report [here](https://box.nju.edu.cn/d/123a70ac8ff34595b18f/). You will submit the report in your repository named `<学号><姓名>_lab_1`. The format of your report can be Microsoft Doc or PDF. An example is `123456789拾佰仟_lab_1.docx`.
+We will provide a template of your lab assignment report [here](https://box.nju.edu.cn/d/123a70ac8ff34595b18f/). You need to submit the report in your repository named `<学号><姓名>_lab_1`. The format of your report can be Microsoft Doc or PDF. An example is `123456789拾佰仟_lab_1.docx`.
 
-### Capturing file
+### Captured file
 
-The capturing file name should be `lab_1.pcap`. If you are capturing file using *superuser*, you may meet some problems. Read the tips below.
+The captured file's name should be `lab_1.pcap`. If you capture packets using *superuser*, you may meet some problems. Read the tips below.
 
 > [!WARNING]
-> You may (or as I expect you must) meet the error when you what to modify/delete the files generated by the Wireshark or Switchyard programs running on hosts in Mininet. It is because the owner of these files are the superuser `root`. You need to change the owner to your login user. Run the command below to your capturing file. Replace `<file>` to the file path of your capturing file.
+> You may (or as I expect you must) meet the error when you try to modify/delete the files generated by Wireshark or Switchyard programs running on hosts in Mininet. It is because the owner of these files is superuser `root`. You need to change the owner to your login user. Run the command below on your captured file. Replace `<file>` to the file path of your captured file.
 > ```
 > $ sudo chown $USER:$USER <file>
 > ```
-> Another useful command `ls -l` can check if the owner of the file is `root`. You can see the file belongings to `root` is `test.log` in the example.
+> Another useful command `ls -l` can check if the owner of the file is `root`. You can see the file belonging to `root` is `test.log` in the example.
 > ```
 > (syenv) cyq@cyq-VirtualBox:~/switchyard$ ls -l
 > total 88
@@ -79,30 +79,30 @@ The capturing file name should be `lab_1.pcap`. If you are capturing file using 
 > -rw-r--r-- 1 root root   181 2月  21 21:42 lab_1.pcap
 > drwxrwxr-x 2 cyq  cyq   4096 2月  20 17:33 tests
 > ```
-> In this case, run the command `sudo chown $USER:$USER ./lab_1.pcap` can change the owner to my user `cyq`.
-> As we mentioned before, using `sudo` is dangerous so be careful.
+> In this case, running the command `sudo chown $USER:$USER ./lab_1.pcap` can change the owner to my user `cyq`.
+> As we mentioned before, be careful when using `sudo` since it may have potential risks.
 
 ### Submit to NJU GitLab
 
-To submit your codes, you need to do the following things at the first time
+To submit your work, you need to do the following things at the first time
 
 1. Sign up on https://git.nju.edu.cn with your own NJU email account.
 
 2. Sign in.
 
-3. Import the repository https://git.nju.edu.cn/njucn-2020-spring/switchyard to your own account and make it private, then you will get your own repository url. For how to import, there is a brief guide in one picture. **Don't fork** because that makes your repository public.
+3. Import the repository https://git.nju.edu.cn/njucn-2020-spring/switchyard to your own account and make it private, then you will get your own repository url. Here is a brief guide in one picture about how to import the project. **Don't fork** because that makes your repository public.
 
   ![Import repository](assets/import-repo.png)
 
-4. Share your repository to us.
+4. Share your repository with us.
 
    1. Find "Members" in "Settings" of your repository.
 
    2. In "Invite group", select `njucn-2020-spring` and make us as "Reporter" or "Developer".
 
-5. There is a dictionary `~/switchyard` in your virtual machine (if you use the VM image we provide). Set the remote repository of `switchyard` to your repository url by running the command `git remote set-url origin <your repository url>`. Otherwise, clone your own remote repository.
+5. There is a directory `~/switchyard` in your virtual machine (if you use the VM image we provide). Set the remote repository of `switchyard` to your repository url by running the command `git remote set-url origin <your repository url>`. Otherwise, clone your own remote repository.
 
-6. Create a dictionary named `lab_1` in `switchyard`. Your project will start with copying the template files into `lab_1`. This time you are likely to copy `examples/start_mininet.py`, `examples/myhub.py` and `examples/hubtests.py` into it. Now your project will looks like
+6. Create a directory named `lab_1` in `switchyard`. Your should start by copying the template files `examples/start_mininet.py`, `examples/myhub.py` and `examples/hubtests.py` into `lab_1`. And your project will look like
 
   ```
   switchyard
@@ -119,9 +119,9 @@ To submit your codes, you need to do the following things at the first time
 7. Modify codes according to Task 3.
 
   > [!WARNING]
-  > All of your modifications should be on the files under your dictionary `lab_1`. We will check and compare the **git commits** to judge your work. So remember commit every time you have completed one small task.  
+  > All of your modifications should be done on the files under your directory `lab_1`. We will check and compare the **git commits** to judge the originality of your work. So remember to commit every time you complete one small task.  
 
-8. When you have done your work, put your report and capturing file in the folder `lab_1` and commit them. Then tag the commit named `<学号/lab_1>` where you what to submit. An example is `123456789/lab_1`. For more about tag, read [Git 基础 - 打标签](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE). Finally your project will looks like
+8. When you have done your work, put your report, codes and captured file in the folder `lab_1` and commit them. Tag the commit named `<学号/lab_1>` when you want to submit. An example is `123456789/lab_1`. For more about tag, read [Git 基础 - 打标签](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE). Finally your project will look like
 
   ```
   switchyard
@@ -138,9 +138,9 @@ To submit your codes, you need to do the following things at the first time
   ```
 
   > [!WARNING]
-  > The file names in your submission has to **exactly** match the file names above. Otherwise, you will lose points!
+  > The file names in your submission have to **exactly** match the file names above. Otherwise, you will lose points!
 
-9. Then every time you submit your code, you should push your code to your remote repository **with your tags** by running the command `git push origin --tags`.
+9. Submit your work by pushing your local repository to your remote repository **with your tags** by running the command `git push origin --tags`. 
 
   > [!WARNING]
-  > Commit your **source code** to your local repository **only**. If there are some files generated that are not source code, ignore them by adding them in the file `.gitignore`.
+  > **Only** commit your **source code** to your local repository. If there are some generated files that are not source code, ignore them by adding them in the file `.gitignore`.
