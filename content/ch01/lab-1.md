@@ -52,7 +52,7 @@ After task 2, you are able to do some exercises on our platform.
 
 We will provide a template of your lab assignment report [here](https://box.nju.edu.cn/d/123a70ac8ff34595b18f/). You need to submit the report in your repository named `<学号><姓名>_lab_1`. The format of your report can be Microsoft Doc or PDF. An example is `123456789拾佰仟_lab_1.docx`.
 
-### capture file
+### Capture file
 
 The capture file's name should be `lab_1.pcap`. If you capture packets using *superuser*, you may meet some problems. Read the tips below.
 
@@ -116,12 +116,14 @@ To submit your work, you need to do the following things at the first time
     └─...
   ```
 
-7. Modify codes according to Task 3.
+Then complete Task 3. When you are ready to submit, do the following.
+
+1. Modify your code according to Task 3, complete your report and save your capture file.
 
   > [!WARNING]
-  > All of your modifications should be done on the files under your directory `lab_1`. We will check and compare the **git commits** to judge the originality of your work. So remember to commit every time you complete one small task.  
+  > All of your modifications should be done on the files under your directory `lab_1`. We will check and compare the **git commits** to judge the originality of your work. So remember to commit every time you complete one small task.
 
-8. When you have done your work, put your report, codes and capture file in the folder `lab_1` and commit them. Tag the commit named `<学号/lab_1>` which you want to submit. An example is `123456789/lab_1`. For more about tag, read [Git 基础 - 打标签](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE). Finally your project will look like
+2. When you have done your work, put your report, code and capture file in the folder `lab_1` and commit them. Tag the commit named `<学号/lab_1>` which you want to submit. An example is `123456789/lab_1`. For more about tag, read [Git 基础 - 打标签](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE). Finally your project will look like
 
   ```
   switchyard
@@ -140,7 +142,7 @@ To submit your work, you need to do the following things at the first time
   > [!WARNING]
   > The file names in your submission have to **exactly** match the file names above. Otherwise, you will lose points!
 
-9. Submit your work by pushing your local repository to your remote repository **with your tags** by running the command `git push origin --tags`.
+3. Submit your work by pushing your local repository to your remote repository **with your tags** by running the command `git push origin --tags`.
 
   > [!WARNING]
   > **Only** commit your **source code** to your local repository. If there are some generated files that are not source code, ignore them by adding them in the file `.gitignore`.

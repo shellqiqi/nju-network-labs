@@ -27,7 +27,7 @@ Out: , due .
 
 [Start the lab here](./content/ch01/lab-1.md).
 
-### Lab 2: Learning switch
+### Lab 2: Learning Switch
 
 Out: , due .
 
@@ -37,7 +37,7 @@ Out: , due .
 
 Out: , due .
 
-#### Lab 4: Forwarding packets
+#### Lab 4: Forwarding Packets
 
 Out: , due .
 
