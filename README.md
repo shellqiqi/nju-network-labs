@@ -31,6 +31,8 @@ Out: , due .
 
 Out: , due .
 
+[Start the lab here](./content/ch02/lab-2.md)
+
 ### IPv4 Router
 
 #### Lab 3: Respond to ARP
