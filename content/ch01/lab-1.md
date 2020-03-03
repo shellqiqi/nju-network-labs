@@ -105,15 +105,15 @@ To submit your work, you need to do the following things at the first time
 6. Create a directory named `lab_1` in `switchyard`. Your should start by copying the template files `examples/start_mininet.py`, `examples/myhub.py` and `examples/hubtests.py` into `lab_1`. And your project will look like
 
   ```
-  switchyard
-    ├─docs/
-    ├─.../
-  + ├─lab_1
-  + │ ├─hubtests.py
-  + │ ├─myhub.py
-  + │ └─start_mininet.py
-    ├─.gitignore
-    └─...
+    switchyard/
+      ├─docs/
+      ├─.../
+    + ├─lab_1/
+    + │ ├─hubtests.py
+    + │ ├─myhub.py
+    + │ └─start_mininet.py
+      ├─.gitignore
+      └─...
   ```
 
 Then complete Task 3. When you are ready to submit, do the following.
@@ -126,17 +126,17 @@ Then complete Task 3. When you are ready to submit, do the following.
 2. When you have done your work, put your report, code and capture file in the folder `lab_1` and commit them. Tag the commit named `<学号/lab_1>` which you want to submit. An example is `123456789/lab_1`. For more about tag, read [Git 基础 - 打标签](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE). Finally your project will look like
 
   ```
-  switchyard
-    ├─docs/
-    ├─.../
-  m ├─lab_1
-  + │ ├─123456789拾佰仟_lab_1.docx/pdf
-  m │ ├─hubtests.py
-  + │ ├─lab_1.pcap
-  m │ ├─myhub.py
-  m │ └─start_mininet.py
-    ├─.gitignore
-    └─...
+    switchyard/
+      ├─docs/
+      ├─.../
+    m ├─lab_1/
+    + │ ├─123456789拾佰仟_lab_1.docx
+    m │ ├─hubtests.py
+    + │ ├─lab_1.pcap
+    m │ ├─myhub.py
+    m │ └─start_mininet.py
+      ├─.gitignore
+      └─...
   ```
 
   > [!WARNING]
