@@ -12,6 +12,8 @@
     * [Wireshark](content/ch01/wireshark.md)
     * [Switchyard](content/ch01/switchyard.md)
 * [Lab 2: Learning Switch](content/ch02/lab-2.md)
+  * [Flowchart](content/ch02/flowchart.md)
+  * [FAQ](content/ch02/faq.md)
 * [Appendix](appendix/appendix.md)
   * [Environment Setup](appendix/environment-setup.md)
   * [About This Repository](appendix/about-this-repository.md)

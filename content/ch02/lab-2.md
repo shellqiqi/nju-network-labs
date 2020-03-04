@@ -6,7 +6,9 @@ In this assignment, you are going to implement the core functionalities of an Et
 
 ## Details
 
-Your task is to implement the logic that is described in the flowchart [here]. As it is described in the last paragraph of the "Ethernet Learning Switch Operation" section, your switch will also handle the frames that are intended for itself and the frames whose Ethernet destination address is the broadcast address `FF:FF:FF:FF:FF:FF`.
+TODO: Merge flowcharts into this section
+
+Your task is to implement the logic that is described in the flowchart [here](./flowchart.md). As it is described in the last paragraph of the "Ethernet Learning Switch Operation" section, your switch will also handle the frames that are intended for itself and the frames whose Ethernet destination address is the broadcast address `FF:FF:FF:FF:FF:FF`.
 
 In addition to these, you will also implement three different mechanisms to purge the outdated/stale entries from the forwarding table. This will allow your learning switch to adapt to changes in the network topology.
 
