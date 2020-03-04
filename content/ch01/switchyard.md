@@ -32,11 +32,14 @@ $ sudo apt-get install libffi-dev libpcap-dev python3-dev python3-pip
 
 You can install Switchyard and the necessary related packages in an isolated Python virtual environment ("venv"), which is the recommended path, or in the system directories, which is often less desirable. The venv route is highly suggested, since it makes all installation "local" and can easily destroyed, cleaned up, and recreated.
 
-To create a new virtual environment, you could do something like the following under your workspace folder `switchyard`.
+To create a new virtual environment, you could do something like the following **under your workspace folder `switchyard`**.
 
 ```
 $ python3 -m venv syenv
 ```
+
+> [!WARNING]
+> Many students create their virtual environment under `~` so there is a folder `~/syenv`, which is **WRONG**. The right path is `~/switchyard/syenv`.
 
 After this command, you will find a folder `syenv` in `switchyard`, which is the folder of the Python virtual environment. You can change the name `syenv` to whatever you'd like to name your virtual environment. Next, you need to activate the environment. The instructions vary depending on the shell you're using. On `bash`, the command is
 
