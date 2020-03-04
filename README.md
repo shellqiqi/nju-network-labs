@@ -23,13 +23,13 @@ You can find TAs and our 教学立方 invitation code after joining this group.
 
 ### Lab 1: Switchyard & Mininet
 
-Out: , due .
+Out: 2020-3-4, due 2020-3-18.
 
 [Start the lab here](./content/ch01/lab-1.md).
 
 ### Lab 2: Learning Switch
 
-Out: , due .
+Out: 2020-3-11, due 2020-3-25.
 
 ### IPv4 Router
 

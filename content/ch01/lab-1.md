@@ -98,7 +98,10 @@ To submit your work, you need to do the following things at the first time
 
    1. Find "Members" in "Settings" of your repository.
 
-   2. In "Invite group", select `njucn-2020-spring` and make us as "Reporter" or "Developer".
+   2. In "Invite group", select `njucn-2020-spring/student/<学号>` and make us as "Reporter" or "Developer".
+
+  > [!NOTE]
+  > Please fill out the form in the QQ group file *GitLab 私有仓库地址提交* first. After we collect them, we will inform you of the invitation.
 
 5. There is a directory `~/switchyard` in your virtual machine (if you use the VM image we provide). Set the remote repository of `switchyard` to your repository url by running the command `git remote set-url origin <your repository url>`. Otherwise, clone your own remote repository.
 
