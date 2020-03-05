@@ -12,6 +12,7 @@
     * [Wireshark](content/ch01/wireshark.md)
     * [Switchyard](content/ch01/switchyard.md)
 * [Lab 2: Learning Switch](content/ch02/lab-2.md)
+  * [Task 1: Preparation](content/ch02/preparation.md)
   * [Flowchart](content/ch02/flowchart.md)
   * [FAQ](content/ch02/faq.md)
 * [Appendix](appendix/appendix.md)
