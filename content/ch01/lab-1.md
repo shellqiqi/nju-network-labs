@@ -24,27 +24,34 @@ Here is the list of softwares we mentioned (sorted by learning order).
 - Switchyard
 - VS Code
 
+## Your Tasks
+
 ### Task 1: Get Ready
 
-Read the section [prerequisites](prerequisites.md) and meet the requirements for using Linux, Python and Git. We assume that you have a basic understanding of these contents.
+Meet the requirements for using Linux, Python and Git. We assume that you have a basic understanding of these contents.
+
+[Start your task here](prerequisites.md)
 
 ### Task 2: An Example
 
-Read the section [workflow](workflow.md) and meet the requirements for using Mininet, Wireshark and Switchyard. At the meantime you will learn how to complete this assignment.
+Meet the requirements for using Mininet, Wireshark and Switchyard. At the meantime you will learn how to complete this assignment.
 
-### Task 3: Your Modification
+[Start your task here](workflow.md)
 
-After task 2, you are able to do some exercises on our platform.
+### Task 3: NJU GitLab
 
-1. In the section [Mininet](mininet.md), we introduced how to construct a topology. So here we have two options for you, choose **one** to implement. Then show the details of how you build the topology in your report.
-  - Delete `server2` in the topology,
-  - Or create a different topology containing 6 nodes using hosts and hubs (don't use other kind of devices).
-2. In the section [Switchyard](switchyard.md), we introduced how to program a device. Your task is to count how many packets pass through a hub both in and out. You need to log it out every time you receive one packet with the format of each line `<timestamp> in:<ingress packet count> out:<egress packet count>`. For example, if there is a packet that is not addressed to the hub itself, then the hub may log `1583314030.0679464 in:1 out:2`. Then show the log of your hub and how you implement it in your report.
-3. In the section [Switchyard](switchyard.md), we introduced how to write the test case. So here we have two options for you, choose **one** to implement. Then show the details of your test cases in your report.
-  - Create one test case by using the given function `mk_pkt` with different arguments,
-  - Or create one test case with your handmade packet.
-4. In the section [Switchyard](switchyard.md), we introduced how to run Switchyard programs in Mininet. So run your new hubs in your new topology and make sure it works. Show the procedure in your report.
-5. Both in section [Wireshark](wireshark.md) and [Switchyard](switchyard.md), we introduced how to capture packets. In your own topology, capture packets on one host (no hub) while creating some traffic. **Save your capture file** and submit it with your report and code. Also you need to describe the details of your capture file.
+Meet the requirements for using Mininet, Wireshark and Switchyard. At the meantime you will learn how to complete this assignment.
+
+[Start your task here](nju-gitlab.md)
+
+> [!DANGER]
+> **Do not skip** this task. We use NJU GitLab to collect your projects.
+
+### Task 4: Your Modification
+
+After Task 1 2 3, you are ready to do some exercises on our platform and count 4.
+
+[Start your task here](modification.md)
 
 ## Handing it in
 
@@ -84,47 +91,9 @@ The capture file's name should be `lab_1.pcap`. If you capture packets using *su
 
 ### Submit to NJU GitLab
 
-To submit your work, you need to do the following things at the first time
-
-1. Sign up on https://git.nju.edu.cn with your own NJU email account.
-
-2. Sign in.
-
-3. Import the repository https://git.nju.edu.cn/njucn-2020-spring/switchyard to your own account and make it private, then you will get your own repository url. Here is a brief guide in one picture about how to import the project. **Don't fork** because that makes your repository public.
-
-  ![Import repository](assets/import-repo.png)
-
-4. Share your repository with us.
-
-   1. Find "Members" in "Settings" of your repository.
-
-   2. In "Invite group", select `njucn-2020-spring/student/<学号>` and make us as "Reporter" or "Developer".
-
-  > [!NOTE]
-  > Please fill out the form in the QQ group file *GitLab 私有仓库地址提交* first. After we collect them, we will inform you of the invitation.
-
-5. There is a directory `~/switchyard` in your virtual machine (if you use the VM image we provide). Set the remote repository of `switchyard` to your repository url by running the command `git remote set-url origin <your repository url>`. Otherwise, clone your own remote repository.
-
-6. Create a directory named `lab_1` in `switchyard`. Your should start by copying the template files `examples/start_mininet.py`, `examples/myhub.py` and `examples/hubtests.py` into `lab_1`. And your project will look like
-
-  ```
-    switchyard/
-      ├─docs/
-      ├─.../
-    + ├─lab_1/
-    + │ ├─hubtests.py
-    + │ ├─myhub.py
-    + │ └─start_mininet.py
-      ├─.gitignore
-      └─...
-  ```
-
-Then complete Task 3. When you are ready to submit, do the following.
+When you are ready to submit, do the following.
 
 1. Modify your code according to Task 3, complete your report and save your capture file.
-
-  > [!WARNING]
-  > All of your modifications should be done on the files under your directory `lab_1`. We will check and compare the **git commits** to judge the originality of your work. So remember to commit every time you complete one small task.
 
 2. When you have done your work, put your report, code and capture file in the folder `lab_1` and commit them. Tag the commit named `<学号/lab_1>` which you want to submit. An example is `123456789/lab_1`. For more about tag, read [Git 基础 - 打标签](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE). Finally your project will look like
 
