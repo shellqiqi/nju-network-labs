@@ -132,7 +132,7 @@ scenario = hub_tests()
 
 The function `mk_pkt` is used to make a packet. For now you don't need to know what the parameters means.
 
-The function `hub_tests` returns a `TestScenario` object which assigned to `scenario`. The var `scenario` is very important in the test framework of Switchyard, do not forget it. We construct the scenario with a name "hub tests". Then we add three device interfaces with names and MAC addresses. In every case, we make a packet then feed it into one interface with `PacketInputEvent`. Then we compare the outgoing packets with our expectation packets using `PacketOutputEvent`. If there is no packet out, we use the function `PacketInputTimeoutEvent` to check there is no traffic for a period of time.
+The function `hub_tests` returns a `TestScenario` object which assigned to `scenario`. The var `scenario` is very important in the test framework of Switchyard, do not forget it. We construct the scenario with a name "hub tests". Then we add three interfaces with name and MAC address on our hub. In every case, we make a packet then feed it into one interface of our hub with `PacketInputEvent`. Then we compare the outgoing packets from interfaces of our hub with our expectation packets using `PacketOutputEvent`. If there is no packet out, we use the function `PacketInputTimeoutEvent` to check there is no traffic for a period of time.
 
 All test APIs used is introduced [here](https://shellqiqi.gitee.io/switchyard/test_scenario_creation.html).
 
