@@ -1,0 +1,657 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Lab 2: Learning Switch · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="preparation.html" />
+    
+    
+    <link rel="prev" href="../ch01/switchyard.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Computer Network Lab Manual
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../ch01/lab-1.html">
+            
+                <a href="../ch01/lab-1.html">
+            
+                    
+                    Lab 1: Switchyard & Mininet
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../ch01/prerequisites.html">
+            
+                <a href="../ch01/prerequisites.html">
+            
+                    
+                    Prerequisites
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../ch01/linux.html">
+            
+                <a href="../ch01/linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../ch01/python.html">
+            
+                <a href="../ch01/python.html">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../ch01/git.html">
+            
+                <a href="../ch01/git.html">
+            
+                    
+                    Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../ch01/workflow.html">
+            
+                <a href="../ch01/workflow.html">
+            
+                    
+                    Workflow
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../ch01/vscode.html">
+            
+                <a href="../ch01/vscode.html">
+            
+                    
+                    VS Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../ch01/mininet.html">
+            
+                <a href="../ch01/mininet.html">
+            
+                    
+                    Mininet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../ch01/wireshark.html">
+            
+                <a href="../ch01/wireshark.html">
+            
+                    
+                    Wireshark
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../ch01/switchyard.html">
+            
+                <a href="../ch01/switchyard.html">
+            
+                    
+                    Switchyard
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="lab-2.html">
+            
+                <a href="lab-2.html">
+            
+                    
+                    Lab 2: Learning Switch
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="preparation.html">
+            
+                <a href="preparation.html">
+            
+                    
+                    Task 1: Preparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="basic-switch.html">
+            
+                <a href="basic-switch.html">
+            
+                    
+                    Task 2: Basic Switch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="timeouts.html">
+            
+                <a href="timeouts.html">
+            
+                    
+                    Task 3: Timeouts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="lru.html">
+            
+                <a href="lru.html">
+            
+                    
+                    Task 4: Least Recently Used
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="ltv.html">
+            
+                <a href="ltv.html">
+            
+                    
+                    Task 5: Least Traffic Volume
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="test-deploy.html">
+            
+                <a href="test-deploy.html">
+            
+                    
+                    Task 6: Testing & Deploying
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="faq.html">
+            
+                <a href="faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../appendix/appendix.html">
+            
+                <a href="../../appendix/appendix.html">
+            
+                    
+                    Appendix
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../appendix/environment-setup.html">
+            
+                <a href="../../appendix/environment-setup.html">
+            
+                    
+                    Environment Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../appendix/about-this-repository.html">
+            
+                <a href="../../appendix/about-this-repository.html">
+            
+                    
+                    About This Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Lab 2: Learning Switch</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="lab-2-learning-switch"><a name="lab-2-learning-switch" class="plugin-anchor" href="#lab-2-learning-switch"><i class="fa fa-link" aria-hidden="true"></i></a>Lab 2: Learning Switch</h1>
+<h2 id="overview"><a name="overview" class="plugin-anchor" href="#overview"><i class="fa fa-link" aria-hidden="true"></i></a>Overview</h2>
+<p>In this assignment, you are going to implement the core functionalities of an Ethernet learning switch using the <a href="https://gitee.com/shellqiqi/switchyard" target="_blank">Switchyard framework</a>. An Ethernet switch is a layer 2 device that uses packet switching to receive, process and forward frames to other devices (end hosts, other switches) in the network. A switch has a set of interfaces (ports) through which it sends/receives Ethernet frames. When Ethernet frames arrive on any port, the switch process the header of the frame to obtain information about the destination host. If the switch knows that the host is reachable through one of its ports, it sends out the frame from the appropriate output port. If it does not know where the host is, it floods the frame out of all ports except the input port.</p>
+<h2 id="details"><a name="details" class="plugin-anchor" href="#details"><i class="fa fa-link" aria-hidden="true"></i></a>Details</h2>
+<p>Your task is to implement the logic of a switch. As it is described in the last paragraph of the &quot;Ethernet Learning Switch Operation&quot; section, your switch will also handle the frames that are intended for itself and the frames whose Ethernet destination address is the broadcast address <code>FF:FF:FF:FF:FF:FF</code>.</p>
+<p>In addition to these, you will also implement three different mechanisms to purge the outdated/stale entries from the forwarding table. This will allow your learning switch to adapt to changes in the network topology.</p>
+<p>These mechanisms are:</p>
+<ul>
+<li><p>Remove an entry from the forwarding table after 10 seconds have elapsed.</p>
+</li>
+<li><p>Remove the least recently used (LRU) entry from the forwarding table. For this functionality assume that your table can only hold 5 entries at a time. If a new entry comes and your table is full, you will remove the entry that has not been matched with a Ethernet frame destination address for the longest time.</p>
+</li>
+<li><p>Remove the entry that has the least traffic volume. For this functionality assume that your table can only hold 5 entries at a time. Traffic volume for an entry is the number of frames that the switch received where <code>Destination MAC address == MAC address of entry</code>.</p>
+</li>
+</ul>
+<p>You will implement these mechanisms in three separate Python files. The core functionalities that are explained above will be the same for these implementations.</p>
+<blockquote>
+<p>[!WARNING]
+Please carefully read the <a href="faq.html">FAQ</a> section, for more specific details regarding the implementations</p>
+</blockquote>
+<h2 id="your-tasks"><a name="your-tasks" class="plugin-anchor" href="#your-tasks"><i class="fa fa-link" aria-hidden="true"></i></a>Your Tasks</h2>
+<p>In these tasks, you will write the code to implement the core logic in an Ethernet learning switch using the Switchyard framework. Besides using Switchyard for developing and testing your switch, you can deploy it in Mininet to test it in a &quot;live&quot; setting. The code you&apos;ll need to add for the simplest version of this exercise should be less than 20 lines (and possibly quite a bit less depending on exactly how you write the code). There are extensions to the basic learning switch that could add quite a bit more code.</p>
+<h3 id="task-1-preparation"><a name="task-1-preparation" class="plugin-anchor" href="#task-1-preparation"><i class="fa fa-link" aria-hidden="true"></i></a>Task 1: Preparation</h3>
+<p>Initiate your project with our template.</p>
+<p><a href="preparation.html">Start the task here</a>.</p>
+<h3 id="task-2-basic-learning-switch"><a name="task-2-basic-learning-switch" class="plugin-anchor" href="#task-2-basic-learning-switch"><i class="fa fa-link" aria-hidden="true"></i></a>Task 2: Basic Learning Switch</h3>
+<p>Start with the basic learning switch.</p>
+<p><a href="basic-switch.html">Start the task here</a></p>
+<h3 id="task-3-timeouts"><a name="task-3-timeouts" class="plugin-anchor" href="#task-3-timeouts"><i class="fa fa-link" aria-hidden="true"></i></a>Task 3: Timeouts</h3>
+<p>Implement timeouts based on the previous task.</p>
+<p><a href="timeouts.html">Start the task here</a></p>
+<h3 id="task-4-lru-rule-replacement-algorithm"><a name="task-4-lru-rule-replacement-algorithm" class="plugin-anchor" href="#task-4-lru-rule-replacement-algorithm"><i class="fa fa-link" aria-hidden="true"></i></a>Task 4: LRU Rule Replacement Algorithm</h3>
+<p>Implement LRU rule replacement algorithm based on Task 2.</p>
+<p><a href="lru.html">Start the task here</a></p>
+<h3 id="task-5-least-traffic-volume-rule-replacement-algorithm"><a name="task-5-least-traffic-volume-rule-replacement-algorithm" class="plugin-anchor" href="#task-5-least-traffic-volume-rule-replacement-algorithm"><i class="fa fa-link" aria-hidden="true"></i></a>Task 5: Least Traffic Volume Rule Replacement Algorithm</h3>
+<p>Implement least traffic volume rule replacement algorithm based on Task 2.</p>
+<p><a href="ltv.html">Start the task here</a></p>
+<h3 id="task-6-testing--deploying-your-switch"><a name="task-6-testing--deploying-your-switch" class="plugin-anchor" href="#task-6-testing--deploying-your-switch"><i class="fa fa-link" aria-hidden="true"></i></a>Task 6: Testing &amp; Deploying Your Switch</h3>
+<p>Run your switch both in &quot;test mode&quot; and Mininet.</p>
+<p><a href="test-deploy.html">Start the task here</a></p>
+<h2 id="handing-it-in"><a name="handing-it-in" class="plugin-anchor" href="#handing-it-in"><i class="fa fa-link" aria-hidden="true"></i></a>Handing it in</h2>
+<h3 id="report"><a name="report" class="plugin-anchor" href="#report"><i class="fa fa-link" aria-hidden="true"></i></a>Report</h3>
+<p>We will provide a template of your lab assignment report <a href="https://box.nju.edu.cn/d/123a70ac8ff34595b18f/" target="_blank">here</a>. You need to submit the report in your repository named <code>&lt;&#x5B66;&#x53F7;&gt;&lt;&#x59D3;&#x540D;&gt;_lab_2</code>. The format of your report can be Microsoft Doc or PDF. An example is <code>123456789&#x62FE;&#x4F70;&#x4EDF;_lab_2.docx</code>.</p>
+<h3 id="submit-to-nju-gitlab"><a name="submit-to-nju-gitlab" class="plugin-anchor" href="#submit-to-nju-gitlab"><i class="fa fa-link" aria-hidden="true"></i></a>Submit to NJU GitLab</h3>
+<p>To submit your work, you need to do the following things.</p>
+<ol>
+<li><p>Modify your code and complete your report.</p>
+</li>
+<li><p>When you have done your work, put your report and code in the folder <code>lab_2</code> then commit them. Tag the commit named <code>&lt;&#x5B66;&#x53F7;/lab_2&gt;</code> which you want to submit. An example is <code>123456789/lab_2</code>. Finally your project will look like</p>
+<pre><code> switchyard/
+   &#x251C;&#x2500;docs/
+   &#x251C;&#x2500;.../
+ m &#x251C;&#x2500;lab_2/
+ + &#x2502; &#x251C;&#x2500;123456789&#x62FE;&#x4F70;&#x4EDF;_lab_2.docx
+ m &#x2502; &#x251C;&#x2500;myswitch.py
+ m &#x2502; &#x251C;&#x2500;myswitch_to.py
+ m &#x2502; &#x251C;&#x2500;myswitch_lru.py
+ m &#x2502; &#x251C;&#x2500;myswitch_traffic.py
+   &#x2502; &#x251C;&#x2500;...
+ m &#x2502; &#x2514;&#x2500;start_mininet.py
+   &#x251C;&#x2500;.gitignore
+   &#x2514;&#x2500;...
+</code></pre><blockquote>
+<p>[!WARNING]
+The file names in your submission have to <strong>exactly</strong> match the file names above. Otherwise, you will lose points!</p>
+</blockquote>
+</li>
+<li><p>Submit your work by pushing your local repository to your remote repository <strong>with your tags</strong> by running the command <code>git push origin --tags</code>.</p>
+<blockquote>
+<p>[!WARNING]
+<strong>Only</strong> commit your <strong>source code</strong> to your local repository. If there are some generated files that are not source code, ignore them by adding them in the file <code>.gitignore</code>.</p>
+</blockquote>
+</li>
+</ol>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../ch01/switchyard.html" class="navigation navigation-prev " aria-label="Previous page: Switchyard">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="preparation.html" class="navigation navigation-next " aria-label="Next page: Task 1: Preparation">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Lab 2: Learning Switch","level":"1.3","depth":1,"next":{"title":"Task 1: Preparation","level":"1.3.1","depth":2,"path":"content/ch02/preparation.md","ref":"content/ch02/preparation.md","articles":[]},"previous":{"title":"Switchyard","level":"1.2.2.4","depth":3,"path":"content/ch01/switchyard.md","ref":"content/ch01/switchyard.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch02/lab-2.md","mtime":"2020-03-05T15:15:33.198Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-05T15:16:00.683Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
