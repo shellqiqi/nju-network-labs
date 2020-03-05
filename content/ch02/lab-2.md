@@ -6,7 +6,7 @@ In this assignment, you are going to implement the core functionalities of an Et
 
 ## Details
 
-Your task is to implement the logic that is described in the flowchart [here](./flowchart.md). As it is described in the last paragraph of the "Ethernet Learning Switch Operation" section, your switch will also handle the frames that are intended for itself and the frames whose Ethernet destination address is the broadcast address `FF:FF:FF:FF:FF:FF`.
+Your task is to implement the logic of a switch. As it is described in the last paragraph of the "Ethernet Learning Switch Operation" section, your switch will also handle the frames that are intended for itself and the frames whose Ethernet destination address is the broadcast address `FF:FF:FF:FF:FF:FF`.
 
 In addition to these, you will also implement three different mechanisms to purge the outdated/stale entries from the forwarding table. This will allow your learning switch to adapt to changes in the network topology.
 
@@ -21,9 +21,11 @@ These mechanisms are:
 You will implement these mechanisms in three separate Python files. The core functionalities that are explained above will be the same for these implementations.
 
 > [!WARNING]
-> Please carefully read the [FAQ](faq.md) section, especially the flowcharts, for more specific details regarding the implementations
+> Please carefully read the [FAQ](faq.md) section, for more specific details regarding the implementations
 
 ## Your Tasks
+
+In these tasks, you will write the code to implement the core logic in an Ethernet learning switch using the Switchyard framework. Besides using Switchyard for developing and testing your switch, you can deploy it in Mininet to test it in a "live" setting. The code you'll need to add for the simplest version of this exercise should be less than 20 lines (and possibly quite a bit less depending on exactly how you write the code). There are extensions to the basic learning switch that could add quite a bit more code.
 
 ### Task 1: Preparation
 
@@ -31,7 +33,35 @@ Initiate your project with our template.
 
 [Start the task here](preparation.md).
 
-### Task 2: Implementation
+### Task 2: Basic Learning Switch
+
+Start with the basic learning switch.
+
+[Start the task here](basic-switch.md)
+
+### Task 3: Timeouts
+
+Implement timeouts based on the previous task.
+
+[Start the task here](timeouts.md)
+
+### Task 4: LRU Rule Replacement Algorithm
+
+Implement LRU rule replacement algorithm based on Task 2.
+
+[Start the task here](lru.md)
+
+### Task 5: Least Traffic Volume Rule Replacement Algorithm
+
+Implement least traffic volume rule replacement algorithm based on Task 2.
+
+[Start the task here](ltv.md)
+
+### Task 6: Testing & Deploying Your Switch
+
+Run your switch both in "test mode" and Mininet.
+
+[Start the task here](test-deploy.md)
 
 ## Handing it in
 
@@ -53,6 +83,10 @@ To submit your work, you need to do the following things.
       ├─.../
     m ├─lab_2/
     + │ ├─123456789拾佰仟_lab_2.docx
+    m │ ├─myswitch.py
+    m │ ├─myswitch_to.py
+    m │ ├─myswitch_lru.py
+    m │ ├─myswitch_traffic.py
       │ ├─...
     m │ └─start_mininet.py
       ├─.gitignore
