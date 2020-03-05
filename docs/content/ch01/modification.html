@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>VS Code · GitBook</title>
+        <title>Task 4: Modification · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -87,10 +87,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="mininet.html" />
+    <link rel="next" href="../../appendix/appendix.html" />
     
     
-    <link rel="prev" href="workflow.html" />
+    <link rel="prev" href="nju-gitlab.html" />
     
 
     </head>
@@ -218,7 +218,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.2.2.1" data-path="vscode.html">
+        <li class="chapter " data-level="1.2.2.1" data-path="vscode.html">
             
                 <a href="vscode.html">
             
@@ -288,7 +288,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="modification.html">
+        <li class="chapter active" data-level="1.2.4" data-path="modification.html">
             
                 <a href="modification.html">
             
@@ -381,7 +381,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >VS Code</a>
+        <a href="../.." >Task 4: Modification</a>
     </h1>
 </div>
 
@@ -396,32 +396,52 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="vs-code"><a name="vs-code" class="plugin-anchor" href="#vs-code"><i class="fa fa-link" aria-hidden="true"></i></a>VS Code</h1>
-<p>You can use Visual Studio Code (VSC) to develope your projects. I will show how to install it and introduce some plugins may help you. This tutorial is prepared for those who want to take full control of Switchyard in one editor. We use Ubuntu 18.04 here. As we have provided the VM image with VSC preinstalled, you can skip the installation.</p>
-<p>We expect that you will spend several hours on this.</p>
-<h2 id="install-vsc"><a name="install-vsc" class="plugin-anchor" href="#install-vsc"><i class="fa fa-link" aria-hidden="true"></i></a>Install VSC</h2>
-<p>You can choose the VM image with VSC preinstalled. But someone like to install it themselves. The easiest way to install Visual Studio Code for Debian/Ubuntu based distributions is to download and install the <a href="https://go.microsoft.com/fwlink/?LinkID=760868" target="_blank">.deb package (64-bit)</a>, either through the graphical software center if it&apos;s available, or through the command line with:</p>
-<pre><code>sudo apt install ./&lt;file&gt;.deb
-</code></pre><h2 id="develope-switchyard-with-vsc"><a name="develope-switchyard-with-vsc" class="plugin-anchor" href="#develope-switchyard-with-vsc"><i class="fa fa-link" aria-hidden="true"></i></a>Develope Switchyard with VSC</h2>
+                                <h1 id="task-3-modification"><a name="task-3-modification" class="plugin-anchor" href="#task-3-modification"><i class="fa fa-link" aria-hidden="true"></i></a>Task 3: Modification</h1>
+<h2 id="preparation"><a name="preparation" class="plugin-anchor" href="#preparation"><i class="fa fa-link" aria-hidden="true"></i></a>Preparation</h2>
+<p>Let&apos;s start with our example files.</p>
+<p>Create a directory named <code>lab_1</code> in <code>~/switchyard</code>. Your should start by copying the template files <code>examples/start_mininet.py</code>, <code>examples/myhub.py</code> and <code>examples/hubtests.py</code> into <code>lab_1</code>. And your project will look like</p>
+<pre><code>switchyard/
+  &#x251C;&#x2500;docs/
+  &#x251C;&#x2500;.../
++ &#x251C;&#x2500;lab_1/
++ &#x2502; &#x251C;&#x2500;hubtests.py
++ &#x2502; &#x251C;&#x2500;myhub.py
++ &#x2502; &#x2514;&#x2500;start_mininet.py
+  &#x251C;&#x2500;.gitignore
+  &#x2514;&#x2500;...
+</code></pre><h2 id="play-the-tutorial-again"><a name="play-the-tutorial-again" class="plugin-anchor" href="#play-the-tutorial-again"><i class="fa fa-link" aria-hidden="true"></i></a>Play the Tutorial Again</h2>
+<p>You have done the tutorial. However it is necessary to work by yourself. So modify our examples files.</p>
 <blockquote>
 <p>[!TIP]
-Here we will get in touch with Switchyard in advance. You can just skim the content of Switchyard now. After reading the section <a href="switchyard.html">Switchyard</a>, come back again.</p>
+We suggest that you can commit in Git when you complete one step.</p>
 </blockquote>
-<p>Open the folder of Switchyard in VSC. You can open files in the explorer and edit them.</p>
-<p><img src="assets/vscode.png" alt="VSC"></p>
-<p>Then there are some plugins you may want to install. For Python, check this extension and install it.</p>
-<p><img src="assets/vscode-python.png" alt="VSC-python"></p>
-<p>Next open any Python files and you will see a pop-up message ask you whether you want to install a linter. Pylint is enough to use so install it.</p>
-<p><img src="assets/vscode-pylint.png" alt="VSC-pylint"></p>
-<p>You have got almost every thing you need here. But you may what to format your document by right click on your editor and choose &quot;Format Document&quot;. VSC will tell you that you need to install a formatter. Yapf is better for me but you are free to use others.</p>
-<p><img src="assets/vscode-format.gif" alt="VSC-format"></p>
-<h2 id="debug-switchyard-with-vsc"><a name="debug-switchyard-with-vsc" class="plugin-anchor" href="#debug-switchyard-with-vsc"><i class="fa fa-link" aria-hidden="true"></i></a>Debug Switchyard with VSC</h2>
-<p><a href="https://jsommers.github.io/switchyard/test_execution.html#if-you-don-t-like-pdb" target="_blank">Switchyard document about debug</a> shows that you are free to choose other debuggers. Let&apos;s replace pbd with VSC debugger. This will works when running in Switchyard test environment. For VSC, you need to create debugging configuration. The example next shows how to debug <code>examples/myhub.py</code> with <code>examples/hubtests.py</code>.</p>
-<p><img src="assets/vscode-debug-conf.gif" alt="VSC-debug-configuration"></p>
-<p>Set break point in your code and click the configuration to debug.</p>
-<p><img src="assets/vscode-debug.gif" alt="VSC-debug"></p>
-<h2 id="run-switchyard"><a name="run-switchyard" class="plugin-anchor" href="#run-switchyard"><i class="fa fa-link" aria-hidden="true"></i></a>Run Switchyard</h2>
-<p>This part is not VSC integrated, you need to run Switchyard in the terminal. Read the section <a href="switchyard.html">Switchyard</a> for more.</p>
+<div></div>
+
+<blockquote>
+<p>[!WARNING]
+All of your modifications should be done on the files under your directory <code>lab_1</code>. We will check and compare the <strong>git commits</strong> to judge the originality of your work. So remember to commit every time you complete one small task.</p>
+</blockquote>
+<h3 id="step-1-modify-the-mininet-topology"><a name="step-1-modify-the-mininet-topology" class="plugin-anchor" href="#step-1-modify-the-mininet-topology"><i class="fa fa-link" aria-hidden="true"></i></a>Step 1: Modify the Mininet topology</h3>
+<p>In the section <a href="mininet.html">Mininet</a>, we introduced how to construct a topology. So here we have two options for you, choose <strong>one</strong> to implement. Then show the details of how you build the topology in your report.</p>
+<ul>
+<li>Delete <code>server2</code> in the topology,</li>
+<li>Or create a different topology containing 6 nodes using hosts and hubs (don&apos;t use other kinds of devices).</li>
+</ul>
+<p>The file you need to modify is <code>lab_1/start_mininet.py</code>.</p>
+<h3 id="step-2-modify-the-logic-of-a-device"><a name="step-2-modify-the-logic-of-a-device" class="plugin-anchor" href="#step-2-modify-the-logic-of-a-device"><i class="fa fa-link" aria-hidden="true"></i></a>Step 2: Modify the logic of a device</h3>
+<p>In the section <a href="switchyard.html">Switchyard</a>, we introduced how to program a device. Your task is to count how many packets pass through a hub both in and out. You need to log it out every time you receive one packet with the format of each line <code>&lt;timestamp&gt; in:&lt;ingress packet count&gt; out:&lt;egress packet count&gt;</code>. For example, if there is a packet that is not addressed to the hub itself, then the hub may log <code>1583314030.0679464 in:1 out:2</code>. Then show the log of your hub and how you implement it in your report.</p>
+<p>The file you need to modify is <code>lab_1/myhub.py</code>.</p>
+<h3 id="step-3-modify-the-test-scenario-of-a-device"><a name="step-3-modify-the-test-scenario-of-a-device" class="plugin-anchor" href="#step-3-modify-the-test-scenario-of-a-device"><i class="fa fa-link" aria-hidden="true"></i></a>Step 3: Modify the test scenario of a device</h3>
+<p>In the section <a href="switchyard.html">Switchyard</a>, we introduced how to write the test case. So here we have two options for you, choose <strong>one</strong> to implement. Then show the details of your test cases in your report.</p>
+<ul>
+<li>Create one test case by using the given function <code>mk_pkt</code> with different arguments,</li>
+<li>Or create one test case with your handmade packet.</li>
+</ul>
+<p>The file you need to modify is <code>lab_1/hubtests.py</code>.</p>
+<h3 id="step-4-run-your-device-in-mininet"><a name="step-4-run-your-device-in-mininet" class="plugin-anchor" href="#step-4-run-your-device-in-mininet"><i class="fa fa-link" aria-hidden="true"></i></a>Step 4: Run your device in Mininet</h3>
+<p>In the section <a href="switchyard.html">Switchyard</a>, we introduced how to run Switchyard programs in Mininet. So run your new hub in your new topology and make sure it works. Show the procedure in your report.</p>
+<h3 id="step-5-capture-using-wireshark"><a name="step-5-capture-using-wireshark" class="plugin-anchor" href="#step-5-capture-using-wireshark"><i class="fa fa-link" aria-hidden="true"></i></a>Step 5: Capture using Wireshark</h3>
+<p>Both in section <a href="wireshark.html">Wireshark</a> and <a href="switchyard.html">Switchyard</a>, we introduced how to capture packets. In your own topology, capture packets on one host (no hub) while creating some traffic. <strong>Save your capture file</strong> and submit it with your report and code. Also you need to describe the details of your capture file.</p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -450,12 +470,12 @@ Here we will get in touch with Switchyard in advance. You can just skim the cont
 
             
                 
-                <a href="workflow.html" class="navigation navigation-prev " aria-label="Previous page: Task 2: Workflow">
+                <a href="nju-gitlab.html" class="navigation navigation-prev " aria-label="Previous page: Task 3: NJU GitLab">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="mininet.html" class="navigation navigation-next " aria-label="Next page: Mininet">
+                <a href="../../appendix/appendix.html" class="navigation navigation-next " aria-label="Next page: Appendix">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -466,7 +486,7 @@ Here we will get in touch with Switchyard in advance. You can just skim the cont
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"VS Code","level":"1.2.2.1","depth":3,"next":{"title":"Mininet","level":"1.2.2.2","depth":3,"path":"content/ch01/mininet.md","ref":"content/ch01/mininet.md","articles":[]},"previous":{"title":"Task 2: Workflow","level":"1.2.2","depth":2,"path":"content/ch01/workflow.md","ref":"content/ch01/workflow.md","articles":[{"title":"VS Code","level":"1.2.2.1","depth":3,"path":"content/ch01/vscode.md","ref":"content/ch01/vscode.md","articles":[]},{"title":"Mininet","level":"1.2.2.2","depth":3,"path":"content/ch01/mininet.md","ref":"content/ch01/mininet.md","articles":[]},{"title":"Wireshark","level":"1.2.2.3","depth":3,"path":"content/ch01/wireshark.md","ref":"content/ch01/wireshark.md","articles":[]},{"title":"Switchyard","level":"1.2.2.4","depth":3,"path":"content/ch01/switchyard.md","ref":"content/ch01/switchyard.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch01/vscode.md","mtime":"2020-02-28T10:43:12.461Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-05T16:17:15.402Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Task 4: Modification","level":"1.2.4","depth":2,"next":{"title":"Appendix","level":"1.3","depth":1,"path":"appendix/appendix.md","ref":"appendix/appendix.md","articles":[{"title":"Environment Setup","level":"1.3.1","depth":2,"path":"appendix/environment-setup.md","ref":"appendix/environment-setup.md","articles":[]},{"title":"About This Repository","level":"1.3.2","depth":2,"path":"appendix/about-this-repository.md","ref":"appendix/about-this-repository.md","articles":[]}]},"previous":{"title":"Task 3: NJU GitLab","level":"1.2.3","depth":2,"path":"content/ch01/nju-gitlab.md","ref":"content/ch01/nju-gitlab.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch01/modification.md","mtime":"2020-03-05T16:07:37.077Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-05T16:17:15.402Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

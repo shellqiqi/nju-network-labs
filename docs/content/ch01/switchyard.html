@@ -87,7 +87,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../../appendix/appendix.html" />
+    <link rel="next" href="nju-gitlab.html" />
     
     
     <link rel="prev" href="wireshark.html" />
@@ -151,7 +151,7 @@
                 <a href="prerequisites.html">
             
                     
-                    Prerequisites
+                    Task 1: Prerequisites
             
                 </a>
             
@@ -209,7 +209,7 @@
                 <a href="workflow.html">
             
                     
-                    Workflow
+                    Task 2: Workflow
             
                 </a>
             
@@ -272,6 +272,32 @@
     
 
             </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="nju-gitlab.html">
+            
+                <a href="nju-gitlab.html">
+            
+                    
+                    Task 3: NJU GitLab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="modification.html">
+            
+                <a href="modification.html">
+            
+                    
+                    Task 4: Modification
+            
+                </a>
+            
+
             
         </li>
     
@@ -462,7 +488,7 @@ scenario = TestScenario(<span class="hljs-string">&quot;test example&quot;</span
 scenario = hub_tests()
 </code></pre>
 <p>The function <code>mk_pkt</code> is used to make a packet. For now you don&apos;t need to know what the parameters means.</p>
-<p>The function <code>hub_tests</code> returns a <code>TestScenario</code> object which assigned to <code>scenario</code>. The var <code>scenario</code> is very important in the test framework of Switchyard, do not forget it. We construct the scenario with a name &quot;hub tests&quot;. Then we add three device interfaces with names and MAC addresses. In every case, we make a packet then feed it into one interface with <code>PacketInputEvent</code>. Then we compare the outgoing packets with our expectation packets using <code>PacketOutputEvent</code>. If there is no packet out, we use the function <code>PacketInputTimeoutEvent</code> to check there is no traffic for a period of time.</p>
+<p>The function <code>hub_tests</code> returns a <code>TestScenario</code> object which assigned to <code>scenario</code>. The var <code>scenario</code> is very important in the test framework of Switchyard, do not forget it. We construct the scenario with a name &quot;hub tests&quot;. Then we add three interfaces with name and MAC address on our hub. In every case, we make a packet then feed it into one interface of our hub with <code>PacketInputEvent</code>. Then we compare the outgoing packets from interfaces of our hub with our expectation packets using <code>PacketOutputEvent</code>. If there is no packet out, we use the function <code>PacketInputTimeoutEvent</code> to check there is no traffic for a period of time.</p>
 <p>All test APIs used is introduced <a href="https://shellqiqi.gitee.io/switchyard/test_scenario_creation.html" target="_blank">here</a>.</p>
 <p>You may want to run this test, we will cover this later.</p>
 <h2 id="implement-your-device"><a name="implement-your-device" class="plugin-anchor" href="#implement-your-device"><i class="fa fa-link" aria-hidden="true"></i></a>Implement your device</h2>
@@ -572,7 +598,7 @@ mininet&gt; client ping -c1 server1
                 </a>
                 
                 
-                <a href="../../appendix/appendix.html" class="navigation navigation-next " aria-label="Next page: Appendix">
+                <a href="nju-gitlab.html" class="navigation navigation-next " aria-label="Next page: Task 3: NJU GitLab">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -583,7 +609,7 @@ mininet&gt; client ping -c1 server1
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Switchyard","level":"1.2.2.4","depth":3,"next":{"title":"Appendix","level":"1.3","depth":1,"path":"appendix/appendix.md","ref":"appendix/appendix.md","articles":[{"title":"Environment Setup","level":"1.3.1","depth":2,"path":"appendix/environment-setup.md","ref":"appendix/environment-setup.md","articles":[]},{"title":"About This Repository","level":"1.3.2","depth":2,"path":"appendix/about-this-repository.md","ref":"appendix/about-this-repository.md","articles":[]}]},"previous":{"title":"Wireshark","level":"1.2.2.3","depth":3,"path":"content/ch01/wireshark.md","ref":"content/ch01/wireshark.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch01/switchyard.md","mtime":"2020-03-04T05:05:31.474Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-04T09:31:17.483Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Switchyard","level":"1.2.2.4","depth":3,"next":{"title":"Task 3: NJU GitLab","level":"1.2.3","depth":2,"path":"content/ch01/nju-gitlab.md","ref":"content/ch01/nju-gitlab.md","articles":[]},"previous":{"title":"Wireshark","level":"1.2.2.3","depth":3,"path":"content/ch01/wireshark.md","ref":"content/ch01/wireshark.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch01/switchyard.md","mtime":"2020-03-05T16:15:35.099Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-05T16:17:15.402Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
