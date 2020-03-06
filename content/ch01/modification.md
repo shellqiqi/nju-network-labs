@@ -41,7 +41,12 @@ The file you need to modify is `lab_1/start_mininet.py`.
 
 ### Step 2: Modify the logic of a device
 
-In the section [Switchyard](switchyard.md), we introduced how to program a device. Your task is to count how many packets pass through a hub both in and out. You need to log it out every time you receive one packet with the format of each line `<timestamp> in:<ingress packet count> out:<egress packet count>`. For example, if there is a packet that is not addressed to the hub itself, then the hub may log `1583314030.0679464 in:1 out:2`. Then show the log of your hub and how you implement it in your report.
+In the section [Switchyard](switchyard.md), we introduced how to program a device. Your task is to count how many packets pass through a hub in and out. You need to log the statistical result every time you receive one packet with the format of each line `in:<ingress packet count> out:<egress packet count>`. For example, if there is a packet that is not addressed to the hub itself, then the hub may log `in:1 out:2`. Then show the log of your hub when running it in Mininet and how you implement it in your report.
+
+> [!NOTE]
+> In the old version we need you to print the timestamp then we remove it. So many students ask why because there is a function `log_info` which prints the time of log output. However we want you to log the packet arrival time which is different from output time.
+>
+> Because our explanation is late, if you have implemented it in another way, you do **not** need to change.
 
 The file you need to modify is `lab_1/myhub.py`.
 
