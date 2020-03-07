@@ -9,13 +9,13 @@ There is an example of a switch without learning implemented in `switchyard/exam
    2. `lab_2/myswitch_to.py`: Your learning switch with timeout based entry removal.
    3. `lab_2/myswitch_lru.py`: Your learning switch with LRU based entry removal.
    4. `lab_2/myswitch_traffic.py`: Your learning switch with traffic volume based entry removal.
-4. Create your test files in `lab_2`.
+4. (Optional) Create your test files in `lab_2`.
    1. `lab_2/mytests.py`: Your test file of `lab_2/myswitch.py`.
    2. `lab_2/mytests_to.py`: Your test file of `lab_2/myswitch_to.py`.
    3. `lab_2/mytests_lru.py`: Your test file of `lab_2/myswitch_lru.py`.
    4. `lab_2/mytests_traffic.py`: Your test file of `lab_2/myswitch_traffic.py`.
 
-Though we do not test your switch with your own test files, you should still write test scenarios that test all aspects of your code. Your project will look like
+Though we will provide the test files, you should still write test scenarios that test all aspects of your code. Your project will look like
 
 ```
 switchyard
