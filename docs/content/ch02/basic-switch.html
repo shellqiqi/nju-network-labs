@@ -359,20 +359,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="test-deploy.html">
-            
-                <a href="test-deploy.html">
-            
-                    
-                    Task 6: Testing & Deploying
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.7" data-path="faq.html">
+        <li class="chapter " data-level="1.3.6" data-path="faq.html">
             
                 <a href="faq.html">
             
@@ -508,12 +495,35 @@
 </table>
 <h2 id="coding"><a name="coding" class="plugin-anchor" href="#coding"><i class="fa fa-link" aria-hidden="true"></i></a>Coding</h2>
 <p>Your task is to implement the logic in the above flowchart, using the Switchyard framework. The starter file is named <code>lab_2/myswitch.py</code>, which is the only file you&apos;ll need to modify.</p>
-<p>Two links to Switchyard API documentation which you may find helpful are:</p>
+<p>Some links to Switchyard API documentation which you may find helpful are:</p>
 <ul>
+<li>Packet parsing/construction introduction <a href="https://shellqiqi.gitee.io/switchyard/writing_a_program.html#introduction-to-packet-parsing-and-construction" target="_blank">https://shellqiqi.gitee.io/switchyard/writing_a_program.html#introduction-to-packet-parsing-and-construction</a></li>
 <li>Packet parsing/construction reference: <a href="https://shellqiqi.gitee.io/switchyard/reference.html#packet-parsing-and-construction-reference" target="_blank">https://shellqiqi.gitee.io/switchyard/reference.html#packet-parsing-and-construction-reference</a></li>
 <li>Ethernet packet header reference: <a href="https://shellqiqi.gitee.io/switchyard/reference.html#ethernet-header" target="_blank">https://shellqiqi.gitee.io/switchyard/reference.html#ethernet-header</a></li>
 </ul>
 <p>Note that the documentation of Switchyard has examples on running Switchyard in test mode and in real mode, along with a walkthrough of creating a simple hub device, which is useful background material for this exercise.</p>
+<h2 id="testing"><a name="testing" class="plugin-anchor" href="#testing"><i class="fa fa-link" aria-hidden="true"></i></a>Testing</h2>
+<p>You can test your basic learning switch yourself. No test results need to show in your report.</p>
+<h2 id="deploying"><a name="deploying" class="plugin-anchor" href="#deploying"><i class="fa fa-link" aria-hidden="true"></i></a>Deploying</h2>
+<p>To run your switch in Mininet, run the <code>lab_2/start_mininet.py</code> custom topology script. It will create a small network consisting of a single switch with three hosts (client, server1, and server2) in the following configuration.</p>
+<p>To start up Mininet using this script, just type:</p>
+<pre><code>$ sudo python lab_2/start_mininet.py
+</code></pre><p>Once Mininet starts up, you should open a terminal window on the Mininet node named &quot;switch&quot;:</p>
+<pre><code>mininet&gt; xterm switch
+</code></pre><p>In the window that opens (<code>xterm</code> on the node &quot;switch&quot;), activate venv and run your switch in &quot;real&quot; (non-test) mode:</p>
+<pre><code>(syenv) # swyard myswitch.py
+</code></pre><blockquote>
+<p>[!NOTE]
+Note that to run <code>swyard</code> in Mininet in a root shell (such as the shell that is open in response to the <code>xterm</code> command), you will need to activate the Python virtual environment which has Switchyard installed in it. Refer to the Switchyard documentation for more information.</p>
+</blockquote>
+<p>To examine whether your switch is behaving correctly, you can do the following:</p>
+<ol>
+<li>Open terminals on client, server1 and server2 (<code>xterm client</code>, <code>xterm server1</code> and <code>xterm server2</code> from the Mininet prompt)</li>
+<li>In the server1 and server2 terminal, run <code>wireshark</code>. Wireshark is a program that allows you to &quot;snoop&quot; on network traffic arriving on a network interface. We&apos;ll use this to verify that we see packets arriving at server1 and server2 from client.</li>
+<li>In the terminal on the client node, type <code>ping -c 2 192.168.100.1</code>. This command will send two &quot;echo&quot; requests to the server1 node. The server1 node should respond to each of them if your switch is working correctly. You should see at the two echo request and echo replies in Wireshark running on server1, and you will probably see a couple other packets (e.g., ARP, or Address Resolution Protocol, packets).</li>
+<li>If you run Wireshark on server2, you should <strong>not</strong> see the echo request and reply packets (but you will see the ARP packets, since they are sent with broadcast destination addresses).</li>
+</ol>
+<p>&#x2705; Analyze and state the results of the above process in your report with screenshots. Do not explain how you do step by step but focus on the switch&apos;s forwarding logic.</p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -558,7 +568,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Task 2: Basic Switch","level":"1.3.2","depth":2,"next":{"title":"Task 3: Timeouts","level":"1.3.3","depth":2,"path":"content/ch02/timeouts.md","ref":"content/ch02/timeouts.md","articles":[]},"previous":{"title":"Task 1: Preparation","level":"1.3.1","depth":2,"path":"content/ch02/preparation.md","ref":"content/ch02/preparation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch02/basic-switch.md","mtime":"2020-03-05T15:03:51.647Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-05T15:16:00.683Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Task 2: Basic Switch","level":"1.3.2","depth":2,"next":{"title":"Task 3: Timeouts","level":"1.3.3","depth":2,"path":"content/ch02/timeouts.md","ref":"content/ch02/timeouts.md","articles":[]},"previous":{"title":"Task 1: Preparation","level":"1.3.1","depth":2,"path":"content/ch02/preparation.md","ref":"content/ch02/preparation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch02/basic-switch.md","mtime":"2020-03-08T13:19:44.984Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-08T13:45:43.183Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

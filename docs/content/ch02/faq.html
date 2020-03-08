@@ -90,7 +90,7 @@
     <link rel="next" href="../../appendix/appendix.html" />
     
     
-    <link rel="prev" href="test-deploy.html" />
+    <link rel="prev" href="ltv.html" />
     
 
     </head>
@@ -359,20 +359,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="test-deploy.html">
-            
-                <a href="test-deploy.html">
-            
-                    
-                    Task 6: Testing & Deploying
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.3.7" data-path="faq.html">
+        <li class="chapter active" data-level="1.3.6" data-path="faq.html">
             
                 <a href="faq.html">
             
@@ -482,21 +469,24 @@
                                 
                                 <h1 id="faq"><a name="faq" class="plugin-anchor" href="#faq"><i class="fa fa-link" aria-hidden="true"></i></a>FAQ</h1>
 <ol>
-<li><p><strong>Q:</strong> Let&apos;s assume that the table in my switch has 5 entries: [h2, h3, h4, h5, h1] where h2 is the entry that has not been matched the longest while h1 is the most recently matched entry. If a new packet(src=h6,dest=h2) arrives, how is my switch supposed to handle this packet in the LRU-based entry removal implementation (assuming that the network topology does not change)?</p>
-<p><strong>A:</strong> Whenever you receive a new packet, you will assess the state of the switch as if you don&apos;t know about the new packet and make decisions accordingly. So when your switch receives (h6, h2), it is going to add an entry for h6 since it is not in the table. However, since the table is full(5 entries) it will need to remove the LRU entry, which is h2. So your table is going to look like this: [h3, h4, h5, h1, h6] and your switch will broadcast the incoming packets on all ports except for the incoming port since it does not have information about h2 anymore. In other words, your switch (upon receiving the packet) is not going to update the table to [h3,h4,h5,h1,h2], remove h3 and add h6 to get [h4,h5,h1,h6,h2] and output the packet on a single port, which goes to h2.</p>
+<li><p><strong>Q:</strong> Let&apos;s assume that the table in my switch has 5 entries: <code>[h2, h3, h4, h5, h1]</code> where <code>h2</code> is the entry that has not been matched the longest while <code>h1</code> is the most recently matched entry. If a new packet <code>(src=h6, dest=h2)</code> arrives, how is my switch supposed to handle this packet in the LRU-based entry removal implementation (assuming that the network topology does not change)?</p>
+<p><strong>A:</strong> Whenever you receive a new packet, you will assess the state of the switch as if you don&apos;t know about the new packet and make decisions accordingly. So when your switch receives <code>(h6, h2)</code>, it is going to add an entry for <code>h6</code> since it is not in the table. However, since the table is full (5 entries) it will need to remove the LRU entry, which is <code>h2</code>. So your table is going to look like this: <code>[h3, h4, h5, h1, h6]</code> and your switch will broadcast the incoming packets on all ports except for the incoming port since it does not have information about <code>h2</code> anymore. In other words, your switch (upon receiving the packet) is not going to update the table to <code>[h3, h4, h5, h1, h2]</code>, remove <code>h3</code> and add <code>h6</code> to get <code>[h4, h5, h1, h6, h2]</code> and output the packet on a single port, which goes to <code>h2</code>.</p>
 </li>
 <li><p><strong>Q:</strong> How do the entry removal mechanisms work?</p>
 <p><strong>A:</strong> Note that the flow chart for timeout based mechanism does not show when/how to purge the stale entries. Your implementation will obviously handle this as well. Keep in mind that there is not a limit on the number of entries that the table can hold for this mechanism.</p>
 </li>
-<li><p><strong>Q:</strong> How would the table look for the following sequence of packets in the LRU-based implementation: (h1,h4), (h2,h1), (h3,h1), (h4,h1), (h5,h1), (h6.h7), (h4,h5)? (assuming that the network topology does not change)</p>
-<p><strong>A:</strong> Assuming that the leftmost entry is the most recently used and the rightmost is the least recently used: [h1]--&gt;[h1,h2]--&gt;[h1,h3,h2]--&gt;[h1,h4,h3,h2]--&gt;[h1,h5,h4,h3,h2]--&gt;[h6,h1,h5,h4,h3]--&gt;[h5,h6,h1,h4,h3]</p>
+<li><p><strong>Q:</strong> How would the table look for the following sequence of packets in the LRU-based implementation: <code>(h1,h4)</code>, <code>(h2,h1)</code>, <code>(h3,h1)</code>, <code>(h4,h1)</code>, <code>(h5,h1)</code>, <code>(h6.h7)</code>, <code>(h4,h5)</code>? (assuming that the network topology does not change)</p>
+<p><strong>A:</strong> Assuming that the leftmost entry is the most recently used and the rightmost is the least recently used: <code>[h1] &#x2192; [h1, h2] &#x2192; [h1, h3, h2] &#x2192; [h1, h4, h3, h2] &#x2192; [h1, h5, h4, h3, h2] &#x2192; [h6, h1, h5, h4, h3] &#x2192; [h5, h6, h1, h4, h3]</code></p>
 </li>
 <li><p><strong>Q:</strong> Should our switch implementations be aware of changes in the topology?</p>
-<p><strong>A:</strong> Your learning switch has to be aware of the changes in the topology. More specifically, if the switch receives a packet from host A on its interface 1 (i1) it will record this in its table {a-&gt;i1}. Later, if the switch receives another packet from host A but on a different interface (say i2), and if the entry {a-&gt;i1} is still present, it will be updated to {a-&gt;i2}. There will not be two different entries for the same host in your table! Reflecting the topological changes in your implementations will differ slightly:</p>
+<p><strong>A:</strong> Your learning switch has to be aware of the changes in the topology. More specifically, if the switch receives a packet from host A on its interface 1 (<code>i1</code>) it will record this in its table <code>{a &#x2192; i1}</code>. Later, if the switch receives another packet from host A but on a different interface (say <code>i2</code>), and if the entry <code>{a &#x2192; i1}</code> is still present, it will be updated to <code>{a &#x2192; i2}</code>. There will not be two different entries for the same host in your table! Reflecting the topological changes in your implementations will differ slightly:</p>
 <ul>
-<li><strong>Timeout-based:</strong> When updating the entry for a particular host, reset its timer to 0 (this will be equivalent to refreshing the entry for that host).</li>
-<li><strong>LRU-based:</strong> When updating the entry for a particular host, <em>do not</em> update its LRU information.</li>
-<li><strong>Traffic volume-based:</strong> When updating the entry for a particular host, keep the same traffic volume count for the host. <em>Do not</em> set it to 0.</li>
+<li><p>Timeout-based: When updating the entry for a particular host, reset its timer to 0 (this will be equivalent to refreshing the entry for that host).</p>
+</li>
+<li><p>LRU-based: When updating the entry for a particular host, <em>do not</em> update its LRU information.</p>
+</li>
+<li><p>Traffic volume-based: When updating the entry for a particular host, keep the same traffic volume count for the host. <em>Do not</em> set it to 0.</p>
+</li>
 </ul>
 </li>
 <li><p><strong>Q:</strong> In traffic volume based entry removal, which entry should be removed if there are two entries with the lowest traffic volume?</p>
@@ -531,7 +521,7 @@
 
             
                 
-                <a href="test-deploy.html" class="navigation navigation-prev " aria-label="Previous page: Task 6: Testing & Deploying">
+                <a href="ltv.html" class="navigation navigation-prev " aria-label="Previous page: Task 5: Least Traffic Volume">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -547,7 +537,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"FAQ","level":"1.3.7","depth":2,"next":{"title":"Appendix","level":"1.4","depth":1,"path":"appendix/appendix.md","ref":"appendix/appendix.md","articles":[{"title":"Environment Setup","level":"1.4.1","depth":2,"path":"appendix/environment-setup.md","ref":"appendix/environment-setup.md","articles":[]},{"title":"About This Repository","level":"1.4.2","depth":2,"path":"appendix/about-this-repository.md","ref":"appendix/about-this-repository.md","articles":[]}]},"previous":{"title":"Task 6: Testing & Deploying","level":"1.3.6","depth":2,"path":"content/ch02/test-deploy.md","ref":"content/ch02/test-deploy.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch02/faq.md","mtime":"2020-03-04T14:49:23.238Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-05T15:16:00.683Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"FAQ","level":"1.3.6","depth":2,"next":{"title":"Appendix","level":"1.4","depth":1,"path":"appendix/appendix.md","ref":"appendix/appendix.md","articles":[{"title":"Environment Setup","level":"1.4.1","depth":2,"path":"appendix/environment-setup.md","ref":"appendix/environment-setup.md","articles":[]},{"title":"About This Repository","level":"1.4.2","depth":2,"path":"appendix/about-this-repository.md","ref":"appendix/about-this-repository.md","articles":[]}]},"previous":{"title":"Task 5: Least Traffic Volume","level":"1.3.5","depth":2,"path":"content/ch02/ltv.md","ref":"content/ch02/ltv.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch02/faq.md","mtime":"2020-03-08T13:43:53.182Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-08T13:45:43.183Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
