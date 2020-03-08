@@ -26,6 +26,9 @@ Here is the list of softwares we mentioned (sorted by learning order).
 
 ## Your Tasks
 
+> [!NOTE]
+> The sentences marked with ✅ are related to the content of your report. Please pay attention.
+
 ### Task 1: Get Ready
 
 Meet the requirements for using Linux, Python and Git. We assume that you have a basic understanding of these contents.
