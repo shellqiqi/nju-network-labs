@@ -15,7 +15,11 @@ There is an example of a switch without learning implemented in `switchyard/exam
    3. `lab_2/mytests_lru.py`: Your test file of `lab_2/myswitch_lru.py`.
    4. `lab_2/mytests_traffic.py`: Your test file of `lab_2/myswitch_traffic.py`.
 
-Though we will provide the test files, you should still write test scenarios that test all aspects of your code. Your project will look like
+Though we will provide the test files, they are incomprehensible. So you should still write test scenarios that test all aspects of your code. You can find our test files below. Download it and you will use it to test your switch later. You can unzip the test files we provide into the folder `lab_2`.
+
+[Download compiled test cases here](https://box.nju.edu.cn/d/123a70ac8ff34595b18f/).
+
+Finally, your project will look like
 
 ```
 switchyard

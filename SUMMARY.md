@@ -17,7 +17,6 @@
   * [Task 3: Timeouts](content/ch02/timeouts.md)
   * [Task 4: Least Recently Used](content/ch02/lru.md)
   * [Task 5: Least Traffic Volume](content/ch02/ltv.md)
-  * [Task 6: Testing & Deploying](content/ch02/test-deploy.md)
   * [FAQ](content/ch02/faq.md)
 * [Appendix](appendix/appendix.md)
   * [Environment Setup](appendix/environment-setup.md)

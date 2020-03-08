@@ -23,9 +23,48 @@ Your switch may have a table like:
 
 Your task is to implement the logic in the above flowchart, using the Switchyard framework. The starter file is named `lab_2/myswitch.py`, which is the only file you'll need to modify.
 
-Two links to Switchyard API documentation which you may find helpful are:
+Some links to Switchyard API documentation which you may find helpful are:
 
+- Packet parsing/construction introduction https://shellqiqi.gitee.io/switchyard/writing_a_program.html#introduction-to-packet-parsing-and-construction
 - Packet parsing/construction reference: https://shellqiqi.gitee.io/switchyard/reference.html#packet-parsing-and-construction-reference
 - Ethernet packet header reference: https://shellqiqi.gitee.io/switchyard/reference.html#ethernet-header
 
 Note that the documentation of Switchyard has examples on running Switchyard in test mode and in real mode, along with a walkthrough of creating a simple hub device, which is useful background material for this exercise.
+
+## Testing
+
+You can test your basic learning switch yourself. No test results need to show in your report.
+
+## Deploying
+
+To run your switch in Mininet, run the `lab_2/start_mininet.py` custom topology script. It will create a small network consisting of a single switch with three hosts (client, server1, and server2) in the following configuration.
+
+To start up Mininet using this script, just type:
+
+```
+$ sudo python lab_2/start_mininet.py
+```
+
+Once Mininet starts up, you should open a terminal window on the Mininet node named "switch":
+
+```
+mininet> xterm switch
+```
+
+In the window that opens (`xterm` on the node "switch"), activate venv and run your switch in "real" (non-test) mode:
+
+```
+(syenv) # swyard myswitch.py
+```
+
+> [!NOTE]
+> Note that to run `swyard` in Mininet in a root shell (such as the shell that is open in response to the `xterm` command), you will need to activate the Python virtual environment which has Switchyard installed in it. Refer to the Switchyard documentation for more information.
+
+To examine whether your switch is behaving correctly, you can do the following:
+
+1. Open terminals on client, server1 and server2 (`xterm client`, `xterm server1` and `xterm server2` from the Mininet prompt)
+2. In the server1 and server2 terminal, run `wireshark`. Wireshark is a program that allows you to "snoop" on network traffic arriving on a network interface. We'll use this to verify that we see packets arriving at server1 and server2 from client.
+3. In the terminal on the client node, type `ping -c 2 192.168.100.1`. This command will send two "echo" requests to the server1 node. The server1 node should respond to each of them if your switch is working correctly. You should see at the two echo request and echo replies in Wireshark running on server1, and you will probably see a couple other packets (e.g., ARP, or Address Resolution Protocol, packets).
+4. If you run Wireshark on server2, you should **not** see the echo request and reply packets (but you will see the ARP packets, since they are sent with broadcast destination addresses).
+
+✅ Analyze and state the results of the above process in your report with screenshots. Do not explain how you do step by step but focus on the switch's forwarding logic.

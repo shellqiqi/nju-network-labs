@@ -4,8 +4,6 @@
 
 In this assignment, you are going to implement the core functionalities of an Ethernet learning switch using the [Switchyard framework](https://gitee.com/shellqiqi/switchyard). An Ethernet switch is a layer 2 device that uses packet switching to receive, process and forward frames to other devices (end hosts, other switches) in the network. A switch has a set of interfaces (ports) through which it sends/receives Ethernet frames. When Ethernet frames arrive on any port, the switch process the header of the frame to obtain information about the destination host. If the switch knows that the host is reachable through one of its ports, it sends out the frame from the appropriate output port. If it does not know where the host is, it floods the frame out of all ports except the input port.
 
-Before you start, we recommend reading [*Packet parsing/construction introduction*](https://shellqiqi.gitee.io/switchyard/writing_a_program.html#introduction-to-packet-parsing-and-construction).
-
 ## Details
 
 Your task is to implement the logic of a switch. As it is described in the last paragraph of the "Ethernet Learning Switch Operation" section, your switch will also handle the frames that are intended for itself and the frames whose Ethernet destination address is the broadcast address `FF:FF:FF:FF:FF:FF`.
@@ -58,12 +56,6 @@ Implement LRU rule replacement algorithm based on Task 2.
 Implement least traffic volume rule replacement algorithm based on Task 2.
 
 [Start the task here](ltv.md)
-
-### Task 6: Testing & Deploying Your Switch
-
-Run your switch both in "test mode" and Mininet.
-
-[Start the task here](test-deploy.md)
 
 ## Handing it in
 

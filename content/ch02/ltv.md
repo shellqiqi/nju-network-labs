@@ -20,3 +20,15 @@ Your switch may have a table like:
 ## Coding
 
 Your task is to implement the logic in the above flowchart, using the Switchyard framework. You can start with copying the content of `lab_2/myswitch.py` to `lab_2/myswitch_traffic.py`, which is the only file you'll need to modify.
+
+## Testing
+
+Test your switch with the test file `switchtests_traffic.srpy` we provide.
+
+✅ In the report, show the test result of your switch. (Optional) If you have written the test files yourself, show how you test the least traffic volume algorithm.
+
+## Deploying
+
+Run your switch in Mininet.
+
+✅ In Mininet, test the least traffic volume algorithm. Prove that the least traffic volume algorithm works with your testing procedure in the report.
