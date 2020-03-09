@@ -35,9 +35,13 @@ Out: , due .
 
 ### IPv4 Router
 
+[Introduction to Labs 3 to 5](./content/ch03/ipv4-router.md)
+
 #### Lab 3: Respond to ARP
 
 Out: , due .
+
+[Start the lab here](./content/ch03/subch01/lab-3.md)
 
 #### Lab 4: Forwarding packets
 
