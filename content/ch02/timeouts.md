@@ -29,7 +29,8 @@ You should first develop your switch code using the Switchyard test framework. A
 
 The above command it will execute a series of test cases against your program and display whether the tests pass or fail. The file `switchtests_to.srpy` is the test file we provide.
 
-✅ In the report, show the test result of your switch. (Optional) If you have written the test files yourself, show how you test the timeout mechanism.
+✅ In the report, show the test result of your switch.  
+(Optional) If you have written the test files yourself, show how you test the timeout mechanism.
 
 Once you get the tests to pass, you can try running your code in Mininet.
 

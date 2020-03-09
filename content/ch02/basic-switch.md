@@ -25,9 +25,9 @@ Your task is to implement the logic in the above flowchart, using the Switchyard
 
 Some links to Switchyard API documentation which you may find helpful are:
 
-- Packet parsing/construction introduction https://shellqiqi.gitee.io/switchyard/writing_a_program.html#introduction-to-packet-parsing-and-construction
-- Packet parsing/construction reference: https://shellqiqi.gitee.io/switchyard/reference.html#packet-parsing-and-construction-reference
-- Ethernet packet header reference: https://shellqiqi.gitee.io/switchyard/reference.html#ethernet-header
+- [Packet Parsing/Construction Introduction](https://shellqiqi.gitee.io/switchyard/writing_a_program.html#introduction-to-packet-parsing-and-construction)
+- [Packet Parsing/Construction Reference](https://shellqiqi.gitee.io/switchyard/reference.html#packet-parsing-and-construction-reference)
+- [Ethernet Packet Header Reference](https://shellqiqi.gitee.io/switchyard/reference.html#ethernet-header)
 
 Note that the documentation of Switchyard has examples on running Switchyard in test mode and in real mode, along with a walkthrough of creating a simple hub device, which is useful background material for this exercise.
 
