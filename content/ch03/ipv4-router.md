@@ -18,6 +18,12 @@ In order to create this cool router with the aforementioned capabilities, you wi
 4. Respond to Internet Control Message Protocol (ICMP) messages like echo requests ("pings").
 5. Generate ICMP error messages when necessary, such as when an IP packet's TTL (time to live) value has been decremented to zero.
 
+You can find more detailed information on these functionalities in the following lab assignments:
+
+- Lab 3: Complete Item #1.
+- Lab 4: Complete Item #2 and Item #3.
+- Lab 5: Complete Item #4 and Item #5.
+
 ## Notes
 
 ### Address Resolution Protocol (ARP) Review
