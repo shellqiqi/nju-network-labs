@@ -31,6 +31,8 @@ Out: 2020-3-4, due 2020-3-18.
 
 Out: 2020-3-11, due 2020-3-25.
 
+[Start the lab here](./content/ch02/lab-2.md)
+
 ### IPv4 Router
 
 #### Lab 3: Respond to ARP

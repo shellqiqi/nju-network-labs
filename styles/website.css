@@ -1,3 +1,7 @@
 .markdown-section code {
   font-family: Consolas,"Liberation Mono",Menlo,Courier,sans-serif,monospace;
 }
+
+table th {
+  background: #263238;
+}
