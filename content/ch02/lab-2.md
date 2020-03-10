@@ -74,26 +74,26 @@ To submit your work, you need to do the following things.
 
 2. When you have done your work, put your report and code in the folder `lab_2` then commit them. Tag the commit named `<学号/lab_2>` which you want to submit. An example is `123456789/lab_2`. Finally your project will look like
 
-  ```
-    switchyard/
-      ├─docs/
-      ├─.../
-    m ├─lab_2/
-    + │ ├─123456789拾佰仟_lab_2.docx
-    m │ ├─myswitch.py
-    m │ ├─myswitch_to.py
-    m │ ├─myswitch_lru.py
-    m │ ├─myswitch_traffic.py
-      │ ├─...
-    m │ └─start_mininet.py
-      ├─.gitignore
-      └─...
-  ```
+   ```
+   switchyard/
+     ├─docs/
+     ├─.../
+   m ├─lab_2/
+   + │ ├─123456789拾佰仟_lab_2.docx
+   m │ ├─myswitch.py
+   m │ ├─myswitch_to.py
+   m │ ├─myswitch_lru.py
+   m │ ├─myswitch_traffic.py
+     │ ├─...
+   m │ └─start_mininet.py
+     ├─.gitignore
+     └─...
+   ```
 
-  > [!WARNING]
-  > The file names in your submission have to **exactly** match the file names above. Otherwise, you will lose points!
+   > [!WARNING]
+   > The file names in your submission have to **exactly** match the file names above. Otherwise, you will lose points!
 
 3. Submit your work by pushing your local repository to your remote repository **with your tags** by running the command `git push origin --tags`.
 
-  > [!WARNING]
-  > **Only** commit your **source code** to your local repository. If there are some generated files that are not source code, ignore them by adding them in the file `.gitignore`.
+   > [!WARNING]
+   > **Only** commit your **source code** to your local repository. If there are some generated files that are not source code, ignore them by adding them in the file `.gitignore`.

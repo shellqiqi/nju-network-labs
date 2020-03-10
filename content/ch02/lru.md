@@ -27,7 +27,8 @@ Your task is to implement the logic in the above flowchart, using the Switchyard
 
 Test your switch with the test file `switchtests_lru.srpy` we provide.
 
-✅ In the report, show the test result of your switch. (Optional) If you have written the test files yourself, show how you test the LRU algorithm.
+✅ In the report, show the test result of your switch.  
+(Optional) If you have written the test files yourself, show how you test the LRU algorithm.
 
 ## Deploying
 
