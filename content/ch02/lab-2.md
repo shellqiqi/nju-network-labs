@@ -34,7 +34,7 @@ In these tasks, you will write the code to implement the core logic in an Ethern
 
 Initiate your project with our template.
 
-[Start the task here](preparation.md).
+[Start the task here](preparation.md)
 
 ### Task 2: Basic Learning Switch
 

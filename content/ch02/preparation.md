@@ -25,7 +25,7 @@ Finally, your project will look like
 switchyard
   ├─docs/
   ├─.../
-+ ├─lab_2
++ ├─lab_2/
 + │ ├─myswitch.py
 + │ ├─myswitch_to.py
 + │ ├─myswitch_lru.py
