@@ -27,11 +27,17 @@ Initiate your project with our template.
 
 [Start the task here](preparation.md)
 
-### Task 2: Handle ARP Request
+### Task 2: Handle ARP Requests
 
 Ready to make ARP work.
 
 [Start the task here](handle-arp-request.md)
+
+### Task 3: Cached ARP Table
+
+Maintain a correlation between each MAC address and its corresponding IP address.
+
+[Start the task here](arp-table.md)
 
 ## Handing it in
 
@@ -41,29 +47,23 @@ We will provide a template of your lab assignment report [here](https://box.nju.
 
 ### Submit to NJU GitLab
 
-<!-- TODO: Update the folder tree for this assignment. -->
-
 To submit your work, you need to do the following things.
 
 1. Modify your code and complete your report.
 
 2. When you have done your work, put your report and code in the folder `lab_3` then commit them. Tag the commit named `<学号/lab_3>` which you want to submit. An example is `123456789/lab_3`. Finally your project will look like
 
-  ```
-    switchyard/
-      ├─docs/
-      ├─.../
-    m ├─lab_3/
-    + │ ├─123456789拾佰仟_lab_3.docx
-    m │ ├─myswitch.py
-    m │ ├─myswitch_to.py
-    m │ ├─myswitch_lru.py
-    m │ ├─myswitch_traffic.py
-      │ ├─...
-    m │ └─start_mininet.py
-      ├─.gitignore
-      └─...
-  ```
+   ```
+   switchyard
+     ├─docs/
+     ├─.../
+   + ├─lab_3/
+   + │ ├─myrouter.py
+     │ ├─...
+   + │ └─start_mininet.py
+     ├─.gitignore
+     └─...
+   ```
 
   > [!WARNING]
   > The file names in your submission have to **exactly** match the file names above. Otherwise, you will lose points!

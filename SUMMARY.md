@@ -22,6 +22,7 @@
   * [Lab 3: Respond to ARP](content/ch03/subch01/lab-3.md)
     * [Task 1: Preparation](content/ch03/subch01/preparation.md)
     * [Task 2: Handle ARP Request](content/ch03/subch01/handle-arp-request.md)
+    * [Task 3: Cached ARP Table](content/ch03/subch01/arp-table.md)
   * [FAQ](content/ch03/faq.md)
 * [Appendix](appendix/appendix.md)
   * [Environment Setup](appendix/environment-setup.md)

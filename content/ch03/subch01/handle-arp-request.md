@@ -1,4 +1,4 @@
-# Task 2: Handle ARP Request
+# Task 2: Handle ARP Requests
 
 ## Procedure
 
