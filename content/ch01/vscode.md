@@ -9,7 +9,7 @@ We expect that you will spend several hours on this.
 You can choose the VM image with VSC preinstalled. But someone like to install it themselves. The easiest way to install Visual Studio Code for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760868), either through the graphical software center if it's available, or through the command line with:
 
 ```
-sudo apt install ./<file>.deb
+$ sudo apt install ./<file>.deb
 ```
 
 ## Develope Switchyard with VSC

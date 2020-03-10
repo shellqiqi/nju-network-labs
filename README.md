@@ -25,7 +25,7 @@ You can find TAs and our 教学立方 invitation code after joining this group.
 
 Out: 2020-3-4, due 2020-3-18.
 
-[Start the lab here](./content/ch01/lab-1.md).
+[Start the lab here](./content/ch01/lab-1.md)
 
 ### Lab 2: Learning Switch
 

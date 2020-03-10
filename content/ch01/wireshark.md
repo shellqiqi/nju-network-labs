@@ -13,9 +13,9 @@ We expect that this will cost you an afternoon.
 If you find that Wireshark is not installed on your system, run these commands to install it.
 
 ```
-sudo add-apt-repository ppa:wireshark-dev/stable
-sudo apt-get update
-sudo apt-get install wireshark
+$ sudo add-apt-repository ppa:wireshark-dev/stable
+$ sudo apt-get update
+$ sudo apt-get install wireshark
 ```
 
 You need to configure wireshark during installation. For non-superusers capturing packets, choose *Yes* here.
@@ -25,7 +25,7 @@ You need to configure wireshark during installation. For non-superusers capturin
 Then add your user to `wireshark` user group to allow you capturing packets.
 
 ```
-sudo usermod -a -G wireshark $USER
+$ sudo usermod -a -G wireshark $USER
 ```
 
 ## Capturing Packets

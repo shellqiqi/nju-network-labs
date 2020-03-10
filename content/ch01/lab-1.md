@@ -100,24 +100,24 @@ When you are ready to submit, do the following.
 
 2. When you have done your work, put your report, code and capture file in the folder `lab_1` and commit them. Tag the commit named `<学号/lab_1>` which you want to submit. An example is `123456789/lab_1`. For more about tag, read [Git 基础 - 打标签](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE). Finally your project will look like
 
-  ```
-    switchyard/
-      ├─docs/
-      ├─.../
-    m ├─lab_1/
-    + │ ├─123456789拾佰仟_lab_1.docx
-    m │ ├─hubtests.py
-    + │ ├─lab_1.pcap
-    m │ ├─myhub.py
-    m │ └─start_mininet.py
-      ├─.gitignore
-      └─...
-  ```
+   ```
+   switchyard/
+     ├─docs/
+     ├─.../
+   m ├─lab_1/
+   + │ ├─123456789拾佰仟_lab_1.docx
+   m │ ├─hubtests.py
+   + │ ├─lab_1.pcap
+   m │ ├─myhub.py
+   m │ └─start_mininet.py
+     ├─.gitignore
+     └─...
+   ```
 
-  > [!WARNING]
-  > The file names in your submission have to **exactly** match the file names above. Otherwise, you will lose points!
+   > [!WARNING]
+   > The file names in your submission have to **exactly** match the file names above. Otherwise, you will lose points!
 
 3. Submit your work by pushing your local repository to your remote repository **with your tags** by running the command `git push origin --tags`.
 
-  > [!WARNING]
-  > **Only** commit your **source code** to your local repository. If there are some generated files that are not source code, ignore them by adding them in the file `.gitignore`.
+   > [!WARNING]
+   > **Only** commit your **source code** to your local repository. If there are some generated files that are not source code, ignore them by adding them in the file `.gitignore`.

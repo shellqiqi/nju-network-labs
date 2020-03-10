@@ -14,7 +14,7 @@ We expect that you will spend 2 days on this.
 If you find that Mininet is not installed on your system, run this command to install it.
 
 ```
-sudo apt-get install mininet
+$ sudo apt-get install mininet
 ```
 
 Or you want to build mininet yourself. The installation guide is [here](http://mininet.org/download/).
@@ -24,7 +24,7 @@ Or you want to build mininet yourself. The installation guide is [here](http://m
 If you find that Xterm is not installed on your system, run this command to install it.
 
 ```
-sudo apt-get install xterm
+$ sudo apt-get install xterm
 ```
 
 ## Everyday Mininet Usage
