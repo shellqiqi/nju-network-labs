@@ -27,6 +27,12 @@ Initiate your project with our template.
 
 [Start the task here](preparation.md)
 
+### Task 2: Handle ARP Request
+
+Ready to make ARP work.
+
+[Start the task here](handle-arp-request.md)
+
 ## Handing it in
 
 ### Report
