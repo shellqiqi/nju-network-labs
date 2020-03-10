@@ -35,25 +35,25 @@ Out: 2020-3-11, due 2020-3-25.
 
 #### Lab 3: Respond to ARP
 
-Out: , due .
+Out: 2020-3-25, due 2020-4-8.
 
 #### Lab 4: Forwarding Packets
 
-Out: , due .
+Out: 2020-4-8, due 2020-4-22.
 
 #### Lab 5: Respond to ICMP
 
-Out: , due .
+Out: 2020-4-22, due 2020-5-6.
 
 ### Reliable Communication
 
 #### Lab 6: Sender and Router
 
-Out: , due .
+Out: 2020-5-6, due 2020-5-20.
 
 #### Lab 7: Receiver
 
-Out: , due .
+Out: 2020-5-20, due 2020-6-3.
 
 ## Policies
 
