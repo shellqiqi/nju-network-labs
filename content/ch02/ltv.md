@@ -4,7 +4,7 @@
 
 When your switch needs to add a new rule but there is no more space, we can evict the rule that has observed the least amount of network traffic in terms of numbers of packets. In addition, how you count network traffic can be done in different ways: you could also consider number of bytes, or number of *application payload bytes* (ignoring bytes from lower layer headers).
 
-For this functionality assume that your table can only hold 5 entries at a time. Traffic volume for an entry is the **number of packets** that the switch received where `Destination MAC address == MAC address of entry`.
+For this functionality assume that your table can only hold 2 entries at a time. Traffic volume for an entry is the **number of packets** that the switch received where `Destination MAC address == MAC address of entry`.
 
 The following flowchart summarizes the algorithm described above.
 

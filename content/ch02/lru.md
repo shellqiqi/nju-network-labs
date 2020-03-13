@@ -6,7 +6,7 @@ Real learning switches also have limited storage for forwarding rules that are l
 
 General implementations of this technique require keeping "age bits" for rules and track the "Least Recently Used" rule based on age-bits. In such an implementation, every time a rule is used, the age of all other rules changes.
 
-For this functionality assume that your table can only hold 5 entries at a time. If a new entry comes and your table is full, you will remove the entry that has not been matched with a Ethernet frame destination address for the longest time.
+For this functionality assume that your table can only hold 2 entries at a time. If a new entry comes and your table is full, you will remove the entry that has not been matched with a Ethernet frame destination address for the longest time.
 
 The following flowchart summarizes the algorithm described above.
 
