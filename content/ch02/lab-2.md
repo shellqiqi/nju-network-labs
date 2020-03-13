@@ -14,9 +14,9 @@ These mechanisms are:
 
 - Remove an entry from the forwarding table after 10 seconds have elapsed.
 
-- Remove the least recently used (LRU) entry from the forwarding table. For this functionality assume that your table can only hold 2 entries at a time. If a new entry comes and your table is full, you will remove the entry that has not been matched with a Ethernet frame destination address for the longest time.
+- Remove the least recently used (LRU) entry from the forwarding table. For this functionality assume that your table can only hold 5 entries at a time. If a new entry comes and your table is full, you will remove the entry that has not been matched with a Ethernet frame destination address for the longest time.
 
-- Remove the entry that has the least traffic volume. For this functionality assume that your table can only hold 2 entries at a time. Traffic volume for an entry is the number of frames that the switch received where `Destination MAC address == MAC address of entry`.
+- Remove the entry that has the least traffic volume. For this functionality assume that your table can only hold 5 entries at a time. Traffic volume for an entry is the number of frames that the switch received where `Destination MAC address == MAC address of entry`.
 
 You will implement these mechanisms in three separate Python files. The core functionalities that are explained above will be the same for these implementations.
 
