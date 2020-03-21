@@ -47,6 +47,8 @@ Out: , due .
 
 Out: , due .
 
+[Start the lab here](./content/ch03/subch02/lab-4.md)
+
 #### Lab 5: Respond to ICMP
 
 Out: , due .
