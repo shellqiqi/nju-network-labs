@@ -6,7 +6,7 @@ There is an example of a router without anything implemented in `switchyard/exam
 2. Copy `examples/exercises/router/start_mininet.py` to `lab_3/start_mininet.py`.
 3. Copy `examples/exercises/router/myrouter.py` to `lab_3/myrouter.py`.
 
-Though we will provide the test files, they are incomprehensible. So you should still write test scenarios that test all aspects of your code. You can find our test files below. Download it and you will use it to test your switch later. You can unzip the test files we provide into the folder `lab_3`.
+Though we will provide the test files, they are incomprehensible. So you should still write test scenarios that test all aspects of your code. You can find our test files below. Download it and you will use it to test your router later. You can unzip the test files we provide into the folder `lab_3`.
 
 [Download compiled test cases here](https://box.nju.edu.cn/d/123a70ac8ff34595b18f/).
 

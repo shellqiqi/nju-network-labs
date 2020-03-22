@@ -52,7 +52,7 @@ Read each individual test case output carefully (yes, it can be a lot to read!) 
 
 Note that the test scenario file is not included in this repository, but is available on the NJU Box.
 
-✅ In the report, show the test result of your switch.  
+✅ In the report, show the test result of your router.  
 (Optional) If you have written the test files yourself, show how you test the ARP works.
 
 ## Deploying
