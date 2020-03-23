@@ -27,7 +27,7 @@ The goal of this stage is accomplish items 2 and 3 above.
 
 ## Your Tasks
 
-After Lab3, you have implemented the response to ARP on the starter template: `myrouter.py`. Now, on the basis of Lab3, we continue to improve the router to implement the function of packets forwarding.
+After Lab 3, you have implemented the response to ARP on the starter template: `myrouter.py`. Now, on the basis of Lab 3, we continue to improve the router to implement the function of packets forwarding.
 
 The main task for this exercise is to modify the Router class to do the following:
 
@@ -72,6 +72,7 @@ To submit your work, you need to do the following things.
      ├─.../
    + ├─lab_4/
    + │ ├─myrouter.py
+   + │ ├─forwarding_table.txt
      │ ├─...
    + │ └─start_mininet.py
      ├─.gitignore
