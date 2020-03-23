@@ -35,11 +35,15 @@ Out: 2020-3-11, due 2020-3-25.
 
 ### IPv4 Router
 
+[Introduction to Labs 3 to 5](./content/ch03/ipv4-router.md)
+
 #### Lab 3: Respond to ARP
 
 Out: 2020-3-25, due 2020-4-8.
 
-#### Lab 4: Forwarding Packets
+[Start the lab here](./content/ch03/subch01/lab-3.md)
+
+#### Lab 4: Forwarding packets
 
 Out: 2020-4-8, due 2020-4-22.
 

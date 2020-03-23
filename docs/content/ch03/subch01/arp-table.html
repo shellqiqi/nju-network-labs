@@ -1,0 +1,717 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Task 3: Cached ARP Table · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../faq.html" />
+    
+    
+    <link rel="prev" href="handle-arp-request.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Computer Network Lab Manual
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../ch01/lab-1.html">
+            
+                <a href="../../ch01/lab-1.html">
+            
+                    
+                    Lab 1: Switchyard & Mininet
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../ch01/prerequisites.html">
+            
+                <a href="../../ch01/prerequisites.html">
+            
+                    
+                    Task 1: Prerequisites
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../../ch01/linux.html">
+            
+                <a href="../../ch01/linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../../ch01/python.html">
+            
+                <a href="../../ch01/python.html">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../../ch01/git.html">
+            
+                <a href="../../ch01/git.html">
+            
+                    
+                    Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../ch01/workflow.html">
+            
+                <a href="../../ch01/workflow.html">
+            
+                    
+                    Task 2: Workflow
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../../ch01/vscode.html">
+            
+                <a href="../../ch01/vscode.html">
+            
+                    
+                    VS Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../../ch01/mininet.html">
+            
+                <a href="../../ch01/mininet.html">
+            
+                    
+                    Mininet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../../ch01/wireshark.html">
+            
+                <a href="../../ch01/wireshark.html">
+            
+                    
+                    Wireshark
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../../ch01/switchyard.html">
+            
+                <a href="../../ch01/switchyard.html">
+            
+                    
+                    Switchyard
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../ch01/nju-gitlab.html">
+            
+                <a href="../../ch01/nju-gitlab.html">
+            
+                    
+                    Task 3: NJU GitLab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../ch01/modification.html">
+            
+                <a href="../../ch01/modification.html">
+            
+                    
+                    Task 4: Modification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../ch02/lab-2.html">
+            
+                <a href="../../ch02/lab-2.html">
+            
+                    
+                    Lab 2: Learning Switch
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../ch02/preparation.html">
+            
+                <a href="../../ch02/preparation.html">
+            
+                    
+                    Task 1: Preparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../ch02/basic-switch.html">
+            
+                <a href="../../ch02/basic-switch.html">
+            
+                    
+                    Task 2: Basic Switch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../ch02/timeouts.html">
+            
+                <a href="../../ch02/timeouts.html">
+            
+                    
+                    Task 3: Timeouts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../ch02/lru.html">
+            
+                <a href="../../ch02/lru.html">
+            
+                    
+                    Task 4: Least Recently Used
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../../ch02/ltv.html">
+            
+                <a href="../../ch02/ltv.html">
+            
+                    
+                    Task 5: Least Traffic Volume
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../../ch02/faq.html">
+            
+                <a href="../../ch02/faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../ipv4-router.html">
+            
+                <a href="../ipv4-router.html">
+            
+                    
+                    Lab 3-5: IPv4 Router
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="lab-3.html">
+            
+                <a href="lab-3.html">
+            
+                    
+                    Lab 3: Respond to ARP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="preparation.html">
+            
+                <a href="preparation.html">
+            
+                    
+                    Task 1: Preparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="handle-arp-request.html">
+            
+                <a href="handle-arp-request.html">
+            
+                    
+                    Task 2: Handle ARP Request
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.1.3" data-path="arp-table.html">
+            
+                <a href="arp-table.html">
+            
+                    
+                    Task 3: Cached ARP Table
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../faq.html">
+            
+                <a href="../faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../../appendix/appendix.html">
+            
+                <a href="../../../appendix/appendix.html">
+            
+                    
+                    Appendix
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../../appendix/environment-setup.html">
+            
+                <a href="../../../appendix/environment-setup.html">
+            
+                    
+                    Environment Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../../appendix/about-this-repository.html">
+            
+                <a href="../../../appendix/about-this-repository.html">
+            
+                    
+                    About This Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >Task 3: Cached ARP Table</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="task-3-cached-arp-table"><a name="task-3-cached-arp-table" class="plugin-anchor" href="#task-3-cached-arp-table"><i class="fa fa-link" aria-hidden="true"></i></a>Task 3: Cached ARP Table</h1>
+<h2 id="construct-cached-arp-table"><a name="construct-cached-arp-table" class="plugin-anchor" href="#construct-cached-arp-table"><i class="fa fa-link" aria-hidden="true"></i></a>Construct cached ARP Table</h2>
+<p>You&apos;ll eventually need to store a mapping in the Router between destination IP addresses and Ethernet MAC addresses (you can assume there is a one-to-one mapping). The reason is simple: when you send an IP packet to another host, you&apos;ll also need the Ethernet address associated with the destination IP address. If you &quot;remember&quot; any source IP/Ethernet MAC pairs from ARP requests that are received at the router, it may help you to avoid having to construct and send an ARP request to obtain the same information. This capability will likely be helpful to have in place for future stages of building the router.</p>
+<p>The cache table is similar to the table used in Ethernet learning switch. For each entry there are two or more fields in which IP and MAC Address is required. The cached ARP table may look like:</p>
+<table>
+<thead>
+<tr>
+<th>IP</th>
+<th>MAC Address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10.1.2.3</td>
+<td>01:02:03:04:05:06</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<p>When the router receive a packet with ARP header, add or update an entry of the cached ARP table. For example, if there is an ARP request with the Ethernet source address <code>01:02:03:04:05:06</code> and the IP source address <code>10.1.2.3</code>, the router will <em>update</em> the entry whose key is <code>10.1.2.3</code> with the value <code>01:02:03:04:05:06</code>. You can also see here that the IP address is <strong>unique</strong> in the table.</p>
+<p>Generally, the ARP table has a timeout mechanism. It indicates the time for which the MAC address in the ARP cache can reside. In this task, implementing this mechanism is optional.</p>
+<h2 id="coding"><a name="coding" class="plugin-anchor" href="#coding"><i class="fa fa-link" aria-hidden="true"></i></a>Coding</h2>
+<p>Modify <code>lab_3/myrouter.py</code> and add the cache table.</p>
+<p>It is more convenience if you are familiar with Object-Oriented Programming (OOP). You can construct a class to maintain the ARP cache table. A brief tutorial of OOP in Python is <a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017495723838528" target="_blank">here</a>. Though OOP is no need in our lab assignments.</p>
+<p>Another useful data structure in Python is <code>dict</code>. The data structure <code>dict</code> is a table. Each entry of the table contains one unique key and one value. The introduction of <code>dict</code> is <a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017104324028448" target="_blank">here</a>.</p>
+<h2 id="testing"><a name="testing" class="plugin-anchor" href="#testing"><i class="fa fa-link" aria-hidden="true"></i></a>Testing</h2>
+<p>There is no test cases can check the output of your router. So we decide you to print the cached ARP table when you update the table. You can log it in the terminal or to a file.</p>
+<p>&#x2705; In your report, show the cached ARP table with screenshots. Explain how entries have changed.</p>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="handle-arp-request.html" class="navigation navigation-prev " aria-label="Previous page: Task 2: Handle ARP Request">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../faq.html" class="navigation navigation-next " aria-label="Next page: FAQ">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Task 3: Cached ARP Table","level":"1.4.1.3","depth":3,"next":{"title":"FAQ","level":"1.4.2","depth":2,"path":"content/ch03/faq.md","ref":"content/ch03/faq.md","articles":[]},"previous":{"title":"Task 2: Handle ARP Request","level":"1.4.1.2","depth":3,"path":"content/ch03/subch01/handle-arp-request.md","ref":"content/ch03/subch01/handle-arp-request.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch03/subch01/arp-table.md","mtime":"2020-03-23T12:12:01.447Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-23T12:13:24.673Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
