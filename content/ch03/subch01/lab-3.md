@@ -71,4 +71,4 @@ To submit your work, you need to do the following things.
 3. Submit your work by pushing your local repository to your remote repository **with your tags** by running the command `git push origin --tags`.
 
   > [!WARNING]
-  > **Only** commit your **source code** to your local repository. If there are some generated files that are not source code, ignore them by adding them in the file `.gitignore`.
+  > **Only** commit your source code and other necessary files to your local repository. If some generated files are not source code, ignore them by adding them in the file `.gitignore`.
