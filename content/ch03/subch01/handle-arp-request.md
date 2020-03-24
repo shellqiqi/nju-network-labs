@@ -40,6 +40,8 @@ The Switchyard documentation contains a section introducing how Packet parsing a
 
 Note that these two functions above return a full `Packet` object including `Ethernet` and `Arp` headers, all filled in.
 
+✅ Show how you implement the logic of responding to the ARP request.
+
 ## Testing
 
 For initial testing and debugging of your code, you can run the Switchyard test scenario (`routertests1.srpy`). Run it like this:
@@ -78,7 +80,7 @@ To test your router in Mininet, you can do the following:
    mininet> xterm client
    ```
 
-3. Start up wireshark on the client. From the xterm running on the client, type:
+3. Start up Wireshark on the client. From the xterm running on the client, type:
 
    ```
    client# wireshark -k &
@@ -107,11 +109,11 @@ To test your router in Mininet, you can do the following:
 
 The router should initially receive an ARP request for its own IP address (which your router will need to correctly respond to!), then it should receive an ICMP echo request. Since your router isn't yet programmed to respond to ping requests, nothing else should happen (i.e., you'll get ping requests, but they won't be responded to).
 
-In wireshark, you should see something similar to the following details when you click on the ARP request packet the first line in the capture window). Notice that the "target MAC address" is currently all zeroes, since this is the address being requested:
+In Wireshark, you should see something similar to the following details when you click on the ARP request packet the first line in the capture window. Notice that the "target MAC address" is currently all zeroes, since this is the address being requested:
 
 ![router pcap 1](assets/router1_pcap1.png)
 
-Also in wireshark, you should see the following details when you click on the ARP response packet (second line in the capture window). Notice that all the addresses in the ARP header are now filled in (and that source and destination addresses are effectively swapped):
+Also in Wireshark, you should see the following details when you click on the ARP response packet (second line in the capture window). Notice that all the addresses in the ARP header are now filled in (and that source and destination addresses are effectively swapped):
 
 ![router pcap 2](assets/router1_pcap2.png)
 
