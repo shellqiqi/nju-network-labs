@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Task 1: Preparation · GitBook</title>
+        <title>FAQ · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -87,10 +87,10 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="handle-arp-request.html" />
+    <link rel="next" href="../faq.html" />
     
     
-    <link rel="prev" href="lab-3.html" />
+    <link rel="prev" href="make-arp-request.html" />
     
 
     </head>
@@ -391,9 +391,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="lab-3.html">
+        <li class="chapter " data-level="1.4.1" data-path="../subch01/lab-3.html">
             
-                <a href="lab-3.html">
+                <a href="../subch01/lab-3.html">
             
                     
                     Lab 3: Respond to ARP
@@ -405,9 +405,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.4.1.1" data-path="preparation.html">
+        <li class="chapter " data-level="1.4.1.1" data-path="../subch01/preparation.html">
             
-                <a href="preparation.html">
+                <a href="../subch01/preparation.html">
             
                     
                     Task 1: Preparation
@@ -418,9 +418,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.2" data-path="handle-arp-request.html">
+        <li class="chapter " data-level="1.4.1.2" data-path="../subch01/handle-arp-request.html">
             
-                <a href="handle-arp-request.html">
+                <a href="../subch01/handle-arp-request.html">
             
                     
                     Task 2: Handle ARP Request
@@ -431,9 +431,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.3" data-path="arp-table.html">
+        <li class="chapter " data-level="1.4.1.3" data-path="../subch01/arp-table.html">
             
-                <a href="arp-table.html">
+                <a href="../subch01/arp-table.html">
             
                     
                     Task 3: Cached ARP Table
@@ -449,9 +449,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../subch02/lab-4.html">
+        <li class="chapter " data-level="1.4.2" data-path="lab-4.html">
             
-                <a href="../subch02/lab-4.html">
+                <a href="lab-4.html">
             
                     
                     Lab 4: Forwarding Packets
@@ -463,9 +463,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.2.1" data-path="../subch02/preparation.html">
+        <li class="chapter " data-level="1.4.2.1" data-path="preparation.html">
             
-                <a href="../subch02/preparation.html">
+                <a href="preparation.html">
             
                     
                     Task 1: Preparation
@@ -476,9 +476,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2.2" data-path="../subch02/forwarding-table-lookup.html">
+        <li class="chapter " data-level="1.4.2.2" data-path="forwarding-table-lookup.html">
             
-                <a href="../subch02/forwarding-table-lookup.html">
+                <a href="forwarding-table-lookup.html">
             
                     
                     Task 2: IP Forwarding Table Lookup
@@ -489,9 +489,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2.3" data-path="../subch02/make-arp-request.html">
+        <li class="chapter " data-level="1.4.2.3" data-path="make-arp-request.html">
             
-                <a href="../subch02/make-arp-request.html">
+                <a href="make-arp-request.html">
             
                     
                     Task 3: Forwarding the Packet and ARP
@@ -502,9 +502,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2.4" data-path="../subch02/faq.html">
+        <li class="chapter active" data-level="1.4.2.4" data-path="faq.html">
             
-                <a href="../subch02/faq.html">
+                <a href="faq.html">
             
                     
                     FAQ
@@ -613,7 +613,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >Task 1: Preparation</a>
+        <a href="../../.." >FAQ</a>
     </h1>
 </div>
 
@@ -628,29 +628,42 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="preparation"><a name="preparation" class="plugin-anchor" href="#preparation"><i class="fa fa-link" aria-hidden="true"></i></a>Preparation</h1>
-<p>There is an example of a router without anything implemented in <code>switchyard/examples/exercises/router/myrouter.py</code>. Let&apos;s start with it.</p>
+                                <h1 id="faq"><a name="faq" class="plugin-anchor" href="#faq"><i class="fa fa-link" aria-hidden="true"></i></a>FAQ</h1>
 <ol>
-<li>Create a directory named <code>lab_3</code> in <code>switchyard</code>.</li>
-<li>Copy <code>examples/exercises/router/start_mininet.py</code> to <code>lab_3/start_mininet.py</code>.</li>
-<li>Copy <code>examples/exercises/router/myrouter.py</code> to <code>lab_3/myrouter.py</code>.</li>
+<li><p><strong>Q:</strong> What should the router do in the following scenario: say a packet for
+a certain IP address arrives at the router and it sends an ARP request
+to obtain the corresponding MAC address. Before receiving the ARP reply,
+the router receives another packet (non-ARP) for the same IP address,
+should it send an ARP request again?</p>
+<p><strong>A:</strong> No, in this case you should not retransmit the ARP request for the
+second packet. More generally, your router might receive many packets
+for a certain IP address while there is an outstanding ARP request for
+that IP address. In this case, your router should not send out any new
+ARP requests or update the timestamp of the initial ARP request.
+However, your router should buffer the new data packets so that it can
+transmit them to the destination host once it receives the ARP reply.
+IMPORTANT: If your router buffers multiple packets for a destination
+host that has an outstanding ARP request, upon receiving the
+corresponding ARP reply these packets has to be forwarded to the
+destination host in the order they arrived to the router!</p>
+</li>
+<li><p><strong>Q:</strong> When an ARP request arrives at the router for a destination IP
+address that is not assigned to one of the router&apos;s interfaces, does the
+router need to flood the ARP request, or should it just drop the
+request?</p>
+<p><strong>A:</strong> Your router should drop the packet in this case.</p>
+</li>
+<li><p><strong>Q:</strong> When the router needs to make an ARP request for the next hop IP
+address (which is obtained after the longest prefix match lookup),
+should it flood the request on all ports?</p>
+<p><strong>A:</strong> The router does <em>not</em> flood the ARP request on all ports. The ARP
+query is merely sent to the broadcast Ethernet address on the port
+obtained from doing a longest prefix match lookup. The response ARP
+query <em>should</em> come back on the same port but it doesn&apos;t actually need
+to (and it doesn&apos;t matter for the purposes of forwarding the packet or
+sending out the ARP request).</p>
+</li>
 </ol>
-<p>Though we will provide the test files, they are incomprehensible. So you should still write test scenarios that test all aspects of your code. You can find our test files below. Download it and you will use it to test your switch later. You can unzip the test files we provide into the folder <code>lab_3</code>.</p>
-<p><a href="https://box.nju.edu.cn/d/123a70ac8ff34595b18f/" target="_blank">Download compiled test cases here</a>.</p>
-<p>Finally, your project will look like</p>
-<pre><code>switchyard
-  &#x251C;&#x2500;docs/
-  &#x251C;&#x2500;.../
-+ &#x251C;&#x2500;lab_3/
-+ &#x2502; &#x251C;&#x2500;myrouter.py
-  &#x2502; &#x251C;&#x2500;...
-+ &#x2502; &#x2514;&#x2500;start_mininet.py
-  &#x251C;&#x2500;.gitignore
-  &#x2514;&#x2500;...
-</code></pre><blockquote>
-<p>[!WARNING]
-All of your modifications should be done on the files under your directory <code>lab_3</code>. We will check and compare the <strong>git commits</strong> to judge the originality of your work. So remember to commit every time you complete one small task.</p>
-</blockquote>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -679,12 +692,12 @@ All of your modifications should be done on the files under your directory <code
 
             
                 
-                <a href="lab-3.html" class="navigation navigation-prev " aria-label="Previous page: Lab 3: Respond to ARP">
+                <a href="make-arp-request.html" class="navigation navigation-prev " aria-label="Previous page: Task 3: Forwarding the Packet and ARP">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="handle-arp-request.html" class="navigation navigation-next " aria-label="Next page: Task 2: Handle ARP Request">
+                <a href="../faq.html" class="navigation navigation-next " aria-label="Next page: FAQ">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -695,7 +708,7 @@ All of your modifications should be done on the files under your directory <code
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Task 1: Preparation","level":"1.4.1.1","depth":3,"next":{"title":"Task 2: Handle ARP Request","level":"1.4.1.2","depth":3,"path":"content/ch03/subch01/handle-arp-request.md","ref":"content/ch03/subch01/handle-arp-request.md","articles":[]},"previous":{"title":"Lab 3: Respond to ARP","level":"1.4.1","depth":2,"path":"content/ch03/subch01/lab-3.md","ref":"content/ch03/subch01/lab-3.md","articles":[{"title":"Task 1: Preparation","level":"1.4.1.1","depth":3,"path":"content/ch03/subch01/preparation.md","ref":"content/ch03/subch01/preparation.md","articles":[]},{"title":"Task 2: Handle ARP Request","level":"1.4.1.2","depth":3,"path":"content/ch03/subch01/handle-arp-request.md","ref":"content/ch03/subch01/handle-arp-request.md","articles":[]},{"title":"Task 3: Cached ARP Table","level":"1.4.1.3","depth":3,"path":"content/ch03/subch01/arp-table.md","ref":"content/ch03/subch01/arp-table.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch03/subch01/preparation.md","mtime":"2020-03-26T09:34:54.301Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-26T09:47:15.683Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"FAQ","level":"1.4.2.4","depth":3,"next":{"title":"FAQ","level":"1.4.3","depth":2,"path":"content/ch03/faq.md","ref":"content/ch03/faq.md","articles":[]},"previous":{"title":"Task 3: Forwarding the Packet and ARP","level":"1.4.2.3","depth":3,"path":"content/ch03/subch02/make-arp-request.md","ref":"content/ch03/subch02/make-arp-request.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch03/subch02/faq.md","mtime":"2020-03-26T09:46:25.617Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-26T09:47:15.683Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>

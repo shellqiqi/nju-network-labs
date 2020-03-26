@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Task 1: Preparation · GitBook</title>
+        <title>Task 3: Forwarding the Packet and ARP · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -87,10 +87,10 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="handle-arp-request.html" />
+    <link rel="next" href="faq.html" />
     
     
-    <link rel="prev" href="lab-3.html" />
+    <link rel="prev" href="forwarding-table-lookup.html" />
     
 
     </head>
@@ -391,9 +391,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="lab-3.html">
+        <li class="chapter " data-level="1.4.1" data-path="../subch01/lab-3.html">
             
-                <a href="lab-3.html">
+                <a href="../subch01/lab-3.html">
             
                     
                     Lab 3: Respond to ARP
@@ -405,9 +405,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.4.1.1" data-path="preparation.html">
+        <li class="chapter " data-level="1.4.1.1" data-path="../subch01/preparation.html">
             
-                <a href="preparation.html">
+                <a href="../subch01/preparation.html">
             
                     
                     Task 1: Preparation
@@ -418,9 +418,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.2" data-path="handle-arp-request.html">
+        <li class="chapter " data-level="1.4.1.2" data-path="../subch01/handle-arp-request.html">
             
-                <a href="handle-arp-request.html">
+                <a href="../subch01/handle-arp-request.html">
             
                     
                     Task 2: Handle ARP Request
@@ -431,9 +431,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.3" data-path="arp-table.html">
+        <li class="chapter " data-level="1.4.1.3" data-path="../subch01/arp-table.html">
             
-                <a href="arp-table.html">
+                <a href="../subch01/arp-table.html">
             
                     
                     Task 3: Cached ARP Table
@@ -449,9 +449,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../subch02/lab-4.html">
+        <li class="chapter " data-level="1.4.2" data-path="lab-4.html">
             
-                <a href="../subch02/lab-4.html">
+                <a href="lab-4.html">
             
                     
                     Lab 4: Forwarding Packets
@@ -463,9 +463,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.2.1" data-path="../subch02/preparation.html">
+        <li class="chapter " data-level="1.4.2.1" data-path="preparation.html">
             
-                <a href="../subch02/preparation.html">
+                <a href="preparation.html">
             
                     
                     Task 1: Preparation
@@ -476,9 +476,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2.2" data-path="../subch02/forwarding-table-lookup.html">
+        <li class="chapter " data-level="1.4.2.2" data-path="forwarding-table-lookup.html">
             
-                <a href="../subch02/forwarding-table-lookup.html">
+                <a href="forwarding-table-lookup.html">
             
                     
                     Task 2: IP Forwarding Table Lookup
@@ -489,9 +489,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2.3" data-path="../subch02/make-arp-request.html">
+        <li class="chapter active" data-level="1.4.2.3" data-path="make-arp-request.html">
             
-                <a href="../subch02/make-arp-request.html">
+                <a href="make-arp-request.html">
             
                     
                     Task 3: Forwarding the Packet and ARP
@@ -502,9 +502,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2.4" data-path="../subch02/faq.html">
+        <li class="chapter " data-level="1.4.2.4" data-path="faq.html">
             
-                <a href="../subch02/faq.html">
+                <a href="faq.html">
             
                     
                     FAQ
@@ -613,7 +613,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >Task 1: Preparation</a>
+        <a href="../../.." >Task 3: Forwarding the Packet and ARP</a>
     </h1>
 </div>
 
@@ -628,29 +628,162 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="preparation"><a name="preparation" class="plugin-anchor" href="#preparation"><i class="fa fa-link" aria-hidden="true"></i></a>Preparation</h1>
-<p>There is an example of a router without anything implemented in <code>switchyard/examples/exercises/router/myrouter.py</code>. Let&apos;s start with it.</p>
+                                <h1 id="task-3-forwarding-the-packet-and-arp"><a name="task-3-forwarding-the-packet-and-arp" class="plugin-anchor" href="#task-3-forwarding-the-packet-and-arp"><i class="fa fa-link" aria-hidden="true"></i></a>Task 3: Forwarding the Packet and ARP</h1>
+<h2 id="send-arp-request-and-forward-packet"><a name="send-arp-request-and-forward-packet" class="plugin-anchor" href="#send-arp-request-and-forward-packet"><i class="fa fa-link" aria-hidden="true"></i></a>Send ARP Request and Forward Packet</h2>
+<p>Once you do the forwarding table lookup for an IP destination address,
+the next steps are to:</p>
 <ol>
-<li>Create a directory named <code>lab_3</code> in <code>switchyard</code>.</li>
-<li>Copy <code>examples/exercises/router/start_mininet.py</code> to <code>lab_3/start_mininet.py</code>.</li>
-<li>Copy <code>examples/exercises/router/myrouter.py</code> to <code>lab_3/myrouter.py</code>.</li>
+<li>Decrement the TTL field in the IP header by 1 (you could do this
+prior to forwarding table lookup, too). You can assume for this
+project that the TTL value is greater than 0 after decrementing.
+We&apos;ll handle &quot;expired&quot; TTLs in the next project.</li>
+<li>Create a new Ethernet header for the IP packet to be forwarded. To
+construct the Ethernet header, you need to know the destination
+Ethernet MAC address corresponding to the host to which the packet
+should be forwarded. The next hop host is either:<ol>
+<li>the destination host, if the destination address is directly
+reachable through one of the router interfaces (i.e., the subnet
+that the destination address belongs to is directly connected to
+a router interface), or</li>
+<li>it is an IP address on a router through which the destination is
+reachable.</li>
 </ol>
-<p>Though we will provide the test files, they are incomprehensible. So you should still write test scenarios that test all aspects of your code. You can find our test files below. Download it and you will use it to test your switch later. You can unzip the test files we provide into the folder <code>lab_3</code>.</p>
-<p><a href="https://box.nju.edu.cn/d/123a70ac8ff34595b18f/" target="_blank">Download compiled test cases here</a>.</p>
-<p>Finally, your project will look like</p>
-<pre><code>switchyard
-  &#x251C;&#x2500;docs/
-  &#x251C;&#x2500;.../
-+ &#x251C;&#x2500;lab_3/
-+ &#x2502; &#x251C;&#x2500;myrouter.py
-  &#x2502; &#x251C;&#x2500;...
-+ &#x2502; &#x2514;&#x2500;start_mininet.py
-  &#x251C;&#x2500;.gitignore
-  &#x2514;&#x2500;...
-</code></pre><blockquote>
-<p>[!WARNING]
-All of your modifications should be done on the files under your directory <code>lab_3</code>. We will check and compare the <strong>git commits</strong> to judge the originality of your work. So remember to commit every time you complete one small task.</p>
+</li>
+</ol>
+<p>In either case, you will need to send an ARP query in order to obtain
+the Ethernet address corresponding to the next hop IP address. For
+handling ARP queries you should do the following:</p>
+<ul>
+<li>Send an ARP request for the IP address needing to be &quot;resolved&quot;
+(i.e., the IP address for which you need the corresponding Ethernet
+address).<ul>
+<li>The Switchyard reference documentation for the <a href="https://shellqiqi.gitee.io/switchyard/reference.html#arp-address-resolution-protocol-header" target="_blank">ARP header</a> has an
+example of constructing an ARP request packet.</li>
+</ul>
+</li>
+<li>When an ARP reply is received, complete the Ethernet header for the
+IP packet to be forwarded, and send it along. You should also create
+a cache of IP addresses and the Ethernet MAC addresses that they
+correspond to (you have done in Lab 3 Task 3). When you receive a response to an ARP query, add the
+IP address &#x2192; Ethernet address mapping to the cache so that you can
+avoid doing an identical ARP query.</li>
+<li>If no ARP reply is received within 1 second in response to an ARP
+request, send another ARP request. Send up to (exactly) 5 ARP
+requests for a given IP address. If no ARP reply is received after 5
+requests, give up and drop the packet (and do nothing else).</li>
+</ul>
+<p>Lastly, refer to the Switchyard documentation details and examples for
+parsing and constructing packets containing Ethernet, ARP, and IP packet
+headers.</p>
+<ul>
+<li><a href="https://shellqiqi.gitee.io/switchyard/writing_a_program.html#introduction-to-packet-parsing-and-construction" target="_blank">Packet parsing/construction introduction</a></li>
+<li><a href="https://shellqiqi.gitee.io/switchyard/reference.html#packet-parsing-and-construction-reference" target="_blank">Packet parsing/construction reference</a></li>
+<li><a href="https://shellqiqi.gitee.io/switchyard/reference.html#ethernet-header" target="_blank">Ethernet header reference</a></li>
+<li><a href="https://shellqiqi.gitee.io/switchyard/reference.html#arp-address-resolution-protocol-header" target="_blank">ARP header reference</a></li>
+<li><a href="https://shellqiqi.gitee.io/switchyard/reference.html#ip-version-4-header" target="_blank">IPv4 header reference</a></li>
+</ul>
+<h2 id="coding"><a name="coding" class="plugin-anchor" href="#coding"><i class="fa fa-link" aria-hidden="true"></i></a>Coding</h2>
+<p>Your task is to implement the logic described above. The start file is named <code>lab_4/myrouter.py</code>.</p>
+<p>You will need to carefully structure your code to be able to receive and
+process incoming packets while you are waiting for replies to ARP
+requests. A suggested method is to create a queue that contains
+information about IP packets awaiting ARP resolution. Each time through
+the main while loop in your code, you can process the items in the queue
+to see whether an ARP request retransmission needs to be sent. If you
+receive an ARP reply packet, you could remove an item from the queue,
+update the ARP table, construct the Ethernet header, and send the
+packet. You might create a separate class to represent packets in the
+queue waiting for ARP responses, with the class containing variables to
+hold the most recent time an ARP request was sent, and the number of
+retries, among other things.</p>
+<blockquote>
+<p>[!NOTE]
+You <em>can</em> create a separate Python thread to handle ARP
+requests. Switchyard is thread-safe and this is an acceptable pattern.
+You may find it easier, however, to simply handle everything in the
+main thread of the router.</p>
 </blockquote>
+<p>For keeping track of how long it has been since an ARP request has been
+sent, you can use the built-in <code>time</code> module. It has a <code>time</code> function
+that returns the current time in seconds (as a floating point value)
+(e.g., <code>time.time()</code> # &#x2192; current time in seconds as a float).</p>
+<h2 id="testing"><a name="testing" class="plugin-anchor" href="#testing"><i class="fa fa-link" aria-hidden="true"></i></a>Testing</h2>
+<p>To test your router, you can use the same formula you&apos;ve used in the
+past:</p>
+<pre><code>$ swyard -t routertests2.srpy myrouter.py
+</code></pre><p>This project includes quite a bit of
+complexity, so inspecting variables and stepping through your program in
+the debugger can be extremely helpful!</p>
+<p>If you need to step through code to see what&apos;s going on, you can add
+calls to <code>debugger()</code> at any point in your code. When execution reaches
+that line, you&apos;ll get a Python debugger (pdb) command line at which you
+can inspect variables, call methods, etc., in order to understand what&apos;s
+happening. This kind of debugging will, in general, be much more
+effective than &quot;printf&quot; debugging.</p>
+<p>Another way is using VS Code to debug, which is more convenient than using pdb.
+But you need to be familiar with debugging in VS Code.
+An example we show is in Lab 1 Task 2.</p>
+<p>Note that the test scenario file is not included in this repository, but is available on the NJU Box.</p>
+<p>&#x2705; In the report, show the test result of your router.<br>(Optional) If you have written the test files yourself, show how you test the forwarding packets.</p>
+<h2 id="deploying"><a name="deploying" class="plugin-anchor" href="#deploying"><i class="fa fa-link" aria-hidden="true"></i></a>Deploying</h2>
+<p>Once the Switchyard tests pass, you should test your router in Mininet.
+There is a <code>start_mininet.py</code> available for building the following
+network topology:</p>
+<p><img src="router2_topology.png" alt="router2_topology"></p>
+<blockquote>
+<p>[!NOTE]
+The above topology is not the same as the one implied by the
+Switchyard tests.</p>
+</blockquote>
+<p>To test your router in Mininet, open up a terminal on the virtual
+machine, and cd (if necessary) to the folder where your project files
+are located (or transfer them into the virtual machine). Then type:</p>
+<pre><code>$ sudo python start_mininet.py
+</code></pre><p>Once Mininet starts up, you should open an xterm on the router node
+(<code>xterm router</code>), and type the command below to start your router.</p>
+<pre><code>router# swyard myrouter.py
+</code></pre><blockquote>
+<p>[!NOTE]
+Again, you may need to activate your
+Python virtual environment in order for the above command to work
+correctly.</p>
+</blockquote>
+<div></div>
+
+<blockquote>
+<p>[!TIP]
+When you run your router in Mininet, you&apos;ll almost certainly
+receive packets that you didn&apos;t ask for! In particular, you&apos;ll likely
+receive non-IPv4 and non-ARP packets (you&apos;ll likely receive some IPv6
+packets and some other fun stuff). You should just ignore these non-IPv4
+and non-ARP packets (and your router should not crash when it receives
+them!)</p>
+</blockquote>
+<p>At this point, you should be able to open another xterm on any one of
+the other nodes and send a ping (ICMP echo request) to any of the IP
+addresses configured on any node in the network. For example, if you
+open an xterm on client, you should be able to send a ping to
+<code>192.168.200.1</code> (on server2) and <code>192.168.100.1</code> (on server1). You should
+also be able to send a ping to any address in the subnets
+<code>192.168.100.0/24</code> and <code>192.168.200.0/24</code> from the client node, and the
+router should successfully forward them to either server1 or server2.
+(But note that you will only get ping responses from <code>192.168.100.1</code> and
+<code>192.168.200.1</code> --- pings to any other IP address will not get a
+response.) To test whether the router is correctly forwarding the
+packets, you can run Wireshark on any of the nodes in the network. Below
+is an example of starting Wireshark on the router using interface
+<code>router-eth2</code>, then running ping on the client to send 2 ICMP echo
+requests to <code>192.168.100.1</code>:</p>
+<p>On the router run</p>
+<pre><code>router# wireshark -i router-eth2
+</code></pre><p>On the client run</p>
+<pre><code>client# ping -c2 192.168.100.1
+</code></pre><p>You will see the Wireshark on the <code>router-eth2</code> capture these packets.</p>
+<p><img src="router2_pcap.png" alt="router2_pcap"></p>
+<p>Testing your router in the &quot;live&quot; network (i.e., in Mininet) is a major
+step: if it passes all the tests then works in Mininet when trying
+various examples of pinging hosts, you might have done things correctly!</p>
+<p>Your task is: <code>ping</code> the router from another host (server1 or server2). Using Wireshark to prove that your router is correctly forwarding the packets. &#x2705; Write the procedure and analysis in your report with screenshots.</p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -679,12 +812,12 @@ All of your modifications should be done on the files under your directory <code
 
             
                 
-                <a href="lab-3.html" class="navigation navigation-prev " aria-label="Previous page: Lab 3: Respond to ARP">
+                <a href="forwarding-table-lookup.html" class="navigation navigation-prev " aria-label="Previous page: Task 2: IP Forwarding Table Lookup">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="handle-arp-request.html" class="navigation navigation-next " aria-label="Next page: Task 2: Handle ARP Request">
+                <a href="faq.html" class="navigation navigation-next " aria-label="Next page: FAQ">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -695,7 +828,7 @@ All of your modifications should be done on the files under your directory <code
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Task 1: Preparation","level":"1.4.1.1","depth":3,"next":{"title":"Task 2: Handle ARP Request","level":"1.4.1.2","depth":3,"path":"content/ch03/subch01/handle-arp-request.md","ref":"content/ch03/subch01/handle-arp-request.md","articles":[]},"previous":{"title":"Lab 3: Respond to ARP","level":"1.4.1","depth":2,"path":"content/ch03/subch01/lab-3.md","ref":"content/ch03/subch01/lab-3.md","articles":[{"title":"Task 1: Preparation","level":"1.4.1.1","depth":3,"path":"content/ch03/subch01/preparation.md","ref":"content/ch03/subch01/preparation.md","articles":[]},{"title":"Task 2: Handle ARP Request","level":"1.4.1.2","depth":3,"path":"content/ch03/subch01/handle-arp-request.md","ref":"content/ch03/subch01/handle-arp-request.md","articles":[]},{"title":"Task 3: Cached ARP Table","level":"1.4.1.3","depth":3,"path":"content/ch03/subch01/arp-table.md","ref":"content/ch03/subch01/arp-table.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch03/subch01/preparation.md","mtime":"2020-03-26T09:34:54.301Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-26T09:47:15.683Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Task 3: Forwarding the Packet and ARP","level":"1.4.2.3","depth":3,"next":{"title":"FAQ","level":"1.4.2.4","depth":3,"path":"content/ch03/subch02/faq.md","ref":"content/ch03/subch02/faq.md","articles":[]},"previous":{"title":"Task 2: IP Forwarding Table Lookup","level":"1.4.2.2","depth":3,"path":"content/ch03/subch02/forwarding-table-lookup.md","ref":"content/ch03/subch02/forwarding-table-lookup.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch03/subch02/make-arp-request.md","mtime":"2020-03-26T09:46:25.621Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-26T09:47:15.683Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
