@@ -43,7 +43,7 @@ Meet the requirements for using Mininet, Wireshark and Switchyard. At the meanti
 
 ### Task 3: NJU GitLab
 
-Meet the requirements for using Mininet, Wireshark and Switchyard. At the meantime you will learn how to complete this assignment.
+Sign up on NJU GitLab and prepare for submission.
 
 [Start your task here](nju-gitlab.md)
 
