@@ -53,6 +53,8 @@ Out: , due .
 
 Out: , due .
 
+[Start the lab here](./content/ch03/subch03/lab-5.md)
+
 ### Reliable Communication
 
 #### Lab 6: Sender and Router
