@@ -79,6 +79,8 @@ sent, you can use the built-in `time` module. It has a `time` function
 that returns the current time in seconds (as a floating point value)
 (e.g., `time.time()` # → current time in seconds as a float).
 
+✅ In the report, show how you implement the logic of forwarding the packet and ARP.
+
 ## Testing
 
 To test your router, you can use the same formula you've used in the

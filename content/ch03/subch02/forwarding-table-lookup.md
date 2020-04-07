@@ -122,6 +122,8 @@ matches = destaddr in prefixnet
 # matches -> True
 ```
 
+✅ In the report, show how you implement the logic of building IP forwarding table and matching the destination IP addresses.
+
 ## Testing
 
 As the function has not been fully implemented, there is no test cases can check the output of your router.
