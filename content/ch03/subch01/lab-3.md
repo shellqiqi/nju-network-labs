@@ -43,7 +43,7 @@ Maintain a correlation between each MAC address and its corresponding IP address
 
 ### Report
 
-We will provide a template of your lab assignment report [here](https://box.nju.edu.cn/d/123a70ac8ff34595b18f/). You need to submit the report in your repository named `<学号><姓名>_lab_3`. The format of your report can be Microsoft Doc or PDF. An example is `123456789拾佰仟_lab_3.docx`.
+We will provide a template of your lab assignment report [here](https://box.nju.edu.cn/d/123a70ac8ff34595b18f/). You need to submit the report in your repository named `<学号><姓名>_lab_3`. The format of your report can be Microsoft Doc or PDF. An example is `123456789拾佰仟_lab_3.pdf`.
 
 ### Submit to NJU GitLab
 
@@ -58,6 +58,7 @@ To submit your work, you need to do the following things.
      ├─docs/
      ├─.../
    + ├─lab_3/
+   + │ ├─123456789拾佰仟_lab_3.pdf
    + │ ├─myrouter.py
      │ ├─...
    + │ └─start_mininet.py

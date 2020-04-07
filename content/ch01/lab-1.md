@@ -60,7 +60,7 @@ After Task 1 2 3, you are ready to do some exercises on our platform and count 4
 
 ### Report
 
-We will provide a template of your lab assignment report [here](https://box.nju.edu.cn/d/123a70ac8ff34595b18f/). You need to submit the report in your repository named `<学号><姓名>_lab_1`. The format of your report can be Microsoft Doc or PDF. An example is `123456789拾佰仟_lab_1.docx`.
+We will provide a template of your lab assignment report [here](https://box.nju.edu.cn/d/123a70ac8ff34595b18f/). You need to submit the report in your repository named `<学号><姓名>_lab_1`. The format of your report can be Microsoft Doc or PDF. An example is `123456789拾佰仟_lab_1.pdf`.
 
 ### Capture file
 
@@ -105,7 +105,7 @@ When you are ready to submit, do the following.
      ├─docs/
      ├─.../
    m ├─lab_1/
-   + │ ├─123456789拾佰仟_lab_1.docx
+   + │ ├─123456789拾佰仟_lab_1.pdf
    m │ ├─hubtests.py
    + │ ├─lab_1.pcapng
    m │ ├─myhub.py

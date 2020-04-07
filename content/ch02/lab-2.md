@@ -64,7 +64,7 @@ Implement least traffic volume rule replacement algorithm based on Task 2.
 
 ### Report
 
-We will provide a template of your lab assignment report [here](https://box.nju.edu.cn/d/123a70ac8ff34595b18f/). You need to submit the report in your repository named `<学号><姓名>_lab_2`. The format of your report can be Microsoft Doc or PDF. An example is `123456789拾佰仟_lab_2.docx`.
+We will provide a template of your lab assignment report [here](https://box.nju.edu.cn/d/123a70ac8ff34595b18f/). You need to submit the report in your repository named `<学号><姓名>_lab_2`. The format of your report can be Microsoft Doc or PDF. An example is `123456789拾佰仟_lab_2.pdf`.
 
 ### Submit to NJU GitLab
 
@@ -79,7 +79,7 @@ To submit your work, you need to do the following things.
      ├─docs/
      ├─.../
    m ├─lab_2/
-   + │ ├─123456789拾佰仟_lab_2.docx
+   + │ ├─123456789拾佰仟_lab_2.pdf
    m │ ├─myswitch.py
    m │ ├─myswitch_to.py
    m │ ├─myswitch_lru.py
