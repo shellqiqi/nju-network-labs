@@ -47,6 +47,8 @@ Out: 2020-3-25, due 2020-4-8.
 
 Out: 2020-4-8, due 2020-4-22.
 
+[Start the lab here](./content/ch03/subch02/lab-4.md)
+
 #### Lab 5: Respond to ICMP
 
 Out: 2020-4-22, due 2020-5-6.
