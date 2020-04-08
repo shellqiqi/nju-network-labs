@@ -37,6 +37,7 @@ original host that sent the ping. To do that, you should:
 
 Your task is to implement the logic described above. The start file is named `lab_5/myrouter.py`.
 
+✅ In the report, show how you implement the logic of responding to ICMP echo requests.
 
 ## Testing
 

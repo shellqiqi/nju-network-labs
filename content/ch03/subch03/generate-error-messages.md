@@ -80,6 +80,8 @@ is shown below:
     >>> print(pkt)
     IPv4 0.0.0.0->0.0.0.0 ICMP | ICMP TimeExceeded:TTLExpired 28 bytes of raw payload (b'E\x00\x00\x1c\x00\x00\x00\x00\x00\x01') OrigDgramLen: 28
 
+✅ In the report, show how you implement the logic of generating ICMP error messages.
+
 ## Testing
 
 To test your router, you can use the same formula you've used in the
@@ -89,7 +91,7 @@ past:
 
 Note that the test scenario file is not included in this repository, but is available on the NJU Box.
 
-✅ In the report, show the test result of your switch.  
+✅ In the report, show the test result of your router.  
 (Optional) If you have written the test files yourself, show how you test the forwarding packets.
 
 ## Deploying
@@ -154,4 +156,5 @@ should be able to:
 If you can get this working, then you can have pretty high confidence
 that everything in your router works correctly. Congratulations!
 
-Your task is: `ping` the router from another host (server1 or server2). Using Wireshark to prove that your router can correctly respond to ICMP messages and generate ICMP error messages when necessary. ✅ Write the procedure and analysis in your report with screenshots.
+Your task is: `ping` the router from another host (server1 or server2). Using Wireshark to prove that your router can correctly respond to ICMP messages and generate ICMP error messages when necessary.  
+✅ Write the procedure and analysis in your report with screenshots.
