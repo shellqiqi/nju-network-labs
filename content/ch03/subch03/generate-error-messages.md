@@ -156,5 +156,6 @@ should be able to:
 If you can get this working, then you can have pretty high confidence
 that everything in your router works correctly. Congratulations!
 
-Your task is: `ping` the router from another host (server1 or server2). Using Wireshark to prove that your router can correctly respond to ICMP messages and generate ICMP error messages when necessary.  
+Your task is: test your router from another host (server1 or server2) as described above.
+Using Wireshark to prove that your router can correctly respond to ICMP messages and generate ICMP error messages when necessary.
 ✅ Write the procedure and analysis in your report with screenshots.
