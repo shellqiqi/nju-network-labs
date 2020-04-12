@@ -188,4 +188,4 @@ Testing your router in the "live" network (i.e., in Mininet) is a major
 step: if it passes all the tests then works in Mininet when trying
 various examples of pinging hosts, you might have done things correctly!
 
-Your task is: `ping` the router from another host (server1 or server2). Using Wireshark to prove that your router is correctly forwarding the packets. ✅ Write the procedure and analysis in your report with screenshots.
+Your task is: `ping` another host (client or server2) from server1. Using Wireshark to prove that your router is correctly forwarding the packets. ✅ Write the procedure and analysis in your report with screenshots.
