@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Task 2: IP Forwarding Table Lookup · GitBook</title>
+        <title>Task 2: Responding to ICMP echo requests · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -87,7 +87,7 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="make-arp-request.html" />
+    <link rel="next" href="generate-error-messages.html" />
     
     
     <link rel="prev" href="preparation.html" />
@@ -475,9 +475,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="lab-4.html">
+        <li class="chapter " data-level="1.4.2" data-path="../subch02/lab-4.html">
             
-                <a href="lab-4.html">
+                <a href="../subch02/lab-4.html">
             
                     
                     Lab 4: Forwarding Packets
@@ -489,9 +489,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.2.1" data-path="preparation.html">
+        <li class="chapter " data-level="1.4.2.1" data-path="../subch02/preparation.html">
             
-                <a href="preparation.html">
+                <a href="../subch02/preparation.html">
             
                     
                     Task 1: Preparation
@@ -502,9 +502,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.2.2" data-path="forwarding-table-lookup.html">
+        <li class="chapter " data-level="1.4.2.2" data-path="../subch02/forwarding-table-lookup.html">
             
-                <a href="forwarding-table-lookup.html">
+                <a href="../subch02/forwarding-table-lookup.html">
             
                     
                     Task 2: IP Forwarding Table Lookup
@@ -515,9 +515,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2.3" data-path="make-arp-request.html">
+        <li class="chapter " data-level="1.4.2.3" data-path="../subch02/make-arp-request.html">
             
-                <a href="make-arp-request.html">
+                <a href="../subch02/make-arp-request.html">
             
                     
                     Task 3: Forwarding the Packet and ARP
@@ -528,9 +528,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2.4" data-path="faq.html">
+        <li class="chapter " data-level="1.4.2.4" data-path="../subch02/faq.html">
             
-                <a href="faq.html">
+                <a href="../subch02/faq.html">
             
                     
                     FAQ
@@ -546,9 +546,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../subch03/lab-5.html">
+        <li class="chapter " data-level="1.4.3" data-path="lab-5.html">
             
-                <a href="../subch03/lab-5.html">
+                <a href="lab-5.html">
             
                     
                     Lab 5: Respond to ICMP
@@ -560,9 +560,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.3.1" data-path="../subch03/preparation.html">
+        <li class="chapter " data-level="1.4.3.1" data-path="preparation.html">
             
-                <a href="../subch03/preparation.html">
+                <a href="preparation.html">
             
                     
                     Task 1: Preparation
@@ -573,9 +573,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.2" data-path="../subch03/respond-ICMP.html">
+        <li class="chapter active" data-level="1.4.3.2" data-path="respond-ICMP.html">
             
-                <a href="../subch03/respond-ICMP.html">
+                <a href="respond-ICMP.html">
             
                     
                     Task 2: Responding to ICMP echo requests
@@ -586,9 +586,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.3" data-path="../subch03/generate-error-messages.html">
+        <li class="chapter " data-level="1.4.3.3" data-path="generate-error-messages.html">
             
-                <a href="../subch03/generate-error-messages.html">
+                <a href="generate-error-messages.html">
             
                     
                     Task 3: Generating ICMP error messages
@@ -599,9 +599,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.4" data-path="../subch03/faq.html">
+        <li class="chapter " data-level="1.4.3.4" data-path="faq.html">
             
-                <a href="../subch03/faq.html">
+                <a href="faq.html">
             
                     
                     FAQ
@@ -710,7 +710,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >Task 2: IP Forwarding Table Lookup</a>
+        <a href="../../.." >Task 2: Responding to ICMP echo requests</a>
     </h1>
 </div>
 
@@ -725,111 +725,44 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="task-2-ip-forwarding-table-lookup"><a name="task-2-ip-forwarding-table-lookup" class="plugin-anchor" href="#task-2-ip-forwarding-table-lookup"><i class="fa fa-link" aria-hidden="true"></i></a>Task 2: IP Forwarding Table Lookup</h1>
-<h2 id="ip-forwarding-table-build-and-lookup"><a name="ip-forwarding-table-build-and-lookup" class="plugin-anchor" href="#ip-forwarding-table-build-and-lookup"><i class="fa fa-link" aria-hidden="true"></i></a>IP Forwarding Table Build and Lookup</h2>
-<p>One of the key tasks to accomplish for this project is to perform the
-fundamental thing that routers do: receive packets, match their
-destination addresses against a forwarding table, and forward them out
-the correct interface.</p>
-<h3 id="build-forwarding-table"><a name="build-forwarding-table" class="plugin-anchor" href="#build-forwarding-table"><i class="fa fa-link" aria-hidden="true"></i></a>Build Forwarding Table</h3>
-<p>You will need to implement some kind of forwarding table, with each
-entry containing the following:</p>
-<ol>
-<li>A network prefix (e.g., <code>149.43.0.0</code>),</li>
-<li>A network &quot;mask&quot; (e.g., <code>255.255.0.0</code>),</li>
-<li>The &quot;next hop&quot; IP address, if the destination network prefix is not
-for a directly attached network, and,</li>
-<li>The network interface name through which packets destined to the
-given network should be forwarded.</li>
-</ol>
-<p>You will need to build the forwarding table from two sources:</p>
+                                <h1 id="task-2-responding-to-icmp-echo-requests"><a name="task-2-responding-to-icmp-echo-requests" class="plugin-anchor" href="#task-2-responding-to-icmp-echo-requests"><i class="fa fa-link" aria-hidden="true"></i></a>Task 2: Responding to ICMP echo requests</h1>
+<h2 id="procedure"><a name="procedure" class="plugin-anchor" href="#procedure"><i class="fa fa-link" aria-hidden="true"></i></a>Procedure</h2>
+<p>The first key task for this is for the router to respond to ICMP echo
+request (&quot;pings&quot;) sent to an address assigned to one of its interfaces.</p>
+<p>Prior to making a forwarding decision for an incoming IP packet (i.e., a
+forwarding table lookup), you should first check whether the IP
+destination address is the same as one of the addresses assigned to one
+of the router&apos;s interfaces. If the packet is also an ICMP echo request,
+then you should construct an ICMP echo reply and send it back to the
+original host that sent the ping. To do that, you should:</p>
 <ul>
-<li>the list of router interfaces you get through a call to the <code>net.interfaces()</code>
-(or <code>net.ports()</code>) method</li>
-<li>and by reading in the contents of a file
-named <code>forwarding_table.txt</code>.</li>
+<li>Construct an ICMP header + echo reply, correctly populating the
+fields in the header. See the Switchyard documentation for details
+on <a href="https://shellqiqi.gitee.io/switchyard/reference.html#icmp-internet-control-message-protocol-header-v4" target="_blank">ICMP packet headers</a>. When creating the EchoReply, do the
+following:<ul>
+<li>Copy the EchoRequest sequence number into the EchoReply you
+make, and</li>
+<li>also copy the identifier in the EchoRequest into the EchoReply,
+and</li>
+<li>set the data field in the EchoReply to be the same as the data
+in the EchoRequest.</li>
 </ul>
-<p>An example forwarding table file is found
-in the project directory, and is also recreated each time you either run
-the test scripts or run your router in Mininet. Your code can
-simply assume that a file named <code>forwarding_table.txt</code> exists in the
-current working directory.</p>
-<blockquote>
-<p>[!NOTE]
-Your forwarding table <em>may</em> be different for the test scenario and for Mininet to help
-ensure that your router behaves in a <em>general</em> way and isn&apos;t written just
-to handle a specific set of forwarding table entries</p>
-</blockquote>
-<p>Note that for each interface object in the list obtained from
-<code>net.interfaces()</code> (or, equivalently, <code>net.ports()</code>), the IP address
-assigned to the interface and the network mask are available (see the
-Switchyard documentation on getting information about <a href="https://shellqiqi.gitee.io/switchyard/reference.html#interface-and-interfacetype-reference" target="_blank">interfaces/ports</a>).</p>
-<p>The file <code>forwarding_table.txt</code> can be assumed to exist in the same
-directory where your router is starting up (again, this file is produced
-by the Switchyard test scenario or by the Mininet startup script), and
-is structured such that each line contains 4 space-separated items: the
-network address, the subnet mask, the next hop address, and the
-interface through which packets should be forwarded. Here are some
-example lines:</p>
-<pre><code>172.16.0.0 255.255.255.0 192.168.1.2 router-eth0
-192.168.200.0 255.255.255.0 192.168.200.1 router-eth1
-</code></pre><p>In the first line, the network address is <code>172.16.0.0</code> and the subnet mask
-is <code>255.255.0.0</code>. The next hop IP address is
-<code>192.168.1.2</code>, and the interface through which to forward packets is named
-<code>router-eth0</code>.</p>
-<h3 id="match-destination-ip-addresses-against-forwarding-table"><a name="match-destination-ip-addresses-against-forwarding-table" class="plugin-anchor" href="#match-destination-ip-addresses-against-forwarding-table"><i class="fa fa-link" aria-hidden="true"></i></a>Match Destination IP Addresses against Forwarding Table</h3>
-<p>After you build the forwarding table (which should be done once, upon
-startup), destination addresses in IP packets received by the router
-should be matched against the forwarding table. Remember that in case of
-two items in the table matching, the longest prefix match should be
-used.</p>
-<p>Two special cases to consider:</p>
-<ol>
-<li>If there is no match in the table, just drop the packet. (We&apos;ll
-handle this better in a later stage of creating the router.)</li>
-<li>If packet is for the router itself (i.e., destination address is an
-address of one of the router&apos;s interfaces), also drop/ignore the
-packet. (We&apos;ll also handle this better at a later stage.)</li>
-</ol>
+</li>
+<li>Construct an IP header, which should have the destination IP address
+set as the source address of the incoming ICMP echo request, and the
+IP source address set as the router&apos;s interface address. The next
+header in the packet should be the ICMP header that you created.</li>
+<li>Send (forward) the packet you constructed. You should already have
+code from the previous stage of the router to do forwarding table
+lookups and ARP requests to handle this part. If you&apos;ve designed
+this part of your router reasonably well, this should just be a
+method/function call for forwarding the echo response.</li>
+</ul>
 <h2 id="coding"><a name="coding" class="plugin-anchor" href="#coding"><i class="fa fa-link" aria-hidden="true"></i></a>Coding</h2>
-<p>Your task is to implement the logic described above. The start file is named <code>lab_4/myrouter.py</code>.</p>
-<p>There are a couple functions and methods in the <a href="https://docs.python.org/3/library/ipaddress.html" target="_blank">Python 3&apos;s <code>ipaddress</code> library</a> (also available through Switchyard&apos;s IP address library) that
-are helpful for building forwarding table entries and/or for matching
-destination IP addresses against forwarding table entries:</p>
-<ul>
-<li><p>To find out the length of a subnet prefix, you can use the following
-code pattern:</p>
-<pre><code>from switchyard.lib.address import *
-netaddr = IPv4Network(&apos;172.16.0.0/255.255.255.0&apos;)
-netaddr.prefixlen # -&gt; 24
-</code></pre></li>
-</ul>
-<p>Note in the code above that you simply need to concatenate an IP address
-with &apos;/&apos; and the netmask when constructing a <code>IPv4Network</code> object. The
-resulting object can tell you the length of the prefix in bits, which
-will be quite helpful.</p>
-<ul>
-<li><p>The <code>IPv4Address</code> class can be converted to an integer using the
-standard <code>int()</code> type conversion function. This function will return
-the 32-bit unsigned integer representation of an IP address.
-Remember that you can use bit-wise operations on Python integers
-(<code>&amp;</code> is bitwise AND, <code>|</code> is bitwise OR, <code>~</code> is bitwise NOT, <code>^</code> is
-bitwise XOR). For example, if we wanted to check whether a given
-address matches a prefix, we might do something like this:</p>
-<pre><code>prefix = IPv4Address(&apos;172.16.0.0&apos;)
-destaddr = IPv4Address(&apos;172.16.23.55&apos;)
-matches = (int(prefix) &amp; int(destaddr)) == int(prefix)
-# matches -&gt; True
-</code></pre></li>
-</ul>
-<p>You can also use capabilities in the <code>IPv4Network</code> class to do the same thing:</p>
-<pre><code>prefixnet = IPv4Network(&apos;172.16.0.0/16&apos;)
-# same as IPv4Network(&apos;172.16.0.0/255.255.0.0&apos;)
-matches = destaddr in prefixnet
-# matches -&gt; True
-</code></pre><p>&#x2705; In the report, show how you implement the logic of building IP forwarding table and matching the destination IP addresses.</p>
+<p>Your task is to implement the logic described above. The start file is named <code>lab_5/myrouter.py</code>.</p>
+<p>&#x2705; In the report, show how you implement the logic of responding to ICMP echo requests.</p>
 <h2 id="testing"><a name="testing" class="plugin-anchor" href="#testing"><i class="fa fa-link" aria-hidden="true"></i></a>Testing</h2>
-<p>As the function has not been fully implemented, there is no test cases can check the output of your router.</p>
+<p>Wait until Task 3 is completed before testing.</p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -863,7 +796,7 @@ matches = destaddr in prefixnet
                 </a>
                 
                 
-                <a href="make-arp-request.html" class="navigation navigation-next " aria-label="Next page: Task 3: Forwarding the Packet and ARP">
+                <a href="generate-error-messages.html" class="navigation navigation-next " aria-label="Next page: Task 3: Generating ICMP error messages">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -874,7 +807,7 @@ matches = destaddr in prefixnet
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Task 2: IP Forwarding Table Lookup","level":"1.4.2.2","depth":3,"next":{"title":"Task 3: Forwarding the Packet and ARP","level":"1.4.2.3","depth":3,"path":"content/ch03/subch02/make-arp-request.md","ref":"content/ch03/subch02/make-arp-request.md","articles":[]},"previous":{"title":"Task 1: Preparation","level":"1.4.2.1","depth":3,"path":"content/ch03/subch02/preparation.md","ref":"content/ch03/subch02/preparation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch03/subch02/forwarding-table-lookup.md","mtime":"2020-04-22T01:59:25.531Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-22T02:00:26.052Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Task 2: Responding to ICMP echo requests","level":"1.4.3.2","depth":3,"next":{"title":"Task 3: Generating ICMP error messages","level":"1.4.3.3","depth":3,"path":"content/ch03/subch03/generate-error-messages.md","ref":"content/ch03/subch03/generate-error-messages.md","articles":[]},"previous":{"title":"Task 1: Preparation","level":"1.4.3.1","depth":3,"path":"content/ch03/subch03/preparation.md","ref":"content/ch03/subch03/preparation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch03/subch03/respond-ICMP.md","mtime":"2020-04-22T01:59:36.379Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-22T02:00:26.052Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>

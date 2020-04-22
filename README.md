@@ -53,6 +53,8 @@ Out: 2020-4-8, due 2020-4-22.
 
 Out: 2020-4-22, due 2020-5-6.
 
+[Start the lab here](./content/ch03/subch03/lab-5.md)
+
 ### Reliable Communication
 
 #### Lab 6: Sender and Router
