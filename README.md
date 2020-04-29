@@ -55,15 +55,11 @@ Out: 2020-4-22, due 2020-5-6.
 
 [Start the lab here](./content/ch03/subch03/lab-5.md)
 
-### Reliable Communication
+### Lab 6: Reliable Communication
 
-#### Lab 6: Sender and Router
+Out: 2020-5-6, due 2020-6-3.
 
-Out: 2020-5-6, due 2020-5-20.
-
-#### Lab 7: Receiver
-
-Out: 2020-5-20, due 2020-6-3.
+[Start the lab here](./content/ch04/lab-6.md)
 
 ## Policies
 
