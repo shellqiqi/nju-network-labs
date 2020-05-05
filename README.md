@@ -57,7 +57,7 @@ Out: 2020-4-22, due 2020-5-6.
 
 ### Lab 6: Reliable Communication
 
-Out: 2020-5-6, due 2020-6-3.
+Out: 2020-5-6, due 2020-5-27.
 
 [Start the lab here](./content/ch04/lab-6.md)
 
