@@ -1,4 +1,4 @@
-# Preparation
+# Task 1: Preparation
 
 You can find the starter files in the directory: `switchyard/examples/exercises/applayer`. Let's start with it.
 
@@ -8,9 +8,7 @@ You can find the starter files in the directory: `switchyard/examples/exercises/
 4. Copy `examples/exercises/applayer/blastee.py` to `lab_6/blastee.py`.
 5. Copy `examples/exercises/applayer/blaster.py` to `lab_6/blaster.py`.
 
-Example .txt files are [available](https://box.nju.edu.cn/d/123a70ac8ff34595b18f/) to make sure that we are on the same page on their format.
-
-
+The example parameter files are [available](https://box.nju.edu.cn/d/123a70ac8ff34595b18f/) to make sure that we are on the same page on their format.
 
 Finally, your project will look like
 

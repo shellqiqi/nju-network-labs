@@ -843,29 +843,8 @@
 </code></pre></li>
 </ol>
 <p>You will need to specify some parameters for each agent when running them. To my knowledge, it is not possible to pass custom parameters to Switchyard (probably why you assumed there was a forwarding_table.txt file in your working directory in last project as well). However, this is not going to keep us from passing parameters to our agents. Just like in the previous project you will assume that there will be 3 files in your working directory: <strong>blaster_params.txt</strong>, <strong>blastee_params.txt</strong> and <strong>middlebox_params.txt</strong>.</p>
-<p><strong>blaster_params.txt</strong> will contain the following line:</p>
-<pre><code>-b &lt;blastee_IP&gt; -n &lt;num&gt; -l &lt;length&gt; -w &lt;sender_window&gt; -t &lt;timeout&gt; -r &lt;recv_timeout&gt; 
-</code></pre><ul>
-<li><em>blastee_IP</em>: IP address of the blastee. This value has to match the IP address value in the <code>start_mininet.py</code> file</li>
-<li><em>num</em>: Number of packets to be sent by the blaster</li>
-<li><em>length</em>: Length of the variable payload part of your packet in bytes, 0 &#x2264; <em>length</em> &#x2264; 65535</li>
-<li><em>sender_window</em>: Size of the sender window in packets</li>
-<li><em>timeout</em>: Coarse timeout value in milliseconds</li>
-<li><em>recv_timeout</em>: <code>recv_packet</code> timeout value in <strong>milliseconds</strong>. Blaster will block on <code>recv_packet</code> for at most <em>recv_timeout</em>. This will be a pseudo-rate controller for the blaster</li>
-</ul>
-<p><strong>blastee_params.txt</strong> will contain the following line:</p>
-<pre><code>-b &lt;blaster_IP&gt; -n &lt;num&gt; 
-</code></pre><ul>
-<li><em>blaster_IP</em>: IP address of the blaster. This value has to match the IP address value in the <code>start_mininet.py</code> file</li>
-<li><em>num</em>: Number of packets to be sent by the blaster</li>
-</ul>
-<p><strong>middlebox_params.txt</strong> will contain the following line:</p>
-<pre><code>-d &lt;drop_rate&gt;
-</code></pre><ul>
-<li><em>drop_rate</em>: Percentage of packets (non-ACK) that your middlebox is going to drop, 0 &#x2264; <em>drop_rate</em> &#x2264; 1 </li>
-</ul>
-<p>Your task is: run your code in Mininet as described above. Using different parameters to get different results and analyze them. Using Wireshark on different agent to prove that your blaster, blastee and middlebox function correctly.
-&#x2705; Write the procedure and analysis in your report with screenshots.</p>
+<p>Your task is: run your code in Mininet as described above. Using different parameters to get different results and analyze them. Using Wireshark on different agent to prove that your blaster, blastee and middlebox function correctly.</p>
+<p>&#x2705; Write the procedure and analysis in your report with screenshots.</p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -910,7 +889,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Task 5: Running your code","level":"1.5.5","depth":2,"next":{"title":"FAQ","level":"1.5.6","depth":2,"path":"content/ch04/faq.md","ref":"content/ch04/faq.md","articles":[]},"previous":{"title":"Task 4: Blaster","level":"1.5.4","depth":2,"path":"content/ch04/blaster.md","ref":"content/ch04/blaster.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch04/deploy.md","mtime":"2020-04-29T12:14:53.097Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-05T07:46:54.278Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Task 5: Running your code","level":"1.5.5","depth":2,"next":{"title":"FAQ","level":"1.5.6","depth":2,"path":"content/ch04/faq.md","ref":"content/ch04/faq.md","articles":[]},"previous":{"title":"Task 4: Blaster","level":"1.5.4","depth":2,"path":"content/ch04/blaster.md","ref":"content/ch04/blaster.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-comscore","back-to-top-button","-lunr","-search","search-pro","github","splitter","flexible-alerts","page-toc-button","auto-scroll-table","popup","anchors"],"pluginsConfig":{"styles":{"website":"styles/website.css"},"github":{"url":"https://github.com/shellqiqi/nju-network-experiments"},"splitter":{},"search-pro":{},"auto-scroll-table":{},"popup":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"content/ch04/deploy.md","mtime":"2020-05-05T09:21:30.162Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-05T09:25:00.543Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

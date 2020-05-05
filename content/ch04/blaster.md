@@ -1,8 +1,8 @@
-# Task 4: Blaster 
+# Task 4: Blaster
 
-##  Details
+## Details
 
-Blaster will send/receive variable size IP packets/ACKs to/from the blastee. As mentioned above, it will implement a fixed-size sender window (SW) at packet granularity and coarse timeouts. In order to clarify how SW will work, let's define two variables LHS and RHS(both always >= 1), where LHS and RHS (correspond to sequence numbers of 2 sent packets that have not been necessarily ACKd yet) indicate the current borders of the SW such that it always satisfies the following: 
+Blaster will send/receive variable size IP packets/ACKs to/from the blastee. As mentioned above, it will implement a fixed-size sender window (SW) at packet granularity and coarse timeouts. In order to clarify how SW will work, let's define two variables LHS and RHS(both always >= 1), where LHS and RHS (correspond to sequence numbers of 2 sent packets that have not been necessarily ACKd yet) indicate the current borders of the SW such that it always satisfies the following:
 
 **C1:** RHS - LHS + 1 ≤ SW
 
@@ -52,27 +52,41 @@ Now let's assume that the middlebox dropped packets #3 and #4, which means the b
 
 Notice that even though the blaster received some ACKs for its outstanding packets, since C2 is not satisfied LHS can't be moved forward which also prevents RHS from moving forward (to not violate C1). As you can see unless we implement an additional mechanism, blaster will be stuck in this position forever. This is where the **coarse timeouts** come into play. Whenever LHS gets stuck at a position for longer than a certain amount of time, blaster will time out and retransmit every packet in the current window that hasn't been ACKd yet. So in the previous example if LHS doesn't change for the duration of the timeout period and only packets #5 and #6 are acknowledged in the meantime, blaster will retransmit #3, #4 and #7 upon timing out. Keep in mind that some weird things can happen in this process: 1) blaster can receive an ACK for the original tranmission of a packet after retranmsitting it or 2) blaster can receive duplicate ACKs. For this project you don't need to worry about these and just keep track of whether a packet is ACKd or not. 
 
-### Packet format 
+### Parameters
+
+The blaster should read a text file to get parameters. Parse this file to setup your device.
+
+**blaster_params.txt** will contain the following line:
+
+    -b <blastee_IP> -n <num> -l <length> -w <sender_window> -t <timeout> -r <recv_timeout>
+
+* *blastee_IP*: IP address of the blastee. This value has to match the IP address value in the `start_mininet.py` file
+* *num*: Number of packets to be sent by the blaster
+* *length*: Length of the variable payload part of your packet in bytes, 0 ≤ *length* ≤ 65535
+* *sender_window*: Size of the sender window in packets
+* *timeout*: Coarse timeout value in milliseconds
+* *recv_timeout*: `recv_packet` timeout value in **milliseconds**. Blaster will block on `recv_packet` for at most *recv_timeout*. This will be a pseudo-rate controller for the blaster
+
+### Packet format
 
 Here is how your data packet will look like:
 
     <------- Switchyard headers -----> <----- Your packet header(raw bytes) ------> <-- Payload in raw bytes --->
     -------------------------------------------------------------------------------------------------------------
-    |  ETH Hdr |  IP Hdr  |  UDP Hdr  | Sequence number(32 bits) | Length(16 bits) |   Variable length payload                          
+    |  ETH Hdr |  IP Hdr  |  UDP Hdr  | Sequence number(32 bits) | Length(16 bits) |   Variable length payload  |
     -------------------------------------------------------------------------------------------------------------
 
-You will need to encode the sequence number and/or length information in to your packets, which will be in raw byte format. Encoding should use **big-endian** format! Python has built-in library calls to achieve this with minimum pain. 
+You will need to encode the sequence number and/or length information in to your packets, which will be in raw byte format. Encoding should use **big-endian** format! Python has built-in library calls to achieve this with minimum pain.
 
-### Printing stats 
+### Printing stats
 
-Once the blaster finishes transmission (which happens upon successfully receiving an ACK for every packet it sent to the blastee -- equals to num), it is going to print some statistics about the transmission: 
+Once the blaster finishes transmission (which happens upon successfully receiving an ACK for every packet it sent to the blastee -- equals to num), it is going to print some statistics about the transmission:
 
 * ***Total TX time (in seconds)***: Time between the first packet sent and last packet ACKd
 * ***Number of reTX***: Number of retransmitted packets, this doesn't include the first transmission of a packet. Also if the same packet is retransmitted more than once, all of them will count.
 * ***Number of coarse TOs***: Number of coarse timeouts
 * ***Throughput (Bps)***: You will obtain this value by dividing the total # of sent bytes(from blaster to blastee) by total TX time. This will include all the retransmissions as well! When calculating the bytes, only consider the length of the variable length payload!
 * ***Goodput (Bps)***: You will obtain this value by dividing the total # of sent bytes(from blaster to blastee) by total TX time. However, this will **NOT** include the bytes sent due to retransmissions! When calculating the bytes, only consider the length of the variable length payload!
-
 
 ## Coding
 
