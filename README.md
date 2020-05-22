@@ -61,6 +61,12 @@ Out: 2020-5-6, due 2020-5-27.
 
 [Start the lab here](./content/ch04/lab-6.md)
 
+### Lab 7: Firewall
+
+Out: 2020-5-27, due 2020-6-17.
+
+[Start the lab here](./content/ch05/lab-7.md)
+
 ## Policies
 
 We encourage discussions with others to clarify questions about homework problems and programming assignment problem statements. However
